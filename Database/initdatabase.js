@@ -46,5 +46,25 @@ export default async function createDatabase() {
             FOREIGN KEY (role_id) REFERENCES roles (id)
         );
     `);
+
+    // Add some zones for the beginning
+    await db.exec(`
+        INSERT INTO zones (x, y, width, height, nbline, nbcolumn, name) SELECT 0, 0, 100, 200, 10, 15, 'zone1' WHERE NOT EXISTS (SELECT * FROM zones WHERE name = 'zone1');
+        INSERT INTO zones (x, y, width, height, nbline, nbcolumn, name) SELECT 200, 200, 10, 10, 10, 10, 'zone2' WHERE NOT EXISTS (SELECT * FROM zones WHERE name = 'zone2');
+    `);
+
+    // Add the main roles
+    await db.exec(`
+        INSERT INTO roles (name) SELECT 'user' WHERE NOT EXISTS (SELECT * FROM roles WHERE name = 'user');
+        INSERT INTO roles (name) SELECT 'admin' WHERE NOT EXISTS (SELECT * FROM roles WHERE name = 'admin');
+        INSERT INTO roles (name) SELECT 'guest' WHERE NOT EXISTS (SELECT * FROM roles WHERE name = 'guest');
+    `);
+
+    // Add some test users
+    await db.exec(`
+        INSERT INTO users (username, password, role_id) SELECT 'admin', 'admin', (SELECT id FROM roles WHERE name = 'admin') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'admin');
+        INSERT INTO users (username, password, role_id) SELECT 'guest', 'guest', (SELECT id FROM roles WHERE name = 'guest') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'guest');
+        INSERT INTO users (username, password, role_id) SELECT 'user', 'user', (SELECT id FROM roles WHERE name = 'user') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'user');
+    `);
 }
 

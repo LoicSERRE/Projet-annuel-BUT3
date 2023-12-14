@@ -2,6 +2,7 @@
     "name": "sae-emplacement-conteneur",
     "version": "1.0.0",
     "description": "API du projet de SAE pour la 3ème année de BUT informatique",
+    "type" : "module",
     "main": "index.js",
     "scripts": {
         "test": "mocha",
