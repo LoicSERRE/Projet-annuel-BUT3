@@ -21,9 +21,9 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ###### Base de données
 
-- [ ] Création de la base de données
-  - [ ] Création d'une fonction JavaScript permettant de créer la base de données
-  - [ ] Insertion de données de test dans la base de données
+- [X] Création de la base de données
+  - [X] Création d'une fonction JavaScript permettant de créer la base de données
+  - [X] Insertion de données de test dans la base de données
 
 ###### Développement de l'API
 
@@ -82,15 +82,26 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 # Suivis de projet
 
-| Tâche                           | Description                                                                                                                                                                       | Date de début | Date de fin | Nombre d'heures |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | --------------- |
-| Initialisation du projet         | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                       | 14/12/2023     | 14/12/2023  | 2               |
-| Création de la base de données | Création d'une fonction JavaScriptpermettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement. | 14/12/2023     | 14/12/2023  |                 |
+| Tâche                                          | Description                                                                                                                                                                                 | Date de début | Date de fin | Nombre d'heures |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | --------------- |
+| Initialisation du projet                        | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                                 | 14/12/2023     | 14/12/2023  | 2               |
+| Création de la base de données                | Création d'une fonction JavaScript permettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement de l'API. | 14/12/2023     | 15/12/2023  | 1.5             |
+| Création des modèles                          |                                                                                                                                                                                             |                |             |                 |
+| Création des DAO                               |                                                                                                                                                                                             |                |             |                 |
+| Création des Factory                           |                                                                                                                                                                                             |                |             |                 |
+| Création des routes                            |                                                                                                                                                                                             |                |             |                 |
+| Mise en place de PostMan pour tester les routes |                                                                                                                                                                                             |                |             |                 |
+| Création des contrôleurs                      |                                                                                                                                                                                             |                |             |                 |
+| Créations des services                         |                                                                                                                                                                                             |                |             |                 |
+| Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures         | 2 |
-| ------------------------ | - |
-| Initialisation du projet | 2 |
-| Base de données         |   |
-| Développement de l'api  |   |
+| Total des heures                        | 3.5 |
+| --------------------------------------- | --- |
+| Initialisation du projet                | 2   |
+| Base de données                        | 1.5 |
+| Développement de l'API                 |     |
+| Développement de l'application web     |     |
+| Développement de l'application desktop |     |
+| Revue de projet                         |     |
