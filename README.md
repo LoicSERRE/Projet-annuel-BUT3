@@ -18,6 +18,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
   - [X] Préparation pour la génération de la documentation
   - [X] Préparation pour les jeux de test
   - [X] Préparation des tests d'intégrations dans PostMan
+  - [X] Création du fichier Dockerfile
 
 ###### Base de données
 
@@ -86,20 +87,21 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | --------------- |
 | Initialisation du projet                        | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                                 | 14/12/2023     | 14/12/2023  | 2               |
 | Création de la base de données                | Création d'une fonction JavaScript permettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement de l'API. | 14/12/2023     | 15/12/2023  | 1.5             |
+| Création du dockerfile                         | Fichier Dockerfile pour pouvoir virtualiser l'api et l'utiliser plus facilement quand elle sera finis                                                                                       | 15/12/2023     | 15/12/2023  | 0.5             |
 | Création des modèles                          |                                                                                                                                                                                             |                |             |                 |
 | Création des DAO                               |                                                                                                                                                                                             |                |             |                 |
 | Création des Factory                           |                                                                                                                                                                                             |                |             |                 |
 | Création des routes                            |                                                                                                                                                                                             |                |             |                 |
 | Mise en place de PostMan pour tester les routes |                                                                                                                                                                                             |                |             |                 |
 | Création des contrôleurs                      |                                                                                                                                                                                             |                |             |                 |
-| Créations des services                         |                                                                                                                                                                                             |                |             |                 |
+| Création des services                          |                                                                                                                                                                                             |                |             |                 |
 | Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 3.5 |
+| Total des heures                        | 4   |
 | --------------------------------------- | --- |
-| Initialisation du projet                | 2   |
+| Initialisation du projet                | 2.5 |
 | Base de données                        | 1.5 |
 | Développement de l'API                 |     |
 | Développement de l'application web     |     |
