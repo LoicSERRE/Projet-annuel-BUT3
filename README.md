@@ -29,7 +29,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 ###### Développement de l'API
 
 - [ ] Création de l'API
-  - [ ] Création des modèles
+  - [X] Création des entitées
   - [ ] Création des DAO
   - [ ] Création des Factory
   - [ ] Création des routes
@@ -88,7 +88,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Initialisation du projet                        | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                                 | 14/12/2023     | 14/12/2023  | 2               |
 | Création de la base de données                | Création d'une fonction JavaScript permettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement de l'API. | 14/12/2023     | 15/12/2023  | 1.5             |
 | Création du dockerfile                         | Fichier Dockerfile pour pouvoir virtualiser l'api et l'utiliser plus facilement quand elle sera finis                                                                                       | 15/12/2023     | 15/12/2023  | 0.5             |
-| Création des modèles                          |                                                                                                                                                                                             |                |             |                 |
+| Création des entitiées                        | Création des différentes entitées représentant un éléments de chaque table de la base de données                                                                                     | 15/12/2023     | 15/12/2023  | 0.75            |
 | Création des DAO                               |                                                                                                                                                                                             |                |             |                 |
 | Création des Factory                           |                                                                                                                                                                                             |                |             |                 |
 | Création des routes                            |                                                                                                                                                                                             |                |             |                 |
@@ -99,11 +99,11 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ## Total des heures
 
-| Total des heures                        | 4   |
-| --------------------------------------- | --- |
-| Initialisation du projet                | 2.5 |
-| Base de données                        | 1.5 |
-| Développement de l'API                 |     |
-| Développement de l'application web     |     |
-| Développement de l'application desktop |     |
-| Revue de projet                         |     |
+| Total des heures                        | 4.75 |
+| --------------------------------------- | ---- |
+| Initialisation du projet                | 2.5  |
+| Base de données                        | 1.5  |
+| Développement de l'API                 | 0.75 |
+| Développement de l'application web     |      |
+| Développement de l'application desktop |      |
+| Revue de projet                         |      |
