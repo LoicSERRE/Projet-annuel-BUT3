@@ -38,9 +38,9 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
   - [X] Créations des services
   - [ ] Création des tests unitaires
 - [X] Génération de la documentation de l'API avec mocha
-- [ ] Gestion la connexion
-  - [ ] Chiffrement des mots de passe
-  - [ ] Token de connexion
+- [ ] Gestion de la connexion
+  - [X] Chiffrement des mots de passe
+  - [X] Token de connexion
   - [ ] Refresh Token
   - [ ] Gestion des autorisations
 
@@ -104,16 +104,19 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Finalisation des DAO                            | Finsaliation des DAO pour Sqlite                                                                                                                                                            | 17/12/2023     | 17/12/2023  | 2               |
 | Création des services                          | Création complete des services                                                                                                                                                             | 16/12/2023     | 16/12/2023  | 0.75            |
 | Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/12/2023     | 17/12/2023  | 0.5             |
+| Chiffrement des mots de passe                   | Ajout du chiffrement des mots de passe dans la base de données et à l'ajout d'un utilisateurs                                                                                             | 17/12/2023     | 17/12/2023  | 0.5             |
+| Token de connexion                              | Ajout d'un middle ware pour verifier la connexion                                                                                                                                           | 17/12/2023     | 17/12/2023  | 1.5             |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/12/2023     | 17/12/2023  | 0.25            |
 | Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 15.25 |
+| Total des heures                        | 17.5  |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
-| Documents de suivis de projet           | 1.5   |
+| Documents de suivis de projet           | 1.75  |
 | Base de données                        | 1.5   |
-| Développement de l'API                 | 9.75  |
+| Développement de l'API                 | 11.75 |
 | Développement de l'application web     | 0     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
