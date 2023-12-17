@@ -16,7 +16,7 @@ export default async function createDatabase() {
 
     // Create the table that represents a zone with several locations
     await db.exec(`
-        CREATE TABLE IF NOT EXISTS zone (
+        CREATE TABLE IF NOT EXISTS zones (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             x INTEGER NOT NULL,
             y INTEGER NOT NULL,
