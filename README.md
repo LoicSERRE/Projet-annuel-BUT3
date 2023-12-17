@@ -30,14 +30,19 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 - [ ] Création de l'API
   - [X] Création des entitées
-  - [ ] Création des DAO
+  - [X] Création des DAO
   - [X] Création des Factory
-  - [ ] Création des routes
-    - [ ] Mise en place de PostMan pour tester les routes
-  - [ ] Création des contrôleurs
+  - [X] Création des routes
+    - [X] Mise en place de PostMan pour tester les routes
+  - [X] Création des contrôleurs
   - [X] Créations des services
   - [ ] Création des tests unitaires
-- [ ] Génération de la documentation de l'API avec mocha
+- [X] Génération de la documentation de l'API avec mocha
+- [ ] Gestion la connexion
+  - [ ] Chiffrement des mots de passe
+  - [ ] Token de connexion
+  - [ ] Refresh Token
+  - [ ] Gestion des autorisations
 
 ###### Développement de l'application web
 
@@ -88,22 +93,27 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Initialisation du projet                        | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                                 | 14/12/2023     | 14/12/2023  | 2               |
 | Création de la base de données                | Création d'une fonction JavaScript permettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement de l'API. | 14/12/2023     | 15/12/2023  | 1.5             |
 | Création du dockerfile                         | Fichier Dockerfile pour pouvoir virtualiser l'api et l'utiliser plus facilement quand elle sera finis                                                                                       | 15/12/2023     | 15/12/2023  | 0.5             |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 14/12/2023     | 15/12/2023  | 0.5             |
 | Création des entitiées                        | Création des différentes entitées représentant un éléments de chaque table de la base de données                                                                                     | 15/12/2023     | 15/12/2023  | 0.75            |
 | Création des DAO                               | Création des DAO et création de la structure des DAOSqlite                                                                                                                                | 15/12/2023     | 16/12/2023  | 1.5             |
 | Création des Factory                           | Création complete des factory                                                                                                                                                              | 16/12/2023     | 16/12/2023  | 0.75            |
-| Création des routes                            |                                                                                                                                                                                             |                |             |                 |
-| Mise en place de PostMan pour tester les routes |                                                                                                                                                                                             |                |             |                 |
-| Création des contrôleurs                      |                                                                                                                                                                                             |                |             |                 |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 16/12/2023     | 16/12/2023  | 0.5             |
+| Création des routes                            | Création des parametres de routes pour chaque services de l'API                                                                                                                            | 16/12//2023    | 16/12/2023  | 0.5             |
+| Mise en place de PostMan pour tester les routes | Configuration de POSTMAN pour                                                                                                                                                               | 17/12/2023     | 17/12/2023  | 0.5             |
+| Création des contrôleurs                      | Finalisation des controleurs pour chaque services de l'api                                                                                                                                  | 16/12/2023     | 16/12/2023  | 3               |
+| Finalisation des DAO                            | Finsaliation des DAO pour Sqlite                                                                                                                                                            | 17/12/2023     | 17/12/2023  | 2               |
 | Création des services                          | Création complete des services                                                                                                                                                             | 16/12/2023     | 16/12/2023  | 0.75            |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/12/2023     | 17/12/2023  | 0.5             |
 | Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 7.75 |
-| --------------------------------------- | ---- |
-| Initialisation du projet                | 2.5  |
-| Base de données                        | 1.5  |
-| Développement de l'API                 | 3.75 |
-| Développement de l'application web     | 0    |
-| Développement de l'application desktop | 0    |
-| Revue de projet                         | 0    |
+| Total des heures                        | 15.25 |
+| --------------------------------------- | ----- |
+| Initialisation du projet                | 2.5   |
+| Documents de suivis de projet           | 1.5   |
+| Base de données                        | 1.5   |
+| Développement de l'API                 | 9.75  |
+| Développement de l'application web     | 0     |
+| Développement de l'application desktop | 0     |
+| Revue de projet                         | 0     |
