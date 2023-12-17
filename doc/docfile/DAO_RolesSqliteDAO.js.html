@@ -52,34 +52,93 @@ export class RolesSqliteDAO extends RolesDAO {
     /**
      * Get roles from the database with a filter
      * @param {object} filters - The filters to apply
+     * @returns {Array} - An array of roles
+     * @throws Will throw an error if one error occursed
      */
     async getRoles(filters) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            let sql = 'SELECT * FROM roles';
+            let sqlparams = [];
+            let filtersparam = [];
+    
+            if (filters) {
+                if (filters.id) {
+                    sqlparams.push('id = ?');
+                    filtersparam.push(filters.id);
+                }
+    
+                if (filters.name) {
+                    sqlparams.push('name = ?');
+                    filtersparam.push(filters.name);
+                }
+    
+                if (sqlparams.length > 0) {
+                    sql += ' WHERE ' + sqlparams.join(' AND ');
+                }
+            }
+    
+            // return a list of roles objects
+            const roles = await _db.all(sql, filtersparam);
+            return roles.map((role) => new rolesModel({role_id: role.id, name: role.name}));
+        } catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Create a new role in the database
      * @param {object} role - The role to create
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The role created
      */
     async createRole(role) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'INSERT INTO roles (name) VALUES (?)';
+            const params = [role.name];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Update a role in the database
      * @param {number} roleId - The id of the role to update
      * @param {object} role - The role data to update
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The role updated
      */
     async updateRole(roleId, role) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'UPDATE roles SET name = ? WHERE id = ?';
+            const params = [role.name, roleId];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Delete a role in the database
      * @param {number} roleId - The id of the role to delete
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The role deleted
      */
     async deleteRole(roleId) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'DELETE FROM roles WHERE id = ?';
+            const params = [roleId];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 }
 </code></pre>
@@ -92,13 +151,13 @@ export class RolesSqliteDAO extends RolesDAO {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="LoginPath.html">LoginPath</a></li><li><a href="RoleController.html">RoleController</a></li><li><a href="RolePath.html">RolePath</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UserController.html">UserController</a></li><li><a href="UserPath.html">UserPath</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZoneController.html">ZoneController</a></li><li><a href="ZonePath.html">ZonePath</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Dec 16 2023 00:38:06 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Dec 17 2023 03:29:01 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

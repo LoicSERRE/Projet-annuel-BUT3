@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Services/RolesServices.js</title>
+    <title>JSDoc: Source: Path/UsersPath.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Services/RolesServices.js</h1>
+    <h1 class="page-title">Source: Path/UsersPath.js</h1>
 
     
 
@@ -26,54 +26,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { DAOSqliteFactory } from "../Factory/DAOSqliteFactory.js";
-
-const Factory = new DAOSqliteFactory();
-const RolesDAO = Factory.createRolesDAO();
+            <pre class="prettyprint source linenums"><code>import express from 'express';
+import UserController from '../Controller/UserController.js';
 
 /**
- * Represents a service for handling roles requests
+ * Represents a path for users
+ * @class UserPath
  */
-const RolesServices = {
-    /**
-     * Get roles
-     * @param {object} filters - The filters to apply
-     * @returns {Array} - An array of roles
-     */
-    getRoles: async (filters) => {
-        return await RolesDAO.getRoles(filters);
-    },
+const userPath = express.Router();
 
-    /**
-     * Update roles
-     * @param {number} roleId - The id of the role to update
-     * @param {object} role - The role data to update
-     * @returns {object} - The role updated
-     */
-    updateRoles: async (roleId, role) => {
-        return await RolesDAO.updateRole(roleId, role);
-    },
+/**
+ * Get users
+ * @param {object} req - The request
+ */
+userPath.get('/', UserController.getUsers);
 
-    /**
-     * Delete roles
-     * @param {number} roleId - The id of the role to delete
-     * @returns {object} - The role deleted
-     */
-    deleteRoles: async (roleId) => {
-        return await RolesDAO.deleteRole(roleId);
-    },
+/**
+ * Create users
+ * @param {object} req - The request
+ */
+userPath.post('/', UserController.createUsers);
 
-    /**
-     * Create roles
-     * @param {object} role - The role to create
-     * @returns {object} - The role created
-     */
-    createRoles: async (role) => {
-        return await RolesDAO.createRole(role);
-    }
-}
+/**
+ * Update users
+ * @param {object} req - The request
+ */
+userPath.patch('/:id', UserController.updateUsers);
 
-export default RolesServices;</code></pre>
+/**
+ * Delete users
+ * @param {object} req - The request
+ */
+userPath.delete('/:id', UserController.deleteUsers);
+
+export default userPath;</code></pre>
         </article>
     </section>
 

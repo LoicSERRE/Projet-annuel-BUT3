@@ -48,34 +48,99 @@ export class UsersSqliteDAO extends UsersDAO {
     /**
      * Get users from the database with a filter
      * @param {object} filters - The filters to apply
+     * @returns {Array} - An array of users
+     * @throws Will throw an error if one error occursed
      */
     async getUsers(filters) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            let sql = 'SELECT * FROM users';
+            let sqlparams = [];
+            let filtersparam = [];
+    
+            if (filters) {
+                if (filters.id) {
+                    sqlparams.push('id = ?');
+                    filtersparam.push(filters.id);
+                }
+
+                if (filters.username) {
+                    sqlparams.push('username = ?');
+                    filtersparam.push(filters.username);
+                }
+
+                if (filters.role_id) {
+                    sqlparams.push('role_id = ?');
+                    filtersparam.push(filters.role_id);
+                }
+    
+                if (sqlparams.length > 0) {
+                    sql += ' WHERE ' + sqlparams.join(' AND ');
+                }
+            }
+    
+            // return a list of users objects
+            const users = await _db.all(sql, filtersparam);
+            return users.map((user) => new usersModel({user_id: user.id, username: user.username, password: user.password, role_id: user.role_id}));
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Create a new user in the database
      * @param {object} user - The user to create
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The user created
      */
     async createUser(user) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'INSERT INTO users (username, password, role_id) VALUES (?, ?, ?)';
+            const params = [user.username, user.password, user.role_id];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Update a user in the database
      * @param {number} userId - The id of the user to update
      * @param {object} user - The user data to update
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The user updated
      */
     async updateUser(userId, user) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'UPDATE users SET username = ?, password = ?, role_id = ? WHERE id = ?';
+            const params = [user.username, user.password, user.role_id, userId];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     /**
      * Delete a user in the database
      * @param {number} userId - The id of the user to delete
+     * @throws Will throw an error if one error occursed
+     * @returns {object} - The user deleted
      */
     async deleteUser(userId) {
-        throw new Error('Not implemented');
+        try {
+            const _db = await this.db;
+            const sql = 'DELETE FROM users WHERE id = ?';
+            const params = [userId];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
     }
 }</code></pre>
         </article>
@@ -87,13 +152,13 @@ export class UsersSqliteDAO extends UsersDAO {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="LoginPath.html">LoginPath</a></li><li><a href="RoleController.html">RoleController</a></li><li><a href="RolePath.html">RolePath</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UserController.html">UserController</a></li><li><a href="UserPath.html">UserPath</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZoneController.html">ZoneController</a></li><li><a href="ZonePath.html">ZonePath</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Dec 16 2023 00:38:06 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Dec 17 2023 03:29:01 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
