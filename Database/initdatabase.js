@@ -1,5 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
+import bcrypt from "bcrypt";
 
 /**
  * Method for creating the initial database
@@ -62,9 +63,9 @@ export default async function createDatabase() {
 
     // Add some test users
     await db.exec(`
-        INSERT INTO users (username, password, role_id) SELECT 'admin', 'admin', (SELECT id FROM roles WHERE name = 'admin') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'admin');
-        INSERT INTO users (username, password, role_id) SELECT 'guest', 'guest', (SELECT id FROM roles WHERE name = 'guest') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'guest');
-        INSERT INTO users (username, password, role_id) SELECT 'user', 'user', (SELECT id FROM roles WHERE name = 'user') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'user');
+        INSERT INTO users (username, password, role_id) SELECT 'admin', '${bcrypt.hashSync('admin', 10)}', (SELECT id FROM roles WHERE name = 'admin') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'admin');
+        INSERT INTO users (username, password, role_id) SELECT 'guest', '${bcrypt.hashSync('guest', 10)}', (SELECT id FROM roles WHERE name = 'guest') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'guest');
+        INSERT INTO users (username, password, role_id) SELECT 'user', '${bcrypt.hashSync('user', 10)}', (SELECT id FROM roles WHERE name = 'user') WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'user');
     `);
 }
 

@@ -1,4 +1,8 @@
 import UsersServices from '../Services/UsersServices.js';
+import bcrypt from 'bcrypt';
+import env from 'dotenv';
+env.config();
+
 
 /**
  * Represents a controller for handling users requests
@@ -124,21 +128,29 @@ class UserController {
      */
     async createUsers(req, res) {
         try {
-            // Vérifie que le nom est valide
+            // Verify that the name is valid
             if (req.body.name && typeof req.body.name !== 'string') {
                 return res.status(400).json({ error: 'Name must be a string' });
             }
 
-            // Vérifie que l'username de l'utilisateur n'existe pas
+            // Verify that the username of the user does not exist
             if (req.body.username) {
-                const user = await UsersServices.getUsers({ username: req.body.username });
-                if (user.length > 0) {
+                const userbdd = await UsersServices.getUsers({ username: req.body.username });
+                if (userbdd.length > 0) {
                     return res.status(400).json({ error: 'Username already exist' });
                 }
             }
 
-            const user = await UsersServices.createUsers(req.body);
-            res.json(user);
+            const newUser = req.body;
+
+            // Hash the password
+            if (req.body.password) {
+                const saltRounds = parseInt(process.env.BCRYPT_SALT); // Convert BCRYPT_SALT to a number
+                const salt = bcrypt.genSaltSync(saltRounds);
+                newUser.password = bcrypt.hashSync(newUser.password, salt);
+            }
+
+            res.json(UsersServices.createUsers(newUser));
         }
         catch (error) {
             res.status(500).json({ error: error.toString() });
