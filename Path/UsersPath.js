@@ -23,12 +23,12 @@ userPath.post('/', UserController.createUsers);
  * Update users
  * @param {object} req - The request
  */
-userPath.patch('/', UserController.updateUsers);
+userPath.patch('/:id', UserController.updateUsers);
 
 /**
  * Delete users
  * @param {object} req - The request
  */
-userPath.delete('/', UserController.deleteUsers);
+userPath.delete('/:id', UserController.deleteUsers);
 
 export default userPath;

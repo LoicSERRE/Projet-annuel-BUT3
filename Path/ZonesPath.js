@@ -23,12 +23,12 @@ zonePath.post('/', ZoneController.createZones);
  * Update zones
  * @param {object} req - The request
  */
-zonePath.patch('/', ZoneController.updateZones);
+zonePath.patch('/:id', ZoneController.updateZones);
 
 /**
  * Delete zones
  * @param {object} req - The request
  */
-zonePath.delete('/', ZoneController.deleteZones);
+zonePath.delete('/:id', ZoneController.deleteZones);
 
 export default zonePath;

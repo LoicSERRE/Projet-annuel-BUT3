@@ -23,12 +23,12 @@ rolePath.post('/', RoleController.createRoles);
  * Update roles
  * @param {object} req - The request
  */
-rolePath.patch('/', RoleController.updateRoles);
+rolePath.patch('/:id', RoleController.updateRoles);
 
 /**
  * Delete roles
  * @param {object} req - The request
  */
-rolePath.delete('/', RoleController.deleteRoles);
+rolePath.delete('/:id', RoleController.deleteRoles);
 
 export default rolePath;
