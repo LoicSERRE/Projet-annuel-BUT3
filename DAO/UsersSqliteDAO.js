@@ -114,4 +114,41 @@ export class UsersSqliteDAO extends UsersDAO {
             throw error;
         }
     }
+
+    /**
+     * Add a revoked token in database
+     * @param {string} token - The token to add
+     * @returns {object} - The token added
+     * @async
+     */
+    async addrevokedtoken(token) {
+        try {
+            const _db = await this.db;
+            const sql = 'INSERT INTO revoked_tokens (token) VALUES (?)';
+            const params = [token];
+            await _db.run(sql, params);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    /**
+     * Is the token revoked
+     * @param {string} token - The token to check
+     * @returns {boolean} - True if the token is revoked, false otherwise
+     * @async
+     */
+    async isTokenRevoked(token) {
+        try {
+            const _db = await this.db;
+            const sql = 'SELECT * FROM revoked_tokens WHERE token = ?';
+            const params = [token];
+            const result = await _db.all(sql, params);
+            return result.length > 0;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
 }

@@ -42,6 +42,26 @@ const UsersServices = {
      */
     createUsers: async (user) => {
         return await UsersDAO.createUser(user);
+    },
+
+    /**
+     * Add a revoked token in database
+     * @param {string} token - The token to add
+     * @returns {object} - The token added
+     * @async
+     */
+    addrevokedtoken: async (token) => {
+        return await UsersDAO.addrevokedtoken(token);
+    },
+
+    /**
+     * Is the token revoked
+     * @param {string} token - The token to check
+     * @returns {boolean} - True if the token is revoked, false otherwise
+     * @async
+     */
+    isTokenRevoked: async (token) => {
+        return await UsersDAO.isTokenRevoked(token);
     }
 }
 
