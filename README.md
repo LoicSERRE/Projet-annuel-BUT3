@@ -38,11 +38,11 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
   - [X] Créations des services
   - [ ] Création des tests unitaires
 - [X] Génération de la documentation de l'API avec mocha
-- [ ] Gestion de la connexion
+- [X] Gestion de la connexion
   - [X] Chiffrement des mots de passe
   - [X] Token de connexion
   - [X] Refresh Token
-  - [ ] Gestion des autorisations
+  - [X] Gestion des autorisations
 
 ###### Développement de l'application web
 
@@ -111,16 +111,17 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Ajout d'un refresh token                        | Création d'un refresh token, pour améliorer la sécurité de l'API ainsi que sa praticité                                                                                                | 22/12/2023     | 27/12/2023  | 4               |
 | Mise à jour des test d'intégration de postman | Mise à jour de toutes les routes présente sur postman pour rajouter le refresh token                                                                                                      | 26/12/2023     | 26/12/2023  | 0.25            |
 | Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 27/12/2023     | 27/12/2023  | 0.25            |
+| Mise en place des autorisations                 | Un utilisateur en fonction de son role pourra ou non accéder à chaque partie de l'application                                                                                             | 26/12/2023     | 27/12/2023  | 4               |
 | Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 23    |
+| Total des heures                        | 27    |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
 | Documents de suivis de projet           | 1.75  |
 | Base de données                        | 1.5   |
-| Développement de l'API                 | 17.25 |
+| Développement de l'API                 | 21.25 |
 | Développement de l'application web     | 0     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
