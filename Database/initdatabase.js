@@ -48,6 +48,14 @@ export default async function createDatabase() {
         );
     `);
 
+    // Create a table for revoked tokens
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS revoked_tokens (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            token TEXT NOT NULL
+        );
+    `);
+
     // Add some zones for the beginning
     await db.exec(`
         INSERT INTO zones (x, y, width, height, nbline, nbcolumn, name) SELECT 0, 0, 100, 200, 10, 15, 'zone1' WHERE NOT EXISTS (SELECT * FROM zones WHERE name = 'zone1');
