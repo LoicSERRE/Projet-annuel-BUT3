@@ -18,6 +18,12 @@
 								"key": "Authorization",
 								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzAyODMyMjE4LCJleHAiOjE3MzQzNjgyMTh9.Mgjwmcr39h7bYChG0ZHwJR5bGtQ0650Gs-74m8Sn04s",
 								"description": "Token de test",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzAzNjEwOTA2LCJleHAiOjE3MDM2MTgxMDZ9.AK3l3DGQ8MgxJC8bCY-6uNbfr0OlE8OWGIYKRy1Gd0o",
 								"type": "text"
 							}
 						],
@@ -491,7 +497,13 @@
 					"name": "Disconnect",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzAzNjEwOTA2LCJleHAiOjE3MDM2MTgxMDZ9.AK3l3DGQ8MgxJC8bCY-6uNbfr0OlE8OWGIYKRy1Gd0o",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:3000/logout",
 							"protocol": "http",
@@ -501,6 +513,40 @@
 							"port": "3000",
 							"path": [
 								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzAzNjA3MTA1LCJleHAiOjE3MDQyMTE5MDV9.PveT_aIA0bIt5YVdWnh7nASdFWRNZvfg9taQdY36Z74",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/refreshToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"refreshToken"
 							]
 						}
 					},
