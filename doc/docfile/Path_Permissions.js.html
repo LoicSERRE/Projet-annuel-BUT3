@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: DAOSqliteFactory</title>
+    <title>JSDoc: Source: Path/Permissions.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,138 +17,51 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: DAOSqliteFactory</h1>
+    <h1 class="page-title">Source: Path/Permissions.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="DAOSqliteFactory.html">DAOSqliteFactory</a>#</span>DAOSqliteFactory<span class="signature">()</span><span class="type-signature"></span></h2>
-        
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import permissions from "./PermissionsParam.js";
+
+/**
+ * Checks if a user has the required permissions for a given path and method.
+ * @param {Array&lt;string>} userRoles - The roles of the user.
+ * @param {string} path - The path to check permissions for.
+ * @param {string} method - The HTTP method to check permissions for.
+ * @returns {boolean} - True if the user has the required permissions, false otherwise.
+ */
+function hasRequiredPermissions(userRole, path, method) {
+    // If the user is an admin, they have all permissions
+    if (userRole === 'admin') {
+        return true;
+    }
+
+    // Verify if the user's role exists in the permissions
+    if (!permissions[userRole]) {
+        return false;
+    }
+
+    // If the path doesn't exist for the user's role, they don't have permission
+    if (!permissions[userRole][path]) {
+        return false;
+    }
+
+    // If the method doesn't exist for the user's role path, they don't have permission
+    if (!permissions[userRole][path][method]) {
+        return false;
+    }
     
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="DAOSqliteFactory"><span class="type-signature"></span>new DAOSqliteFactory<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Create a nex instance of DAOSqliteFactory
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Factory_DAOSqliteFactory.js.html">Factory/DAOSqliteFactory.js</a>, <a href="Factory_DAOSqliteFactory.js.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    return true;
+}
+
+export default hasRequiredPermissions;</code></pre>
+        </article>
+    </section>
 
 
 

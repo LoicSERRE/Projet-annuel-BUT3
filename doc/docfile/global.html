@@ -395,6 +395,211 @@
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="hasRequiredPermissions"><span class="type-signature"></span>hasRequiredPermissions<span class="signature">(userRoles, path, method)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Checks if a user has the required permissions for a given path and method.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userRoles</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The roles of the user.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The path to check permissions for.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The HTTP method to check permissions for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Path_Permissions.js.html">Path/Permissions.js</a>, <a href="Path_Permissions.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - True if the user has the required permissions, false otherwise.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -410,13 +615,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="LoginPath.html">LoginPath</a></li><li><a href="RoleController.html">RoleController</a></li><li><a href="RolePath.html">RolePath</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UserController.html">UserController</a></li><li><a href="UserPath.html">UserPath</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZoneController.html">ZoneController</a></li><li><a href="ZonePath.html">ZonePath</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DAOFactory.html">DAOFactory</a></li><li><a href="DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="DAOSqliteFactory_DAOSqliteFactory.html">DAOSqliteFactory</a></li><li><a href="LoginPath.html">LoginPath</a></li><li><a href="RoleController.html">RoleController</a></li><li><a href="RolePath.html">RolePath</a></li><li><a href="RolesDAO.html">RolesDAO</a></li><li><a href="RolesModel.html">RolesModel</a></li><li><a href="RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="RolesSqliteDAO_RolesSqliteDAO.html">RolesSqliteDAO</a></li><li><a href="UserController.html">UserController</a></li><li><a href="UserPath.html">UserPath</a></li><li><a href="UsersDAO.html">UsersDAO</a></li><li><a href="UsersSqliteDAO_UsersSqliteDAO.html">UsersSqliteDAO</a></li><li><a href="ZoneController.html">ZoneController</a></li><li><a href="ZonePath.html">ZonePath</a></li><li><a href="ZonesDAO.html">ZonesDAO</a></li><li><a href="ZonesSqliteDAO_ZonesSqliteDAO.html">ZonesSqliteDAO</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#RolesServices">RolesServices</a></li><li><a href="global.html#UsersServices">UsersServices</a></li><li><a href="global.html#ZonesServices">ZonesServices</a></li><li><a href="global.html#createDatabase">createDatabase</a></li><li><a href="global.html#hasRequiredPermissions">hasRequiredPermissions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Dec 27 2023 01:57:40 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Dec 27 2023 19:38:26 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
