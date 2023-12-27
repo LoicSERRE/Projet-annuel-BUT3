@@ -9,6 +9,8 @@ import refreshTokenPath from "./Path/RefreshTokenPath.js";
 import Jwt from 'jsonwebtoken';
 import UsersServices from "./Services/UsersServices.js";
 import env from 'dotenv';
+import getRequiredPermissions from "./Path/Permissions.js";
+import hasRequiredPermissions from "./Path/Permissions.js";
 env.config();
 
 //createDatabase();
@@ -36,6 +38,15 @@ app.use(async (req, res, next) => {
     Jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
             return res.status(401).json({ error: 'Invalid token' });
+        }
+
+        // Vérifie si l'utilisateur a les permissions nécessaires
+        const user = await UsersServices.getUsers({ username: decoded.username });
+        
+        const userRoles = await UsersServices.getRole(user[0].role_id);
+
+        if (!hasRequiredPermissions(userRoles, req.path, req.method)) {
+            return res.status(403).json({ error: 'Forbidden' });
         }
 
         next();

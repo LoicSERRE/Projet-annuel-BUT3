@@ -62,6 +62,16 @@ const UsersServices = {
      */
     isTokenRevoked: async (token) => {
         return await UsersDAO.isTokenRevoked(token);
+    },
+
+    /**
+     * Get the role of a user
+     * @param {number} userId - The id of the user
+     * @returns {object} - The role of the user
+     * @async
+     */
+    getRole: async (userId) => {
+        return await UsersDAO.getRole(userId);
     }
 }
 

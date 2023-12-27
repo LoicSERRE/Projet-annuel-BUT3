@@ -151,4 +151,24 @@ export class UsersSqliteDAO extends UsersDAO {
             throw error;
         }
     }
+
+    /**
+     * Get the role of a user
+     * @param {number} userId - The id of the user
+     * @returns {object} - The role of the user
+     * @async
+     */
+    async getRole(role_id) {
+        try {
+            // Récupère le nom du role
+            const _db = await this.db;
+            const sql = 'SELECT name FROM roles WHERE id = ?';
+            const params = [role_id];
+            const result = await _db.all(sql, params);
+            return result.map((role) => role.name);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
 }
