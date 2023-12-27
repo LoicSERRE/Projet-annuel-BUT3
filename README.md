@@ -41,7 +41,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 - [ ] Gestion de la connexion
   - [X] Chiffrement des mots de passe
   - [X] Token de connexion
-  - [ ] Refresh Token
+  - [X] Refresh Token
   - [ ] Gestion des autorisations
 
 ###### Développement de l'application web
@@ -107,16 +107,20 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Chiffrement des mots de passe                   | Ajout du chiffrement des mots de passe dans la base de données et à l'ajout d'un utilisateurs                                                                                             | 17/12/2023     | 17/12/2023  | 0.5             |
 | Token de connexion                              | Ajout d'un middle ware pour verifier la connexion                                                                                                                                           | 17/12/2023     | 17/12/2023  | 1.5             |
 | Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/12/2023     | 17/12/2023  | 0.25            |
+| Ajout de la déconnexion                        | Création d'une table de token revoquer pour stocker les tokens qui ont été retirer                                                                                                       | 21/12/2023     | 27/12/2023  | 1               |
+| Ajout d'un refresh token                        | Création d'un refresh token, pour améliorer la sécurité de l'API ainsi que sa praticité                                                                                                | 22/12/2023     | 27/12/2023  | 4               |
+| Mise à jour des test d'intégration de postman | Mise à jour de toutes les routes présente sur postman pour rajouter le refresh token                                                                                                      | 26/12/2023     | 26/12/2023  | 0.25            |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 27/12/2023     | 27/12/2023  | 0.25            |
 | Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 17.5  |
+| Total des heures                        | 23    |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
 | Documents de suivis de projet           | 1.75  |
 | Base de données                        | 1.5   |
-| Développement de l'API                 | 11.75 |
+| Développement de l'API                 | 17.25 |
 | Développement de l'application web     | 0     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
