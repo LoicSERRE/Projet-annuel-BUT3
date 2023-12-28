@@ -28,7 +28,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ###### Développement de l'API
 
-- [ ] Création de l'API
+- [X] Création de l'API
   - [X] Création des entitées
   - [X] Création des DAO
   - [X] Création des Factory
@@ -36,7 +36,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [X] Mise en place de PostMan pour tester les routes
   - [X] Création des contrôleurs
   - [X] Créations des services
-  - [ ] Création des tests unitaires
+  - [X] Création des tests unitaires
 - [X] Génération de la documentation de l'API avec mocha
 - [X] Gestion de la connexion
   - [X] Chiffrement des mots de passe
@@ -47,7 +47,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 ###### Développement de l'application web
 
 - [ ] Création de l'application web
-  - [ ] Choix du framework
+  - [X] Choix du framework
   - [ ] Initialisation du projet
   - [ ] Création de la page de connexion
   - [ ] Génération de la cartographie par rapport à la base de données
@@ -78,13 +78,155 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 # Guide d'utilisation
 
+## Configuration
+
+* Main : `index.js`
+* Scripts :
+
+  * Test : `mocha`
+  * Start : `nodemon index.js`
+* Dépendances :
+
+  * bcrypt : `^5.1.1`
+  * chai : `^4.3.10`
+  * dotenv : `^16.3.1`
+  * express : `^4.18.2`
+  * jest : `^29.7.0`
+  * JSdoc : `npm:jsdoc@^4.0.2`
+  * jsonwebtoken : `^9.0.2`
+  * mocha : `^10.2.0`
+  * nodemon : `^3.0.1`
+  * sqlite : `^5.0.1`
+  * sqlite3 : `^5.1.6`
+  * swagger-ui : `^5.9.0`
+* Dépendances de développement :
+
+  * @babel/core : `^7.23.6`
+  * @babel/preset-env : `^7.23.6`
+  * babel-jest : `^29.7.0`
+  * jsdoc : `^4.0.2`
+
 ## Guide d'utilisation de l'API
+
+#### Conteneurisation de l'API
+
+- Un dockerfile est présent dans le repertoire, il permet de générer un image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, la ou il y a le fichier *sae-api.Dockerfile* puis executer la commande :
+  - ```
+    docker build -t sae-api -f sae-api.Dockerfile .
+    ```
+
+#### Lancement de l'API
+
+- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'API sur votre machine voici la mache à suivre :
+  - cloner le dépot sur votre machine avec :
+
+    - `git clone "lien de ce dépot"`
+  - Mettez vous dans le dossier API et faite :
+
+    - `npm install`
+    - `npm start`
+
+Suite à cela l'API devrait être fonctionnelle dans votre terminal.
+
+###### Documentation de l'API
+
+- Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
+- Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
+  - `jsdoc -c parameter.json`
+
+###### Jeux de test
+
+- Des jeux de test sont présent dans l'API, pour les executer il suffit de faire :
+
+  - `npm test`
+
+###### Enpoints
+
+**Roles**
+
+- **Get Roles:**`GET http://localhost:3000/roles`
+- **Update Role:**`PATCH http://localhost:3000/roles/1`
+- **Add Role:**`POST http://localhost:3000/roles`
+- **Delete Role:**`DELETE http://localhost:3000/roles/2`
+
+**Zones**
+
+- **Get Zones:**`GET http://localhost:3000/zones`
+- **Update Zone:**`PATCH http://localhost:3000/zones/1`
+- **Add Zone:**`POST http://localhost:3000/zones`
+- **Delete Zone:**`DELETE http://localhost:3000/zones/1`
+
+**Users**
+
+- **Get Users:**`GET http://localhost:3000/users`
+
+- **Update User:**`PATCH http://localhost:3000/users/2`
+
+- **Add User:**`POST http://localhost:3000/users`
+
+- **Delete User:**`DELETE http://localhost:3000/users/4`
+
+**Login / Disconnect**
+
+- **Send Login:**`POST http://localhost:3000/login`
+- **Disconnect:**`POST http://localhost:3000/logout`
+- **Refresh Token:**`POST http://localhost:3000/refreshToken`
+
 
 ## Guide d'utilisation de l'application web
 
 ## Guide d'utilisation de l'application desktop
 
 # Analyse et conception
+
+Diagramme UML de la base de donnée
+
+```mermaid
+classDiagram
+      zones "1" -- "many" users : contains
+      roles "1" -- "many" users : contains
+      users "1" -- "many" revoked_tokens : contains
+      zones : int id
+      zones : int x
+      zones : int y
+      zones : int width
+      zones : int height
+      zones : int nbline
+      zones : int nbcolumn
+      zones : string name
+      roles : int id
+      roles : string name
+      users : int id
+      users : string username
+      users : string password
+      users : int role_id
+      users --|> roles : has
+      revoked_tokens : int id
+      revoked_tokens : string token
+```
+
+    Dictionnaire de donées :
+
+* **Table `zones`**
+  * `id` : Clé primaire, entier, auto-incrémenté
+  * `x` : Entier, non nul
+  * `y` : Entier, non nul
+  * `width` : Entier, non nul
+  * `height` : Entier, non nul
+  * `nbline` : Entier, non nul
+  * `nbcolumn` : Entier, non nul
+  * `name` : Texte, non nul
+* **Table `roles`**
+  * `id` : Clé primaire, entier, auto-incrémenté
+  * `name` : Texte, non nul
+* **Table `users`**
+  * `id` : Clé primaire, entier, auto-incrémenté
+  * `username` : Texte, non nul
+  * `password` : Texte, non nul
+  * `role_id` : Entier, clé étrangère référençant `id` dans la table `roles`
+* **Table `revoked_tokens`**
+  * `id` : Clé primaire, entier, auto-incrémenté
+  * `token` : Texte, non nul
 
 # Suivis de projet
 
@@ -112,16 +254,21 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 | Mise à jour des test d'intégration de postman | Mise à jour de toutes les routes présente sur postman pour rajouter le refresh token                                                                                                      | 26/12/2023     | 26/12/2023  | 0.25            |
 | Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 27/12/2023     | 27/12/2023  | 0.25            |
 | Mise en place des autorisations                 | Un utilisateur en fonction de son role pourra ou non accéder à chaque partie de l'application                                                                                             | 26/12/2023     | 27/12/2023  | 4               |
-| Création des tests unitaires                   |                                                                                                                                                                                             |                |             |                 |
+| Création des tests unitaires                   | Réalisation des jeux de test pour les DAO                                                                                                                                                  | 27/12/2023     | 28/12/2023  | 4               |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 28/12/2023     | 28/12/2023  | 1               |
+|                                                 |                                                                                                                                                                                             |                |             |                 |
+| **API Finalisée**                        |                                                                                                                                                                                             |                |             |                 |
+|                                                 |                                                                                                                                                                                             |                |             |                 |
+| Début de l'application web en REACT            |                                                                                                                                                                                             | 28/12/2023     |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 27    |
+| Total des heures                        | 32.25 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
-| Documents de suivis de projet           | 1.75  |
+| Documents de suivis de projet           | 3     |
 | Base de données                        | 1.5   |
-| Développement de l'API                 | 21.25 |
+| Développement de l'API                 | 25.25 |
 | Développement de l'application web     | 0     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
