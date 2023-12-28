@@ -96,7 +96,7 @@ export class ZonesSqliteDAO extends ZonesDAO {
             const _db = await this.db;
             const sql = 'INSERT INTO zones (x, y, width, height, nbline, nbcolumn, name) VALUES (?, ?, ?, ?, ?, ?, ?)';
             const params = [zone.x, zone.y, zone.width, zone.height, zone.nbline, zone.nbcolumn, zone.name];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -115,7 +115,7 @@ export class ZonesSqliteDAO extends ZonesDAO {
             const _db = await this.db;
             const sql = 'UPDATE zones SET x = ?, y = ?, width = ?, height = ?, nbline = ?, nbcolumn = ?, name = ? WHERE id = ?';
             const params = [zone.x, zone.y, zone.width, zone.height, zone.nbline, zone.nbcolumn, zone.name, zoneId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -133,7 +133,7 @@ export class ZonesSqliteDAO extends ZonesDAO {
             const _db = await this.db;
             const sql = 'DELETE FROM zones WHERE id = ?';
             const params = [zoneId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;

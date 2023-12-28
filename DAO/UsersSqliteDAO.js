@@ -71,7 +71,7 @@ export class UsersSqliteDAO extends UsersDAO {
             const _db = await this.db;
             const sql = 'INSERT INTO users (username, password, role_id) VALUES (?, ?, ?)';
             const params = [user.username, user.password, user.role_id];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -90,7 +90,7 @@ export class UsersSqliteDAO extends UsersDAO {
             const _db = await this.db;
             const sql = 'UPDATE users SET username = ?, password = ?, role_id = ? WHERE id = ?';
             const params = [user.username, user.password, user.role_id, userId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -108,7 +108,7 @@ export class UsersSqliteDAO extends UsersDAO {
             const _db = await this.db;
             const sql = 'DELETE FROM users WHERE id = ?';
             const params = [userId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -126,7 +126,7 @@ export class UsersSqliteDAO extends UsersDAO {
             const _db = await this.db;
             const sql = 'INSERT INTO revoked_tokens (token) VALUES (?)';
             const params = [token];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;

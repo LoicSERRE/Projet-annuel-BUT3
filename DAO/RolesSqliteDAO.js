@@ -69,7 +69,7 @@ export class RolesSqliteDAO extends RolesDAO {
             const _db = await this.db;
             const sql = 'INSERT INTO roles (name) VALUES (?)';
             const params = [role.name];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -88,7 +88,7 @@ export class RolesSqliteDAO extends RolesDAO {
             const _db = await this.db;
             const sql = 'UPDATE roles SET name = ? WHERE id = ?';
             const params = [role.name, roleId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;
@@ -106,7 +106,7 @@ export class RolesSqliteDAO extends RolesDAO {
             const _db = await this.db;
             const sql = 'DELETE FROM roles WHERE id = ?';
             const params = [roleId];
-            await _db.run(sql, params);
+            return await _db.run(sql, params);
         }
         catch (error) {
             throw error;

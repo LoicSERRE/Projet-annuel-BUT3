@@ -9,7 +9,7 @@ import permissions from "./PermissionsParam.js";
  */
 function hasRequiredPermissions(userRole, path, method) {
     // If the user is an admin, they have all permissions
-    if (userRole === 'admin') {
+    if (userRole == 'admin') {
         return true;
     }
 
