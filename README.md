@@ -120,11 +120,17 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 - Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'API sur votre machine voici la mache à suivre :
   - cloner le dépot sur votre machine avec :
 
-    - `git clone "lien de ce dépot"`
+    - ```
+      git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
+      ```
   - Mettez vous dans le dossier API et faite :
 
-    - `npm install`
-    - `npm start`
+    - ```
+      npm install
+      ```
+    - ```
+      npm start
+      ```
 
 Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
@@ -132,7 +138,9 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 - Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
 - Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
-  - `jsdoc -c parameter.json`
+  - ```
+    jsdoc -c parameter.json
+    ```
 
 ###### Jeux de test
 
@@ -205,7 +213,7 @@ classDiagram
       revoked_tokens : string token
 ```
 
-    Dictionnaire de donées :
+Dictionnaire de données :
 
 * **Table `zones`**
   * `id` : Clé primaire, entier, auto-incrémenté
