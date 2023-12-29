@@ -25,6 +25,10 @@ loginPath.post('/', async (req, res) => {
     try {
         // Get user from database
         user = await UsersServices.getUsers({ username: req.body.username });
+        // Si l'utilisateur n'existe pas
+        if (user.length === 0) {
+            return res.status(401).send('User not found');
+        }
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

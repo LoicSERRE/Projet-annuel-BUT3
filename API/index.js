@@ -1,5 +1,6 @@
 import createDatabase from "./Database/initdatabase.js";
 import express from 'express';
+import cors from 'cors'; // Import the cors middleware
 import userPath from "./Path/UsersPath.js";
 import zonePath from "./Path/ZonesPath.js";
 import rolePath from "./Path/RolesPath.js";
@@ -18,6 +19,7 @@ env.config();
 const app = express();
 const port = 3000;
 
+app.use(cors()); // Use the cors middleware for don't have CORS error
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
