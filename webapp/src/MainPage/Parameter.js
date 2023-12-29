@@ -1,6 +1,10 @@
 import React from 'react';
 import SideMenu from './SideMenu.js';
 
+/**
+ * Represent the Parameters component for the Parameters page.
+ * @returns {JSX.Element} The rendered Parameters component.
+ */
 function Parameters() {
     return (
         <>

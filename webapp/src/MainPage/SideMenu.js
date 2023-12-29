@@ -4,6 +4,10 @@ import { FaBars } from 'react-icons/fa';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Component representing the side menu.
+ * @returns {JSX.Element} The side menu component.
+ */
 function SideMenu() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 

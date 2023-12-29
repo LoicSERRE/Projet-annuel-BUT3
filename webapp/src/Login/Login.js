@@ -1,6 +1,10 @@
 import useLogin from './useLogin';
 import styles from '../Style/Login.module.css';
 
+/**
+ * Represents the Login component for the login page.
+ * @returns {JSX.Element} The rendered Login component.
+ */
 function Login() {
     const { username, setUsername, password, setPassword, handleSubmit, error } = useLogin();
 

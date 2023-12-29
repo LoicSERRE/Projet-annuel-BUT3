@@ -7,6 +7,10 @@ import Informations from './Information.js';
 import MyAccount from './MyAccount.js';
 import SideMenu from './SideMenu.js';
 
+/**
+ * Represents the main page of the web application.
+ * @returns {JSX.Element} The JSX element representing the main page.
+ */
 function MainPage() {
     return (
         <>

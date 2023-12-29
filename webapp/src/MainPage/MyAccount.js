@@ -1,6 +1,11 @@
 import React from 'react';
 import SideMenu from './SideMenu.js';
 
+/**
+ * Represent the MyAccount component for the MyAccount page.
+ * 
+ * @returns {JSX.Element} The rendered MyAccount component.
+ */
 function MyAccount() {
     return (
         <>

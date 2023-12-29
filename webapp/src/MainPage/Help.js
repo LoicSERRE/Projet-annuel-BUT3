@@ -1,6 +1,10 @@
 import React from 'react';
 import SideMenu from './SideMenu.js';
 
+/**
+ * Represent the help component for the help page.
+ * @returns {JSX.Element} The rendered help component.
+ */
 function Help() {
     return (
         <>
