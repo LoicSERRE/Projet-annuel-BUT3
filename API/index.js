@@ -19,7 +19,10 @@ env.config();
 const app = express();
 const port = 3000;
 
-app.use(cors()); // Use the cors middleware for don't have CORS error
+app.use(cors({
+    origin: 'http://localhost:3001',
+    credentials: true
+})); // Use the cors middleware for don't have CORS error
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
