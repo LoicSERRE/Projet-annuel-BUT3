@@ -40,7 +40,6 @@ export default function useLogin() {
                 navigate('/container-manager');
             })
             .catch(err => {
-                console.log(err);
                 setError('Utilisateur ou mot de passe incorrect');
             });
     };

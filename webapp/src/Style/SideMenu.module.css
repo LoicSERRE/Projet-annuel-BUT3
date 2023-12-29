@@ -1,0 +1,104 @@
+.openSidebarButton {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar {
+    background-color: #dadada;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    /*Taille de police*/
+    font-size: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logoutLink {
+    color: #000000;
+    font-weight: bold;
+    margin-top: auto;
+    align-self: flex-start;
+    text-decoration: none;
+    background-color: #059FC0;
+    border: 2px solid #059FC0;
+    padding: 10px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logoutLink:hover {
+    background-color: #c40a0a;
+    color: #000000;
+    transition: 0.5s;
+    border: 2px solid #c40a0a;
+}
+
+.sidebarTitle {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.logo {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 150px;
+    height: 104px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebarList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebarListItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #888888;
+}
+
+.sidebarListItem a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebarListItem a:hover {
+    color: #059FC0;
+    transition: 0.1s;
+    /*Aggrandissement de la police*/
+    font-size: 22px;
+    transition: 0.1s;
+}
+
+.openSidebarButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 35px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.mainPage {
+    padding: 20px;
+}
+
+.mainPageTitle {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
