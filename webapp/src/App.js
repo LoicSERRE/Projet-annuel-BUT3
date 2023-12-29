@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './Login/Login.js';
+import MainPage from './MainPage/MainPage.js';
+import PrivateRoute from './Route/PrivateRoute.js';
+import './Style/App.css';
 
+/**
+ * Represents the main component of the application.
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/container-manager" element={<PrivateRoute><MainPage /></PrivateRoute>} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
