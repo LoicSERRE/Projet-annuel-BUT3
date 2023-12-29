@@ -48,8 +48,8 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 - [ ] Création de l'application web
   - [X] Choix du framework
-  - [ ] Initialisation du projet
-  - [ ] Création de la page de connexion
+  - [X] Initialisation du projet
+  - [X] Création de la page de connexion
   - [ ] Génération de la cartographie par rapport à la base de données
   - [ ] Développement des fonctionnalités de la cartographie
     - [ ] Déplacement des conteneurs
@@ -123,6 +123,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - ```
       git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
       ```
+    - Placer vous dans le dossier API
   - Mettez vous dans le dossier API et faite :
 
     - ```
@@ -167,11 +168,8 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 **Users**
 
 - **Get Users:**`GET http://localhost:3000/users`
-
 - **Update User:**`PATCH http://localhost:3000/users/2`
-
 - **Add User:**`POST http://localhost:3000/users`
-
 - **Delete User:**`DELETE http://localhost:3000/users/4`
 
 **Login / Disconnect**
@@ -180,8 +178,33 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 - **Disconnect:**`POST http://localhost:3000/logout`
 - **Refresh Token:**`POST http://localhost:3000/refreshToken`
 
-
 ## Guide d'utilisation de l'application web
+
+#### Conteneurisation de l'application web
+
+#### Lancement de l'application web
+
+- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la mache à suivre :
+  - cloner le dépot sur votre machine avec :
+
+    - ```
+      git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
+      ```
+  - Placer vous dans le dossier webapp
+  - Mettez vous dans le dossier API et faite :
+
+    - ```
+      npm install
+      ```
+    - ```
+      npm start
+      ```
+
+Suite à cela l'API devrait être fonctionnelle dans votre terminal.
+
+###### Documentation de l'application web
+
+###### Jeux de test
 
 ## Guide d'utilisation de l'application desktop
 
@@ -267,16 +290,18 @@ Dictionnaire de données :
 |                                                 |                                                                                                                                                                                             |                |             |                 |
 | **API Finalisée**                        |                                                                                                                                                                                             |                |             |                 |
 |                                                 |                                                                                                                                                                                             |                |             |                 |
-| Début de l'application web en REACT            |                                                                                                                                                                                             | 28/12/2023     |             |                 |
+| Début de l'application web en REACT            | Remise en mémoire du framework react ainsi que configuration du projet                                                                                                                     | 28/12/2023     | 28/12/2023  | 1               |
+| Mise en place de la page de connexion           | Création de la page, de son style, ainsi que son fonctionnement                                                                                                                            | 28/12/2023     | 29/12/2023  | 5               |
+| Mise à jour du documents de suivis de projet   | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 29/12/2023     | 29/12/2023  | 0.25            |
 
 ## Total des heures
 
-| Total des heures                        | 32.25 |
+| Total des heures                        | 38.5  |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
-| Documents de suivis de projet           | 3     |
+| Documents de suivis de projet           | 3.25  |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
-| Développement de l'application web     | 0     |
+| Développement de l'application web     | 6     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
