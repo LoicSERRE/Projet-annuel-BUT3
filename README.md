@@ -53,7 +53,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
   - [X] Création de l'interface globale
     - [X] Création du menu latéral
     - [X] Création des différentes page de l'application
-  - [ ] Génération de la cartographie par rapport à la base de données
+  - [X] Génération de la cartographie par rapport à la base de données
   - [ ] Développement des fonctionnalités de la cartographie
     - [ ] Déplacement des conteneurs
     - [ ] Suppression des conteneurs
@@ -299,16 +299,16 @@ Dictionnaire de données :
 | Mise en place d'un menu latéral                             | C'est le menu burger, sur le coté, il permet de naviguer entre les différentes page de l'application                                                                                      | 29/12/2023     | 29/12/2023  | 2               |
 | Création des différentes routes pour les différentes page | J'ai rajouter un lien entre le menu latéral et différentes page, pour l'instant vide mais c'est pour avoir une architecture,<br />maintenant il faut remplir ces différentes pages       | 29/12/2023     | 29/12/2023  | 3               |
 | Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 29/12/2023     | 29/12/2023  | 0.25            |
-| Page cartographie                                            | Interface de la page cartographie ainsi que génération de cette derniere avec les données de test présents dans la base de données                                                     |                |             |                 |
+| Page cartographie                                            | Interface de la page cartographie ainsi que génération de cette derniere avec les données de test présents dans la base de données                                                     | 29/12/2023     | 29/12/2023  | 4               |
 
 ## Total des heures
 
-| Total des heures                        | 43.75 |
+| Total des heures                        | 47.75 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
 | Documents de suivis de projet           | 3.5   |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
-| Développement de l'application web     | 11    |
+| Développement de l'application web     | 15    |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
