@@ -37,7 +37,7 @@ export default function useLogin() {
             .then(data => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('refreshToken', data.refreshToken);
-                navigate('/container-manager');
+                navigate('/carto');
             })
             .catch(err => {
                 setError('Utilisateur ou mot de passe incorrect');
