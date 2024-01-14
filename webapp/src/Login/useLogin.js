@@ -21,7 +21,7 @@ export default function useLogin() {
             password: password
         };
 
-        fetch('http://localhost:3000/login', {
+        fetch(process.env.REACT_APP_API_IP + '/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
