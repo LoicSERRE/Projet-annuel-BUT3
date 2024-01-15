@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SideMenu from './SideMenu.js';
 import CustomEditControl from './CustomEditControl.js';
-import { MapContainer, TileLayer, FeatureGroup, Rectangle } from 'react-leaflet';
+import { MapContainer, useMapEvents, FeatureGroup, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 import styles from '../Style/Carto.module.css';
@@ -88,6 +88,21 @@ function DrawZones(zones) {
     return cells;
 }
 
+function MousePosition() {
+    const [position, setPosition] = useState(null);
+    const map = useMapEvents({
+        mousemove: (e) => {
+            setPosition(e.latlng);
+        },
+    });
+
+    return position ? (
+        <p className={styles.mouseposition}>
+            X: {position.lat.toFixed(2)}, Y: {position.lng.toFixed(2)}
+        </p>
+    ) : null;
+}
+
 function Carto() {
     const [zones, setZones] = useState([]);
 
@@ -132,6 +147,7 @@ function Carto() {
                         ))}
                         <CustomEditControl />
                     </FeatureGroup>
+                    <MousePosition />
                 </MapContainer>
             </div>
         </>
