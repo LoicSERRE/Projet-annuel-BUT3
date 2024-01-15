@@ -4,6 +4,11 @@ import styles from '../Style/ZoneModal.module.css';
 
 Modal.setAppElement('#root');
 
+/**
+ * Modal to create a new zone in the database
+ * @param {*} isOpen
+ * @returns Modal to create a new zone in the database
+ */
 function CreateZoneModal({ isOpen, onRequestClose }) {
     const [name, setName] = useState('');
     const [xcoord, setXcoord] = useState('');

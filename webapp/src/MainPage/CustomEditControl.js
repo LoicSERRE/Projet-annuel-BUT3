@@ -2,14 +2,23 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import CreateZoneModal from "../Modal/CreateZoneModal.js";
+import EditZoneModal from "../Modal/EditZoneModal.js";
+import DeleteZoneModal from "../Modal/DeleteZoneModal.js";
 import styles from '../Style/Carto.module.css';
 
+/**
+ * Custom control to create, edit and delete zones
+ * @param {*} props
+ * @returns Custom control to create, edit and delete zones
+ */
 class CustomEditControl extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             creatingZone: false,
             creatingNewZone: false,
+            editingZone: false,
+            deletingZone: false,
             newZone: null
         };
     }
@@ -18,26 +27,24 @@ class CustomEditControl extends React.Component {
         this.setState({ creatingNewZone: true });
     }
 
-    onDrawEdit = (e) => {
-        console.log("modification d'une zone", e);
+    handleEdit = () => {
+        this.setState({ editingZone: true });
     }
 
-    onDrawDelete = (e) => {
-        console.log("suppression d'une zone", e);
+    handleDelete = () => {
+        this.setState({ deletingZone: true });
     }
 
     handleCloseCreateModal = () => {
         this.setState({ creatingNewZone: false });
     }
 
-    handleEdit = () => {
-        // Activez le mode d'édition ici
-        console.log("modification d'une zone");
+    handleCloseEditModal = () => {
+        this.setState({ editingZone: false });
     }
 
-    handleDelete = () => {
-        // Activez le mode de suppression ici
-        console.log("suppression d'une zone");
+    handleCloseDeleteModal = () => {
+        this.setState({ deletingZone: false });
     }
 
     render() {
@@ -56,6 +63,18 @@ class CustomEditControl extends React.Component {
                     <CreateZoneModal
                         isOpen={this.state.creatingNewZone}
                         onRequestClose={this.handleCloseCreateModal}
+                    />
+                )}
+                {this.state.editingZone && (
+                    <EditZoneModal
+                        isOpen={this.state.editingZone}
+                        onRequestClose={this.handleCloseEditModal}
+                    />
+                )}
+                {this.state.deletingZone && (
+                    <DeleteZoneModal
+                        isOpen={this.state.deletingZone}
+                        onRequestClose={this.handleCloseDeleteModal}
                     />
                 )}
             </div>
