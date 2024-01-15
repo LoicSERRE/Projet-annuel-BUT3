@@ -33,8 +33,7 @@
     top: 2%;
     color: aliceblue;
     margin-bottom: 75px;
-    z-index: 1;
-    /*Centrer l'image*/
+    z-index: 0;
     left: 50%;
     transform: translateX(-50%);
 }

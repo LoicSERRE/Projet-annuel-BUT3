@@ -9,6 +9,11 @@ import { CRS } from 'leaflet';
 import { Marker } from 'react-leaflet';
 import L from 'leaflet';
 
+/**
+ * Draw the zones on the map
+ * @param {*} zones
+ * @returns the zones on the map
+ */
 function DrawZones(zones) {
     const cellWidth = zones.width / zones.nbcolumn;
     const cellHeight = zones.height / zones.nbline;
@@ -28,6 +33,22 @@ function DrawZones(zones) {
     }
     cells.push(
         <Marker position={markerPosition} icon={markerIcon} />
+    );
+
+    // Draw the id of the zone on the top left of the zone
+    const markerIconId = L.divIcon({
+        className: "my-custom-icon",
+        html: `${zones.zone_id}`
+    });
+    let markerPositionId;
+    // Condition to place the marker on the top left of the zone
+    if (zones.nbline > zones.nbcolumn) {
+        markerPositionId = [zones.y + (cellHeight * zones.nbline) + cellHeight * 3, zones.x + cellWidth / 2 * zones.nbcolumn + 2];
+    } else {
+        markerPositionId = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 3, zones.x + cellHeight / 2 * zones.nbline/2 + 2];
+    }
+    cells.push(
+        <Marker position={markerPositionId} icon={markerIconId} />
     );
 
     for (let i = 0; i < zones.nbline; i++) {

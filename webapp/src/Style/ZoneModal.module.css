@@ -20,7 +20,7 @@
 
 .modalcreate {
     display: grid;
-    gap: 10px;
+    gap: 5px;
 }
 
 .label {
@@ -40,6 +40,9 @@
     border: none;
     background-color: #007BFF;
     color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
