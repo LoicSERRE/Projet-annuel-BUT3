@@ -26,7 +26,7 @@
 }
 
 .logoutLink {
-    color: #000000;
+    color: #ffffff;
     font-weight: bold;
     margin-top: auto;
     align-self: flex-start;
@@ -41,7 +41,7 @@
 
 .logoutLink:hover {
     background-color: #c40a0a;
-    color: #000000;
+    color: #ffffff;
     transition: 0.5s;
     border: 2px solid #c40a0a;
 }

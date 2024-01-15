@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import SideMenu from './SideMenu.js';
-import { MapContainer, FeatureGroup, Rectangle, Polygon } from 'react-leaflet';
-import { EditControl } from "react-leaflet-draw";
+import CustomEditControl from './CustomEditControl.js';
+import { MapContainer, TileLayer, FeatureGroup, Rectangle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 import styles from '../Style/Carto.module.css';
 import { CRS } from 'leaflet';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker } from 'react-leaflet';
 import L from 'leaflet';
 
 function DrawZones(zones) {
     const cellWidth = zones.width / zones.nbcolumn;
     const cellHeight = zones.height / zones.nbline;
     const cells = [];
+
+    // Draw the name of the zone on the top center of the zone
+    const markerIcon = L.divIcon({
+        className: "my-custom-icon",
+        html: `${zones.name}`
+    });
+    let markerPosition;
+    // Condition to place the marker on the top center of the zone
+    if (zones.nbline > zones.nbcolumn) {
+        markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
+    } else {
+        markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline/2];
+    }
+    cells.push(
+        <Marker position={markerPosition} icon={markerIcon} />
+    );
 
     for (let i = 0; i < zones.nbline; i++) {
         for (let j = 0; j < zones.nbcolumn; j++) {
@@ -57,10 +73,10 @@ function Carto() {
     useEffect(() => {
         // Récupère les zones de la base de données
         const token = localStorage.getItem('token');
-        fetch('http://localhost:3000/zones', {
+        fetch(process.env.REACT_APP_API_IP + '/zones', {
             method: 'GET',
             headers: {
-                Authorization: `${token}`
+                'Authorization': `${token}`
             },
             credentials: 'include'
         })
@@ -72,7 +88,6 @@ function Carto() {
             }
             )
             .then(data => {
-                console.log(data);
                 setZones(data);
             }
             )
@@ -89,33 +104,12 @@ function Carto() {
                 <h1 className={styles.title}>Éditeur de cartographie</h1>
                 <MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple}>
                     <FeatureGroup>
-                        {zones.map(zone => (
-                            DrawZones(zone)
+                        {zones.map((zone, index) => (
+                            <React.Fragment key={index}>
+                                {DrawZones(zone)}
+                            </React.Fragment>
                         ))}
-                        <EditControl
-                            position='topright'
-                            onEdited={e => {
-                                console.log('onEdited', e);
-                            }}
-                            onCreated={e => {
-                                console.log('onCreated', e);
-                            }}
-                            onDeleted={e => {
-                                console.log('onDeleted', e);
-                            }}
-                            draw={{
-                                polyline: false,
-                                polygon: true,
-                                circle: false,
-                                marker: false,
-                                circlemarker: false,
-                                rectangle: false
-                            }}
-                            edit={{
-                                edit: true,
-                                remove: true
-                            }}
-                        />
+                        <CustomEditControl />
                     </FeatureGroup>
                 </MapContainer>
             </div>
