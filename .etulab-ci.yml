@@ -1,0 +1,23 @@
+stages:
+  - build
+  - test
+
+include:
+  - local: '/API/.gitlab-ci.yml'
+  - local: '/webapp/.gitlab-ci.yml'
+
+API:
+  stage: build
+  script:
+    - echo "Building API..."
+  only:
+    changes:
+      - API/**/*
+
+webapp:
+  stage: test
+  script:
+    - echo "Testing webapp..."
+  only:
+    changes:
+      - webapp/**/*
