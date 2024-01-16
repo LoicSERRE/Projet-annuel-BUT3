@@ -24,7 +24,7 @@ API_build:
       - API/**/*
 
 API_test:
-  stage: build
+  stage: test
   script:
     - cd API
     - npm run test
