@@ -21,10 +21,8 @@ API_build:
   stage: build
   script:
     - cd API
-    - npm cache clean --force
-    - rm -rf node_modules
-    - rm package-lock.json
-    - npm install --save-dev @babel/cli @babel/core mocha chai
+    - npm uninstall babel
+    - npm install --save-dev @babel/cli @babel/core
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
@@ -43,13 +41,11 @@ webapp:
   stage: install
   script:
     - cd webapp
-    - npm cache clean --force
-    - rm -rf node_modules
-    - rm package-lock.json
     - npm install
-    - npm install --save react-scripts @testing-library/react @babel/plugin-proposal-private-property-in-object @babel/plugin-proposal-private-methods @babel/plugin-transform-numeric-separator @babel/plugin-transform-nullish-coalescing-operator @babel/plugin-transform-class-properties @babel/plugin-transform-optional-chaining @babel/plugin-proposal-private-property-in-object
+    - npm install --save react-scripts
   only:
     changes:
+      - webapp/**/*
 
 webapp_build:
   stage: build
