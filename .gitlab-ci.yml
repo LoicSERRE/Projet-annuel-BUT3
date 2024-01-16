@@ -1,3 +1,8 @@
+stages:
+  - install
+  - build
+  - test
+
 API:
   stage: install
   script:
