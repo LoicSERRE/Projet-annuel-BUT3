@@ -47,18 +47,26 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 ###### Développement de l'application web
 
 - [ ] Création de l'application web
+
   - [X] Choix du framework
   - [X] Initialisation du projet
   - [X] Création de la page de connexion
   - [X] Création de l'interface globale
+
     - [X] Création du menu latéral
     - [X] Création des différentes page de l'application
   - [X] Génération de la cartographie par rapport à la base de données
-  - [ ] Développement des fonctionnalités de la cartographie
-    - [ ] Déplacement des conteneurs
-    - [ ] Suppression des conteneurs
-    - [ ] Ajout de conteneurs
-    - [ ] Modification des conteneurs
+  - [X] Développement des fonctionnalités de la cartographie
+
+    - [X] Suppression des conteneurs
+    - [X] Ajout de conteneurs
+    - [X] Modification des conteneurs
+  - [ ] Réalisation des pages de gestion de l'application
+
+    - [ ] Réalisation de la page des paramètres du compte
+    - [ ] Réalisation de la page des paramètres de l'application
+    - [X] Réalisation de la page d'aide
+    - [X] Réalisation de la page à propos
   - [ ] Génération de la documentation de l'application web
 
 ###### Développement de l'application desktop
@@ -187,13 +195,20 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 #### Lancement de l'application web
 
-- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la mache à suivre :
+- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la marche à suivre :
   - cloner le dépot sur votre machine avec :
 
     - ```
       git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
       ```
-  - Placer vous dans le dossier webapp
+  - Placer vous dans le dossier webapp pour faire :
+
+    - ```
+      npm install
+      ```
+    - ```
+      npm start
+      ```
   - Mettez vous dans le dossier API et faite :
 
     - ```
@@ -202,8 +217,31 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
     - ```
       npm start
       ```
+  Suite à cela l'application web devrait être fonctionnelle dans votre navigateur. Il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :
+  - username : `admin` / password : `admin`
+  - username : `user` / password : `user`
+  - guest : `guest` / password : `guest`
 
-Suite à cela l'API devrait être fonctionnelle dans votre terminal.
+###### Tutoriel d'utilisation de l'application web
+Dans cette application vous aurez tout d'abord la page de connexion, il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :
+  - username : `admin` / password : `admin`
+  - username : `user` / password : `user`
+  - guest : `guest` / password : `guest`
+
+Ensuiite vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
+
+Je vais vous faire une brève description des différentes pages de l'application.
+
+- **Cartographie :** Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouter, supprimer, modifier des zones de votre port. 
+  - Pour cela il y aura un bouton avec un + en haut à droite. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez rentrer les informations de votre zone. Une fois les informations rentrées vous pourrez appuyer sur le bouton ajouter et votre zone sera ajoutée à la cartographie.
+  - Si vous voulez supprimer une zone il vous suffira de cliquer sur la zone que vous voulez supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zones que vous voulez supprimer et appuyer sur supprimer. 
+  - Si vous voulez modifier une zone il vous suffira de cliquer sur le bouton éditer en haut à droite de la page. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez selectioner l'ID de la zone que vous voulez modifier. Une fois l'ID selectionné, vous aurez une seconde boite modale qui s'ouvrira avec toute les informations de la zone selectionnée. Vous pourrez alors modifier les informations que vous voulez et appuyer sur le bouton modifier pour modifier la zone.
+  - **Mon compte :** 
+  - **Paramètres :**
+  - **Aide :**
+    - Cette page vous permettra d'avoir de l'aide sur l'application, vous aurez une description de l'application ainsi que des informations sur les différentes fonctionnalités de l'application, vous pourrez également avoir accès à un tutoriel comme celui-ci.
+  - **À propos :**
+    - Cette page vous permettra d'avoir des informations sur l'application, comme par exemple le nom de l'application, le nom de l'entreprise, le nom de l'auteur, etc...
 
 ###### Documentation de l'application web
 
@@ -300,15 +338,22 @@ Dictionnaire de données :
 | Création des différentes routes pour les différentes page | J'ai rajouter un lien entre le menu latéral et différentes page, pour l'instant vide mais c'est pour avoir une architecture,<br />maintenant il faut remplir ces différentes pages       | 29/12/2023     | 29/12/2023  | 3               |
 | Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 29/12/2023     | 29/12/2023  | 0.25            |
 | Page cartographie                                            | Interface de la page cartographie ainsi que génération de cette derniere avec les données de test présents dans la base de données                                                     | 29/12/2023     | 29/12/2023  | 4               |
+| Page Aide                                                    | Réalisation de la page aide, pour obtenir quelque aide sur l'application                                                                                                                  | 29/12/2023     | 30/12/2023  | 3.5             |
+| Page à propos                                               | Réalisation de la page à propos pour donner quelque informations sur l'application                                                                                                        | 30/12/2023     | 30/12/2023  | 3.5             |
+| Fonctionalités de modification de zones                     | Pouvoir modifier facilement une zone (ses coordonées, ses dimensions, son nom...)                                                                                                          | 12/01/2024     | 14/01/2024  | 11              |
+| Fonctionalités de suppression de zones                      | Pouvoir supprimer facilement une zones sur la cartographie                                                                                                                                  | 15/01/2024     | 15/01/2024  | 5               |
+| Fonctionalités d'ajout d'une zone                           | Ajout d'une zone sur la cartographie, par le biais d'une boite modale                                                                                                                       | 04/01/2024     | 16/01/2024  | 6.5             |
+| Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 16/01/2024     | 16/01/2024  | 1               |
+| Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                        |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 47.75 |
+| Total des heures                        | 82.25 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
-| Documents de suivis de projet           | 3.5   |
+| Documents de suivis de projet           | 4.5   |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
-| Développement de l'application web     | 15    |
+| Développement de l'application web     | 48.5  |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
