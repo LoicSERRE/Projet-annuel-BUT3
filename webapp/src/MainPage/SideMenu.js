@@ -52,7 +52,6 @@ function SideMenu() {
             sidebar={
                 <div className={styles.sidebar}>
                     <img className={styles.logo} src='/logo.png' alt='favicon' />
-                    <h1 className={styles.sidebarTitle}></h1>
                     <ul className={styles.sidebarList}>
                         <li className={styles.sidebarListItem}><Link to="/carto">Cartographie</Link></li>
                         <li className={styles.sidebarListItem}><Link to="/account">Mon compte</Link></li>
