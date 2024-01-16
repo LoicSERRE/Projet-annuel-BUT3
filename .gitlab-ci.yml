@@ -1,4 +1,7 @@
+image: node:latest
+
 stages:
+  - install
   - build
   - test
 
@@ -6,10 +9,15 @@ include:
   - local: '/API/.gitlab-ci.yml'
   - local: '/webapp/.gitlab-ci.yml'
 
+install:
+  stage: install
+  script:
+    - npm install
+
 API:
   stage: build
   script:
-    - echo "Building API..."
+    - npm run build
   only:
     changes:
       - API/**/*
@@ -17,7 +25,7 @@ API:
 webapp:
   stage: test
   script:
-    - echo "Testing webapp..."
+    - npm run test
   only:
     changes:
       - webapp/**/*
