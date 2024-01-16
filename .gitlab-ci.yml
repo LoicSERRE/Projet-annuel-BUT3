@@ -21,7 +21,9 @@ API_build:
   stage: build
   script:
     - cd API
-    - npm uninstall babel
+    - npm cache clean --force
+    - rm -rf node_modules
+    - rm package-lock.json
     - npm install --save-dev @babel/cli @babel/core mocha chai
     - npx babel . -d dist --ignore node_modules
   only:
