@@ -22,7 +22,7 @@ API_build:
   script:
     - cd API
     - npm uninstall babel
-    - npm install --save-dev @babel/cli @babel/core
+    - npm install --save-dev @babel/cli @babel/core mocha chai
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
@@ -42,7 +42,7 @@ webapp:
   script:
     - cd webapp
     - npm install
-    - npm install --save react-scripts
+    - npm install --save react-scripts @testing-library/react @babel/plugin-proposal-private-property-in-object
   only:
     changes:
       - webapp/**/*
