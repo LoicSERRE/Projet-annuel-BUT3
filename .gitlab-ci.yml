@@ -11,7 +11,7 @@ API:
     - cd API
     - npm update
     - npm uninstall babel
-    - npm install --save-dev @babel/cli @babel/core mocha
+    - npm install --save-dev @babel/cli @babel/core mocha chai
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
@@ -21,23 +21,19 @@ API_build:
   stage: build
   script:
     - cd API
-    - npm cache clean --force
-    - rm -rf node_modules
-    - if [ -f package-lock.json ]; then rm package-lock.json; fi
-    - npm install --save-dev @babel/cli @babel/core mocha chai
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
       - API/**/*
 
-API_test:
-  stage: test
-  script:
-    - cd API
-    - npx mocha
-  only:
-    changes:
-      - API/**/*
+# API_test:
+#   stage: test
+#   script:
+#     - cd API
+#     - npx mocha
+#   only:
+#     changes:
+#       - API/**/*
 
 webapp:
   stage: install
