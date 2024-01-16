@@ -50,6 +50,8 @@ webapp_build:
   stage: build
   script:
     - cd webapp
+    - npm uninstall rollup-plugin-terser
+    - npm install @rollup/plugin-terser --save-dev
     - npm install react-dom @babel/plugin-proposal-private-property-in-object --save-dev
     - npx react-scripts build
   only:

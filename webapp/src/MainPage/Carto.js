@@ -90,7 +90,7 @@ function DrawZones(zones) {
 
 function MousePosition() {
     const [position, setPosition] = useState(null);
-    const map = useMapEvents({
+    useMapEvents({
         mousemove: (e) => {
             setPosition(e.latlng);
         },
