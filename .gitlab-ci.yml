@@ -18,6 +18,8 @@ API_build:
   stage: build
   script:
     - cd API
+    - npm uninstall babel
+    - npm install --save-dev @babel/cli @babel/core
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
@@ -45,6 +47,7 @@ webapp_build:
   stage: build
   script:
     - cd webapp
+    - npm install react-dom
     - npx react-scripts build
   only:
     changes:
