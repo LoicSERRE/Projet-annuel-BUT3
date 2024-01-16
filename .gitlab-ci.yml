@@ -1,10 +1,16 @@
 stages:
+  - install
   - build
   - test
 
 include:
   - local: '/API/.gitlab-ci.yml'
   - local: '/webapp/.gitlab-ci.yml'
+
+install:
+  stage: install
+  script:
+    - echo "Installing dependencies..."
 
 API:
   stage: build
