@@ -9,7 +9,10 @@ API:
   stage: install
   script:
     - cd API
-    - npm install
+    - npm update
+    - npm uninstall babel
+    - npm install --save-dev @babel/cli @babel/core
+    - npx babel . -d dist --ignore node_modules
   only:
     changes:
       - API/**/*
@@ -47,7 +50,7 @@ webapp_build:
   stage: build
   script:
     - cd webapp
-    - npm install react-dom
+    - npm install react-dom @babel/plugin-proposal-private-property-in-object --save-dev
     - npx react-scripts build
   only:
     changes:
