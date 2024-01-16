@@ -1,0 +1,19 @@
+stages:
+  - install
+  - test
+  - build
+
+install:
+  stage: install
+  script:
+    - npm install
+
+test:
+  stage: test
+  script:
+    - npm run test -- --watchAll=false
+
+build:
+  stage: build
+  script:
+    - npm run build
