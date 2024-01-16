@@ -22,7 +22,7 @@ API_build:
   script:
     - cd API
     - npm uninstall babel
-    - npm install --save-dev @babel/cli @babel/core
+    - npm install --save-dev @babel/cli @babel/core chai
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
