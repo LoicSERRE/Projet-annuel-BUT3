@@ -13,6 +13,7 @@ install:
   stage: install
   script:
     - npm install
+    - echo "Installing dependencies..."
 
 API:
   stage: build
