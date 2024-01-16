@@ -5,27 +5,37 @@ stages:
   - build
   - test
 
-include:
-  - local: '/API/.gitlab-ci.yml'
-  - local: '/webapp/.gitlab-ci.yml'
-
-install:
+API:
   stage: install
   script:
+    - cd API
     - npm install
-    - echo "Installing dependencies..."
+  only:
+    changes:
+      - API/**/*
 
-API:
+API_build:
   stage: build
   script:
+    - cd API
     - npm run build
   only:
     changes:
       - API/**/*
 
 webapp:
+  stage: install
+  script:
+    - cd webapp
+    - npm install
+  only:
+    changes:
+      - webapp/**/*
+
+webapp_test:
   stage: test
   script:
+    - cd webapp
     - npm run test
   only:
     changes:
