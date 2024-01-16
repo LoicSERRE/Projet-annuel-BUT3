@@ -11,7 +11,7 @@ API:
     - cd API
     - npm update
     - npm uninstall babel
-    - npm install --save-dev @babel/cli @babel/core
+    - npm install --save-dev @babel/cli @babel/core mocha
     - npx babel . -d dist --ignore node_modules
   only:
     changes:
@@ -32,7 +32,7 @@ API_test:
   stage: test
   script:
     - cd API
-    - npm run test
+    - npx mocha
   only:
     changes:
       - API/**/*
@@ -42,6 +42,7 @@ webapp:
   script:
     - cd webapp
     - npm install
+    - npm install --save react-scripts
   only:
     changes:
       - webapp/**/*
@@ -62,7 +63,7 @@ webapp_test:
   stage: test
   script:
     - cd webapp
-    - npm run test
+    - npx react-scripts test
   only:
     changes:
       - webapp/**/*
