@@ -23,7 +23,7 @@ API_build:
     - cd API
     - npm cache clean --force
     - rm -rf node_modules
-    - rm package-lock.json
+    - if [ -f package-lock.json ]; then rm package-lock.json; fi
     - npm install --save-dev @babel/cli @babel/core mocha chai
     - npx babel . -d dist --ignore node_modules
   only:
