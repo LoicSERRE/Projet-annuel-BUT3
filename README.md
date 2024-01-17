@@ -83,6 +83,28 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [ ] Modification des conteneurs
   - [ ] Génération de la documentation de l'application desktop
 
+###### CI/CD
+
+- [ ] Mise en place du CI/CD
+  - [ ] Mise en place du CI/CD pour l'API
+    - [X] Installation des dépendances dans le CI/CD
+    - [X] Génération de la construction de l'API dans le CI/CD
+    - [ ] Mise en place des tests dans le CI/CD
+  - [ ] Mise en place du CI/CD pour l'application web
+    - [X] Installation des dépendances dans le CI/CD*
+    - [X] Génération de la construction de l'application web dans le CI/CD
+    - [ ] Mise en place des tests dans le CI/CD
+  - [ ] Mise en place du CI/CD pour l'application desktop
+    - [ ] Installation des dépendances dans le CI/CD
+    - [ ] Génération de la construction de l'application desktop dans le CI/CD
+    - [ ] Mise en place des tests dans le CI/CD
+  - [ ] Hébergement de l'API
+  - [ ] Hébergement de l'application web
+  - [ ] Hébergement de l'application desktop
+  - [ ] Hébergement de la documentation de l'API
+  - [ ] Hébergement de la documentation de l'application web
+  - [ ] Hébergement de la documentation de l'application desktop
+
 ###### Revue de projet
 
 - [ ] Réalisation du diaporama de présentation
@@ -196,6 +218,7 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 #### Lancement de l'application web
 
 - Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la marche à suivre :
+
   - cloner le dépot sur votre machine avec :
 
     - ```
@@ -217,26 +240,29 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
     - ```
       npm start
       ```
-  Suite à cela l'application web devrait être fonctionnelle dans votre navigateur. Il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :
-  - username : `admin` / password : `admin`
+
+  Suite à cela l'application web devrait être fonctionnelle dans votre navigateur. Il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :- username : `admin` / password : `admin`
+
   - username : `user` / password : `user`
   - guest : `guest` / password : `guest`
 
 ###### Tutoriel d'utilisation de l'application web
+
 Dans cette application vous aurez tout d'abord la page de connexion, il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :
-  - username : `admin` / password : `admin`
-  - username : `user` / password : `user`
-  - guest : `guest` / password : `guest`
+
+- username : `admin` / password : `admin`
+- username : `user` / password : `user`
+- guest : `guest` / password : `guest`
 
 Ensuiite vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
 
 Je vais vous faire une brève description des différentes pages de l'application.
 
-- **Cartographie :** Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouter, supprimer, modifier des zones de votre port. 
+- **Cartographie :** Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouter, supprimer, modifier des zones de votre port.
   - Pour cela il y aura un bouton avec un + en haut à droite. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez rentrer les informations de votre zone. Une fois les informations rentrées vous pourrez appuyer sur le bouton ajouter et votre zone sera ajoutée à la cartographie.
-  - Si vous voulez supprimer une zone il vous suffira de cliquer sur la zone que vous voulez supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zones que vous voulez supprimer et appuyer sur supprimer. 
+  - Si vous voulez supprimer une zone il vous suffira de cliquer sur la zone que vous voulez supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zones que vous voulez supprimer et appuyer sur supprimer.
   - Si vous voulez modifier une zone il vous suffira de cliquer sur le bouton éditer en haut à droite de la page. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez selectioner l'ID de la zone que vous voulez modifier. Une fois l'ID selectionné, vous aurez une seconde boite modale qui s'ouvrira avec toute les informations de la zone selectionnée. Vous pourrez alors modifier les informations que vous voulez et appuyer sur le bouton modifier pour modifier la zone.
-  - **Mon compte :** 
+  - **Mon compte :**
   - **Paramètres :**
   - **Aide :**
     - Cette page vous permettra d'avoir de l'aide sur l'application, vous aurez une description de l'application ainsi que des informations sur les différentes fonctionnalités de l'application, vous pourrez également avoir accès à un tutoriel comme celui-ci.
@@ -344,16 +370,20 @@ Dictionnaire de données :
 | Fonctionalités de suppression de zones                      | Pouvoir supprimer facilement une zones sur la cartographie                                                                                                                                  | 15/01/2024     | 15/01/2024  | 5               |
 | Fonctionalités d'ajout d'une zone                           | Ajout d'une zone sur la cartographie, par le biais d'une boite modale                                                                                                                       | 04/01/2024     | 16/01/2024  | 6.5             |
 | Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 16/01/2024     | 16/01/2024  | 1               |
+| Mise en place du CI/CD                                       | Mise en place d'un fichier .gitlab-ci.yml pour faire le CI/CD sur etulab                                                                                                                    | 16/01/2024     | 16/01/2024  | 5               |
+| Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/01/2024     | 17/01/2024  | 0.5             |
+| Mise en place des tests dans le CI/CD                        | Mise en place des test pour tester l'API et l'application REACT dans le CI/CD                                                                                                               | 16/01/2024     |             |                 |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                        |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 82.25 |
+| Total des heures                        | 87.75 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
-| Documents de suivis de projet           | 4.5   |
+| Documents de suivis de projet           | 5     |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
 | Développement de l'application web     | 48.5  |
+| CI/CD                                   | 5     |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
