@@ -106,7 +106,7 @@ function MousePosition() {
 function Carto() {
     const [zones, setZones] = useState([]);
 
-    useEffect(() => {
+    const fetchZones = () => {
         // Récupère les zones de la base de données
         const token = localStorage.getItem('token');
         fetch(process.env.REACT_APP_API_IP + '/zones', {
@@ -131,6 +131,23 @@ function Carto() {
                 console.log(err);
             }
             );
+    };
+
+    useEffect(() => {
+        fetchZones();
+        // Add a listener for events to update the zones every time a new zone is added
+        const updateZones = () => {
+            fetchZones();
+        };
+        window.addEventListener('newZoneAdded', updateZones);
+        window.addEventListener('zoneDeleted', updateZones);
+        window.addEventListener('zoneEdited', updateZones);
+        // Delete the event listener when the component is unmounted
+        return () => {
+            window.removeEventListener('newZoneAdded', updateZones);
+            window.removeEventListener('zoneDeleted', updateZones);
+            window.removeEventListener('zoneEdited', updateZones);
+        };
     }, []);
 
     return (

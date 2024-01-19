@@ -19,8 +19,7 @@ function CreateZoneModal({ isOpen, onRequestClose }) {
     const [width, setWidth] = useState('');
 
     const handleSubmit = (event) => {
-        console.log(name, xcoord, ycoord, numRows, numCols, height, width);
-        // Ajoute la zone à la base de données et ferme la modal
+        // Add the zone to the database and close the modal
         fetch(process.env.REACT_APP_API_IP + '/zones', {
             method: 'POST',
             headers: {
@@ -49,6 +48,8 @@ function CreateZoneModal({ isOpen, onRequestClose }) {
             .then(data => {
                 console.log(data);
                 onRequestClose();
+                // Make the event 'newZoneAdded' to update the map
+                window.dispatchEvent(new Event('newZoneAdded'));
             }
             )
             .catch(err => {

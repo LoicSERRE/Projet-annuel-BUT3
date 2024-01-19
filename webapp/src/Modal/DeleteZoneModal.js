@@ -4,12 +4,17 @@ import styles from '../Style/ZoneModal.module.css';
 
 Modal.setAppElement('#root');
 
+/**
+ * Modal to delete a zone from the database
+ * @param {*} isOpen
+ * @returns Modal to delete a zone from the database
+ */
 function DeleteZoneModal({ isOpen, onRequestClose }) {
     const [id, setId] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Supprime la zone de la base de données et ferme la modal
+        // Delete the zone from the database and close the modal
         fetch(process.env.REACT_APP_API_IP + '/zones/' + id, {
             method: 'DELETE',
             headers: {
@@ -26,6 +31,8 @@ function DeleteZoneModal({ isOpen, onRequestClose }) {
             .then(data => {
                 console.log(data);
                 onRequestClose();
+                // Make the event 'newZoneAdded' to update the map
+                window.dispatchEvent(new Event('zoneDeleted'));
             })
             .catch(err => {
                 console.log(err);

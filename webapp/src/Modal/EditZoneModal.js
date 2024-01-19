@@ -51,6 +51,8 @@ function EditZoneModal({ isOpen, onRequestClose }) {
             .then(data => {
                 console.log(data);
                 onRequestClose();
+                // Make the event 'zoneEdited' to update the map
+                window.dispatchEvent(new Event('zoneEdited'));
             }
             )
             .catch(err => {
