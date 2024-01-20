@@ -18,3 +18,13 @@ services:
     ports:
       - "3001:3001"
     restart: always
+
+  api_doc:
+    build:
+      context: ./API/doc
+      dockerfile: sae-api-doc.Dockerfile
+    image: sae_api_doc
+    container_name: sae_api_doc
+    ports:
+      - "3002:3002"
+    restart: always
