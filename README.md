@@ -98,6 +98,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [ ] Installation des dépendances dans le CI/CD
     - [ ] Génération de la construction de l'application desktop dans le CI/CD
     - [ ] Mise en place des tests dans le CI/CD
+  - [X] Réalisation d'un docker compose
   - [ ] Hébergement de l'API
   - [ ] Hébergement de l'application web
   - [ ] Hébergement de l'application desktop
@@ -145,7 +146,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 - Un dockerfile est présent dans le repertoire, il permet de générer un image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, la ou il y a le fichier *sae-api.Dockerfile* puis executer la commande :
   - ```
-    docker build -t sae-api -f sae-api.Dockerfile .
+    docker build -t sae-api -f ./sae-api.Dockerfile .
     ```
 
 #### Lancement de l'API
@@ -373,17 +374,20 @@ Dictionnaire de données :
 | Mise en place du CI/CD                                       | Mise en place d'un fichier .gitlab-ci.yml pour faire le CI/CD sur etulab                                                                                                                    | 16/01/2024     | 16/01/2024  | 5               |
 | Mise à jour du documents de suivis de projet                | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                     | 17/01/2024     | 17/01/2024  | 0.5             |
 | Mise en place des tests dans le CI/CD                        | Mise en place des test pour tester l'API et l'application REACT dans le CI/CD                                                                                                               | 16/01/2024     |             |                 |
+| Rafraichissement de la cartographie après une modification  | Des lors que on effectue une action sur la cartographie, elle est rafraichie avec les nouvelles données                                                                                    | 19/01/2024     | 19/01/2024  | 3               |
+| Dockerisation de l'API et de la webapp                       | Dockerfile pour pouvoir dockeriser l'API et l'application web                                                                                                                               | 20/01/2024     | 20/01/2024  | 3               |
+| Docker Compose pour les services                             | Permet de créer les images et les containers                                                                                                                                               | 20/01/2024     | 20/01/2024  | 1.5             |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                        |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 87.75 |
+| Total des heures                        | 95.25 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
 | Documents de suivis de projet           | 5     |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
-| Développement de l'application web     | 48.5  |
-| CI/CD                                   | 5     |
+| Développement de l'application web     | 54.5  |
+| CI/CD                                   | 6.5   |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
