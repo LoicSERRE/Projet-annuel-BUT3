@@ -1,3 +1,5 @@
+# ----------------------------------- API Install/Build/Test -----------------------------------
+
 image: node:latest
 
 stages:
@@ -37,6 +39,9 @@ API_build:
 #     changes:
 #       - API/**/*
 
+
+# ----------------------------------- Webapp Install/Build/Test -----------------------------------
+
 webapp:
   stage: install
   script:
@@ -67,3 +72,12 @@ webapp_build:
 #   only:
 #     changes:
 #       - webapp/**/*
+
+# ----------------------------------- API and webapp hosting -----------------------------------
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to server..."
+  only:
+    refs:
+      - master
