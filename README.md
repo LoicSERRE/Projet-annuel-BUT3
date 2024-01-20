@@ -174,7 +174,7 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 - Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
 - Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
   - ```
-    jsdoc -c parameter.json
+    npx jsdoc -c parameter.json
     ```
 
 ###### Jeux de test
@@ -377,17 +377,18 @@ Dictionnaire de données :
 | Rafraichissement de la cartographie après une modification  | Des lors que on effectue une action sur la cartographie, elle est rafraichie avec les nouvelles données                                                                                    | 19/01/2024     | 19/01/2024  | 3               |
 | Dockerisation de l'API et de la webapp                       | Dockerfile pour pouvoir dockeriser l'API et l'application web                                                                                                                               | 20/01/2024     | 20/01/2024  | 3               |
 | Docker Compose pour les services                             | Permet de créer les images et les containers                                                                                                                                               | 20/01/2024     | 20/01/2024  | 1.5             |
+| Préparation pour le déploiement dans le CI/CD              | Recherche et configuration pour permettre l'hebergement de tout les services, ainsi que les documentations                                                                                  | 20/01/2024     | 21/01/2024  | 2               |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                        |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 95.25 |
+| Total des heures                        | 97.25 |
 | --------------------------------------- | ----- |
 | Initialisation du projet                | 2.5   |
 | Documents de suivis de projet           | 5     |
 | Base de données                        | 1.5   |
 | Développement de l'API                 | 25.25 |
 | Développement de l'application web     | 54.5  |
-| CI/CD                                   | 6.5   |
+| CI/CD                                   | 8.5   |
 | Développement de l'application desktop | 0     |
 | Revue de projet                         | 0     |
