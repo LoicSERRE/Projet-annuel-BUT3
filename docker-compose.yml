@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ./API
+      dockerfile: sae-api.Dockerfile
+    image: sae_api
+    container_name: sae_api
+    ports:
+      - "3000:3000"
+    restart: always
+
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: sae-webapp.Dockerfile
+    image: sae_webapp
+    container_name: sae_webapp
+    ports:
+      - "3001:3001"
+    restart: always
