@@ -1,6 +1,6 @@
 FROM node:18.17.1
-WORKDIR /api
+WORKDIR /webapp
 COPY . .
 RUN npm install
-EXPOSE 3000
+EXPOSE 3001
 CMD [ "npm", "start" ]

@@ -1,4 +1,4 @@
-import ZonesServices from '../services/ZonesServices.js';
+import ZonesServices from '../Services/ZonesServices.js';
 
 /**
  * Represents a controller for handling zones requests
