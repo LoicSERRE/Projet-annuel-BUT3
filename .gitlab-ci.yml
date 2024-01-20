@@ -6,6 +6,7 @@ stages:
   - install
   - build
   - test
+  - deploy
 
 API:
   stage: install
@@ -74,10 +75,19 @@ webapp_build:
 #       - webapp/**/*
 
 # ----------------------------------- API and webapp hosting -----------------------------------
-deploy:
+deploy_API:
   stage: deploy
   script:
-    - echo "Deploying to server..."
+    - echo "Deploying API to server..."
   only:
     refs:
       - master
+
+deploy_webapp:
+  stage: deploy
+  script:
+    - echo "Deploying webapp to server..."
+  only:
+    refs:
+      - master
+
