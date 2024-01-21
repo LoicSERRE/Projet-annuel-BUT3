@@ -2,6 +2,7 @@ import { UsersDAO } from './UsersDAO.js';
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import usersModel from '../Model/userModel.js';
+import permissions from '../Path/PermissionsParam.js';
 
 export class UsersSqliteDAO extends UsersDAO {
     /**
@@ -166,6 +167,34 @@ export class UsersSqliteDAO extends UsersDAO {
             const params = [role_id];
             const result = await _db.all(sql, params);
             return result.map((role) => role.name);
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    /**
+     * Get the permissions of a user
+     * @param {number} userId - The id of the user
+     * @returns {object} - The permissions of the user
+     * @async
+     */
+    async getPermissions(userId) {
+        try {
+            // Récupère l'utilisateur
+            const _db = await this.db;
+            const sql = 'SELECT * FROM users WHERE id = ?';
+            const params = [userId];
+            const result = await _db.all(sql, params);
+            const role_id = result[0].role_id;
+
+            // Récupère le nom du role
+            const sql2 = 'SELECT name FROM roles WHERE id = ?';
+            const params2 = [role_id];
+            const result2 = await _db.all(sql2, params2);
+            const role = result2[0].name;
+
+            return permissions[role];
         }
         catch (error) {
             throw error;

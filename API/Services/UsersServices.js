@@ -72,6 +72,16 @@ const UsersServices = {
      */
     getRole: async (userId) => {
         return await UsersDAO.getRole(userId);
+    },
+
+    /**
+     * Get the permissions of a user
+     * @param {number} userId - The id of the user
+     * @returns {object} - The permissions of the user
+     * @async
+     */
+    getPermissions: async (userId) => {
+        return await UsersDAO.getPermissions(userId);
     }
 }
 

@@ -38,4 +38,14 @@ export class UsersDAO {
     deleteUser(userId) {
         throw new Error('Not implemented');
     }
+
+    /**
+     * Get permissions of a user
+     * @param {number}
+     * @returns {Array}
+     * @async
+     */
+    getPermissions(userId) {
+        throw new Error('Not implemented');
+    }
 }

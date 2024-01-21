@@ -47,18 +47,38 @@ class CustomEditControl extends React.Component {
         this.setState({ deletingZone: false });
     }
 
+    canPerformAction = (action) => {
+        // Récupère les permissions dans le token
+        const token = localStorage.getItem('token');
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+        const permissions = decodedToken.permissions;
+
+        // Si les permissions sont all, on peut tout faire
+        if (permissions === 'all') {
+            return true;
+        }
+
+        return permissions['/zones'][action];
+    }
+
     render() {
         return (
             <div className={styles.buttoncontainer}>
-                <button className={styles.button} onClick={this.handleCreate}>
-                    <FontAwesomeIcon icon={faPlus} />
-                </button>
-                <button className={styles.button} onClick={this.handleEdit}>
-                    <FontAwesomeIcon icon={faEdit} />
-                </button>
-                <button className={styles.button} onClick={this.handleDelete}>
-                    <FontAwesomeIcon icon={faTrash} />
-                </button>
+                {this.canPerformAction('POST') && (
+                    <button className={styles.button} onClick={this.handleCreate}>
+                        <FontAwesomeIcon icon={faPlus} />
+                    </button>
+                )}
+                {this.canPerformAction('PUT') && (
+                    <button className={styles.button} onClick={this.handleEdit}>
+                        <FontAwesomeIcon icon={faEdit} />
+                    </button>
+                )}
+                {this.canPerformAction('DELETE') && (
+                    <button className={styles.button} onClick={this.handleDelete}>
+                        <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                )}
                 {this.state.creatingNewZone && (
                     <CreateZoneModal
                         isOpen={this.state.creatingNewZone}

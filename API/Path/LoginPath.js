@@ -43,9 +43,12 @@ loginPath.post('/', async (req, res) => {
         return res.status(401).send('Wrong password');
     }
     else {
+        // Donne les permissions dans le token
+        const permissions = await UsersServices.getPermissions(user[0].user_id);
+
         // Return a token and a refresh token
-        const token = Jwt.sign({ id: user[0].id, username: user[0].username }, process.env.JWT_SECRET, { expiresIn: '2h' });
-        const refreshToken = Jwt.sign({ id: user[0].id, username: user[0].username }, process.env.JWT_SECRET_REFRESH, { expiresIn: '14d' });
+        const token = Jwt.sign({ id: user[0].user_id, username: user[0].username, permissions }, process.env.JWT_SECRET, { expiresIn: '2h' });
+        const refreshToken = Jwt.sign({ id: user[0].user_id, username: user[0].username, permissions }, process.env.JWT_SECRET_REFRESH, { expiresIn: '14d' });
         return res.status(200).json({ token: token, refreshToken: refreshToken });
     }
 });
