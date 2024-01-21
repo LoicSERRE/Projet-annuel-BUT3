@@ -48,12 +48,12 @@ class CustomEditControl extends React.Component {
     }
 
     canPerformAction = (action) => {
-        // Récupère les permissions dans le token
+        // Get the permissions from the token
         const token = localStorage.getItem('token');
         const decodedToken = JSON.parse(atob(token.split('.')[1]));
         const permissions = decodedToken.permissions;
 
-        // Si les permissions sont all, on peut tout faire
+        // If permissions are all, we can do everything
         if (permissions === 'all') {
             return true;
         }

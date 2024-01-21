@@ -181,14 +181,14 @@ export class UsersSqliteDAO extends UsersDAO {
      */
     async getPermissions(userId) {
         try {
-            // Récupère l'utilisateur
+            // Get user from database
             const _db = await this.db;
             const sql = 'SELECT * FROM users WHERE id = ?';
             const params = [userId];
             const result = await _db.all(sql, params);
             const role_id = result[0].role_id;
 
-            // Récupère le nom du role
+            // Get the role name
             const sql2 = 'SELECT name FROM roles WHERE id = ?';
             const params2 = [role_id];
             const result2 = await _db.all(sql2, params2);

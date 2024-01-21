@@ -43,7 +43,7 @@ loginPath.post('/', async (req, res) => {
         return res.status(401).send('Wrong password');
     }
     else {
-        // Donne les permissions dans le token
+        // Give permissions in the token
         const permissions = await UsersServices.getPermissions(user[0].user_id);
 
         // Return a token and a refresh token
