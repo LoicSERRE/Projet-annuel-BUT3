@@ -379,17 +379,18 @@ Dictionnaire de données :
 | Docker Compose pour les services                             | Permet de créer les images et les containers                                                                                                                                                                                                                                     | 20/01/2024     | 20/01/2024  | 1.5             |
 | Préparation pour le déploiement dans le CI/CD              | Recherche et configuration pour permettre l'hebergement de tout les services, ainsi que les documentations                                                                                                                                                                        | 20/01/2024     | 21/01/2024  | 2               |
 | Gestion des autorisations dans la cartographie               | Rajout des autorisations dans le token de l'utilisateur pour pouvoir connaitre ses autorisations. Cela permet d'avoir qu'un seul fichier de configuration des roles.<br />De plus lorsqu'un utilisateur est sur la carto, il ne s'affichera que les boutons dont il a les droits. | 21/01/2024     | 21/01/2024  | 3               |
+| Style de l'application                                       | Gestion du responsive de la page principale, ainsi que quelque autre modification de style                                                                                                                                                                                        | 22/01/2024     | 22/01/2024  | 2               |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                                                                                                              |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 100.25 |
+| Total des heures                        | 102.25 |
 | --------------------------------------- | ------ |
 | Initialisation du projet                | 2.5    |
 | Documents de suivis de projet           | 5      |
 | Base de données                        | 1.5    |
 | Développement de l'API                 | 25.25  |
-| Développement de l'application web     | 57.5   |
+| Développement de l'application web     | 59.5   |
 | CI/CD                                   | 8.5    |
 | Développement de l'application desktop | 0      |
 | Revue de projet                         | 0      |
