@@ -32,10 +32,23 @@
     position: absolute;
     top: 2%;
     color: aliceblue;
-    margin-bottom: 75px;
     z-index: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title {
+        font-size: 1.2rem;
+    }
 }
 
 .buttoncontainer {

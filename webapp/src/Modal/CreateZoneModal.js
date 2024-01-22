@@ -95,8 +95,10 @@ function CreateZoneModal({ isOpen, onRequestClose }) {
                         Nombre de colonnes :
                         <input type="number" value={numCols} onChange={e => setNumCols(e.target.value)} />
                     </label>
-                    <button type="submit">Créer</button>
-                    <button onClick={onRequestClose}>Annuler</button>
+                    <div className={styles.buttonContainer}>
+                        <button type="submit">Créer</button>
+                        <button onClick={onRequestClose}>Annuler</button>
+                    </div>
                 </form>
             </div>
         </Modal>

@@ -48,8 +48,10 @@ function DeleteZoneModal({ isOpen, onRequestClose }) {
                         ID :
                         <input type="number" value={id} onChange={e => setId(e.target.value)} />
                     </label>
-                    <button type="submit">Supprimer</button>
-                    <button onClick={onRequestClose}>Annuler</button>
+                    <div className={styles.buttonContainer}>
+                        <button type="submit">Supprimer</button>
+                        <button onClick={onRequestClose}>Annuler</button>
+                    </div>
                 </form>
             </div>
         </Modal>

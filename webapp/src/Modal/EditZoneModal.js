@@ -108,46 +108,50 @@ function EditZoneModal({ isOpen, onRequestClose }) {
                             ID :
                             <input type="number" value={id} onChange={e => setId(e.target.value)} />
                         </label>
-                        <button type="submit">Valider</button>
-                        <button onClick={onRequestClose}>Annuler</button>
+                        <div className={styles.buttonContainer}>
+                            <button type="submit">Éditer</button>
+                            <button onClick={onRequestClose}>Annuler</button>
+                        </div>
                     </form>
                 ) : (
                     <form onSubmit={handleSubmit} className={styles.modalcreate}>
-                    <label className={styles.label}>
-                        ID :
-                        <input type="number" value={id} onChange={e => setId(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Nom :
-                        <input type="text" value={name} onChange={e => setName(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Coordonnée X :
-                        <input type="number" value={xcoord} onChange={e => setXcoord(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Coordonnée Y :
-                        <input type="number" value={ycoord} onChange={e => setYcoord(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Hauteur :
-                        <input type="number" value={height} onChange={e => setHeight(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Largeur :
-                        <input type="number" value={width} onChange={e => setWidth(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Nombre de lignes :
-                        <input type="number" value={numRows} onChange={e => setNumRows(e.target.value)} />
-                    </label>
-                    <label className={styles.label}>
-                        Nombre de colonnes :
-                        <input type="number" value={numCols} onChange={e => setNumCols(e.target.value)} />
-                    </label>
-                    <button type="submit">Éditer</button>
-                    <button onClick={onRequestClose}>Annuler</button>
-                </form>  
+                        <label className={styles.label}>
+                            ID :
+                            <input type="number" value={id} onChange={e => setId(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Nom :
+                            <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Coordonnée X :
+                            <input type="number" value={xcoord} onChange={e => setXcoord(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Coordonnée Y :
+                            <input type="number" value={ycoord} onChange={e => setYcoord(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Hauteur :
+                            <input type="number" value={height} onChange={e => setHeight(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Largeur :
+                            <input type="number" value={width} onChange={e => setWidth(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Nombre de lignes :
+                            <input type="number" value={numRows} onChange={e => setNumRows(e.target.value)} />
+                        </label>
+                        <label className={styles.label}>
+                            Nombre de colonnes :
+                            <input type="number" value={numCols} onChange={e => setNumCols(e.target.value)} />
+                        </label>
+                        <div className={styles.buttonContainer}>
+                            <button type="submit">Éditer</button>
+                            <button onClick={onRequestClose}>Annuler</button>
+                        </div>
+                    </form>
                 )}
             </div>
         </Modal>

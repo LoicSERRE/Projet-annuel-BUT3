@@ -40,7 +40,7 @@
     border: none;
     background-color: #007BFF;
     color: white;
-    width: 80%;
+    width: 100%;
     margin-left: 10%;
     margin-right: 10%;
     cursor: pointer;
@@ -49,6 +49,11 @@
 
 .modalcreate button:hover {
     background-color: #0056b3;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
 }
 
 .createmodaltitle {
