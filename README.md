@@ -112,6 +112,11 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 # Guide d'utilisation
 
+#### Conteneurisation des services
+
+Étant donner que tout est conteneurisé grâce à un docker-compose, il vous suffira de taper la commande `docker-compose up` dans le répértoite ou se trouve le fichier *docker-compose.yml* pour lancer chaque service de l'application.
+
+
 ## Configuration
 
 * Main : `index.js`
@@ -144,7 +149,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 #### Conteneurisation de l'API
 
-- Un dockerfile est présent dans le repertoire, il permet de générer un image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, la ou il y a le fichier *sae-api.Dockerfile* puis executer la commande :
+- Un dockerfile est présent dans le repertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, la ou il y a le fichier *sae-api.Dockerfile* puis executer la commande :
   - ```
     docker build -t sae-api -f ./sae-api.Dockerfile .
     ```
@@ -216,6 +221,11 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 #### Conteneurisation de l'application web
 
+- Un dockerfile est présent dans le repertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier webapp, la ou il y a le fichier *sae-webapp.Dockerfile* puis executer la commande :
+  - ```
+    docker build -t sae-webapp -f ./sae-webapp.Dockerfile .
+    ```
+
 #### Lancement de l'application web
 
 - Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la marche à suivre :
@@ -255,7 +265,7 @@ Dans cette application vous aurez tout d'abord la page de connexion, il vous suf
 - username : `user` / password : `user`
 - guest : `guest` / password : `guest`
 
-Ensuiite vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
+Ensuite vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
 
 Je vais vous faire une brève description des différentes pages de l'application.
 
@@ -327,6 +337,7 @@ Dictionnaire de données :
   * `id` : Clé primaire, entier, auto-incrémenté
   * `token` : Texte, non nul
 
+
 # Suivis de projet
 
 | Tâche                                                       | Description                                                                                                                                                                                                                                                                       | Date de début | Date de fin | Nombre d'heures |
@@ -380,17 +391,18 @@ Dictionnaire de données :
 | Préparation pour le déploiement dans le CI/CD              | Recherche et configuration pour permettre l'hebergement de tout les services, ainsi que les documentations                                                                                                                                                                        | 20/01/2024     | 21/01/2024  | 2               |
 | Gestion des autorisations dans la cartographie               | Rajout des autorisations dans le token de l'utilisateur pour pouvoir connaitre ses autorisations. Cela permet d'avoir qu'un seul fichier de configuration des roles.<br />De plus lorsqu'un utilisateur est sur la carto, il ne s'affichera que les boutons dont il a les droits. | 21/01/2024     | 21/01/2024  | 3               |
 | Style de l'application                                       | Gestion du responsive de la page principale, ainsi que quelque autre modification de style                                                                                                                                                                                        | 22/01/2024     | 22/01/2024  | 2               |
+| Mise en place de la documentaion de la webapp                | Fichier de parametre pour la génération de l'application, dockerfile pour la conteneurisation, ainsi que l'ajout dans le docker-compose                                                                                                                                         | 03/02/2024     | 03/02/2024  | 1.5             |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                                                                                                              |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 102.25 |
+| Total des heures                        | 103.75 |
 | --------------------------------------- | ------ |
 | Initialisation du projet                | 2.5    |
 | Documents de suivis de projet           | 5      |
 | Base de données                        | 1.5    |
 | Développement de l'API                 | 25.25  |
-| Développement de l'application web     | 59.5   |
+| Développement de l'application web     | 61     |
 | CI/CD                                   | 8.5    |
 | Développement de l'application desktop | 0      |
 | Revue de projet                         | 0      |
