@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Modal/EditZoneModal.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Modal/EditZoneModal.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import Modal from 'react-modal';
+import styles from '../Style/ZoneModal.module.css';
+
+Modal.setAppElement('#root');
+
+/**
+ * Modal to edit a zone in the database
+ * @param {*} isOpen
+ * @returns Modal to edit a zone in the database
+ */
+function EditZoneModal({ isOpen, onRequestClose }) {
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
+    const [xcoord, setXcoord] = useState('');
+    const [ycoord, setYcoord] = useState('');
+    const [numRows, setNumRows] = useState('');
+    const [numCols, setNumCols] = useState('');
+    const [height, setHeight] = useState('');
+    const [width, setWidth] = useState('');
+    const [zone, setZone] = useState('');
+
+    // Request for edit a zone
+    const handleSubmit = (event) => {
+        // Add the zone to the database and close the modal
+        fetch(process.env.REACT_APP_API_IP + '/zones/' + id, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `${localStorage.getItem('token')}`
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                name: name,
+                x: xcoord,
+                y: ycoord,
+                nbline: numRows,
+                nbcolumn: numCols,
+                height: height,
+                width: width
+            })
+        })
+            .then(res => {
+                console.log(res);
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            }
+            )
+            .then(data => {
+                console.log(data);
+                onRequestClose();
+                // Make the event 'zoneEdited' to update the map
+                window.dispatchEvent(new Event('zoneEdited'));
+            }
+            )
+            .catch(err => {
+                console.log(err);
+            }
+            );
+        event.preventDefault();
+
+        // Close the modal
+        onRequestClose();
+    };
+
+    // Request for get a zone from its id, to initialize the fields of the modal
+    const handleIdSubmit = (e) => {
+        // Get the zone from its id to initialize the fields
+        fetch(process.env.REACT_APP_API_IP + '/zones?id=' + id, {
+            method: 'GET',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`
+            },
+            credentials: 'include'
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log(data[0].name);
+                setName(data[0].name);
+                setXcoord(data[0].x);
+                setYcoord(data[0].y);
+                setNumRows(data[0].nbline);
+                setNumCols(data[0].nbcolumn);
+                setHeight(data[0].height);
+                setWidth(data[0].width);
+                setZone(data[0]);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        e.preventDefault();
+    };
+
+    return (
+        &lt;Modal isOpen={isOpen} onRequestClose={onRequestClose} className={styles.modal}>
+            &lt;div className={styles.modalContent}>
+                &lt;h2 className={styles.createmodaltitle}>Éditer une zone&lt;/h2>
+                {!zone ? (
+                    &lt;form onSubmit={handleIdSubmit} className={styles.modalcreate}>
+                        &lt;label className={styles.label}>
+                            ID :
+                            &lt;input type="number" value={id} onChange={e => setId(e.target.value)} />
+                        &lt;/label>
+                        &lt;div className={styles.buttonContainer}>
+                            &lt;button type="submit">Éditer&lt;/button>
+                            &lt;button onClick={onRequestClose}>Annuler&lt;/button>
+                        &lt;/div>
+                    &lt;/form>
+                ) : (
+                    &lt;form onSubmit={handleSubmit} className={styles.modalcreate}>
+                        &lt;label className={styles.label}>
+                            ID :
+                            &lt;input type="number" value={id} onChange={e => setId(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Nom :
+                            &lt;input type="text" value={name} onChange={e => setName(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Coordonnée X :
+                            &lt;input type="number" value={xcoord} onChange={e => setXcoord(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Coordonnée Y :
+                            &lt;input type="number" value={ycoord} onChange={e => setYcoord(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Hauteur :
+                            &lt;input type="number" value={height} onChange={e => setHeight(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Largeur :
+                            &lt;input type="number" value={width} onChange={e => setWidth(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Nombre de lignes :
+                            &lt;input type="number" value={numRows} onChange={e => setNumRows(e.target.value)} />
+                        &lt;/label>
+                        &lt;label className={styles.label}>
+                            Nombre de colonnes :
+                            &lt;input type="number" value={numCols} onChange={e => setNumCols(e.target.value)} />
+                        &lt;/label>
+                        &lt;div className={styles.buttonContainer}>
+                            &lt;button type="submit">Éditer&lt;/button>
+                            &lt;button onClick={onRequestClose}>Annuler&lt;/button>
+                        &lt;/div>
+                    &lt;/form>
+                )}
+            &lt;/div>
+        &lt;/Modal>
+    );
+}
+
+export default EditZoneModal;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CustomEditControl.html">CustomEditControl</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateZoneModal">CreateZoneModal</a></li><li><a href="global.html#DeleteZoneModal">DeleteZoneModal</a></li><li><a href="global.html#DrawZones">DrawZones</a></li><li><a href="global.html#EditZoneModal">EditZoneModal</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#MyAccount">MyAccount</a></li><li><a href="global.html#Parameters">Parameters</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#root">root</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 03 2024 17:12:27 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

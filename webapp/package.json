@@ -7,6 +7,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "jsdoc": "^4.0.2",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
     "leaflet-path-transform": "^1.8.0-beta.4",

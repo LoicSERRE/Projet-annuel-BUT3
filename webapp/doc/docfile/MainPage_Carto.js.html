@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: MainPage/Carto.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: MainPage/Carto.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import SideMenu from './SideMenu.js';
+import CustomEditControl from './CustomEditControl.js';
+import { MapContainer, useMapEvents, FeatureGroup, Rectangle } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-draw/dist/leaflet.draw.css';
+import styles from '../Style/Carto.module.css';
+import { CRS } from 'leaflet';
+import { Marker } from 'react-leaflet';
+import L from 'leaflet';
+
+/**
+ * Draw the zones on the map
+ * @param {*} zones
+ * @returns the zones on the map
+ */
+function DrawZones(zones) {
+    const cellWidth = zones.width / zones.nbcolumn;
+    const cellHeight = zones.height / zones.nbline;
+    const cells = [];
+
+    // Draw the name of the zone on the top center of the zone
+    const markerIcon = L.divIcon({
+        className: "my-custom-icon",
+        html: `${zones.name}`
+    });
+    let markerPosition;
+    // Condition to place the marker on the top center of the zone
+    if (zones.nbline > zones.nbcolumn) {
+        markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
+    } else {
+        markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline/2];
+    }
+    cells.push(
+        &lt;Marker position={markerPosition} icon={markerIcon} />
+    );
+
+    // Draw the id of the zone on the top left of the zone
+    const markerIconId = L.divIcon({
+        className: "my-custom-icon",
+        html: `${zones.zone_id}`
+    });
+    let markerPositionId;
+    // Condition to place the marker on the top left of the zone
+    if (zones.nbline > zones.nbcolumn) {
+        markerPositionId = [zones.y + (cellHeight * zones.nbline) + cellHeight * 3, zones.x + cellWidth / 2 * zones.nbcolumn + 2];
+    } else {
+        markerPositionId = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 3, zones.x + cellHeight / 2 * zones.nbline/2 + 2];
+    }
+    cells.push(
+        &lt;Marker position={markerPositionId} icon={markerIconId} />
+    );
+
+    for (let i = 0; i &lt; zones.nbline; i++) {
+        for (let j = 0; j &lt; zones.nbcolumn; j++) {
+            const x = zones.x + j * cellWidth;
+            const y = zones.y + i * cellHeight;
+            cells.push(
+                &lt;Rectangle
+                    key={`${zones.zones_id}-${i}-${j}`}
+                    bounds={[[y, x], [y + cellHeight, x + cellWidth]]}
+                    color="blue"
+                />
+            );
+            if (j === 0) {
+                const markerIcon = L.divIcon({
+                    className: "my-custom-icon", // optional, you can use it to style the DivIcon
+                    html: `${i + 1}`
+                });
+                let markerPosition = zones.nbline > zones.nbcolumn ? [y + cellHeight / 2, x - cellHeight / 2] : [y + cellHeight / 2, x - cellWidth / 2];
+                cells.push(
+                    &lt;Marker position={markerPosition} icon={markerIcon} />
+                );
+            }
+            if (i === zones.nbline - 1) {
+                const markerIcon = L.divIcon({
+                    className: "my-custom-icon", // optional, you can use it to style the DivIcon
+                    html: `${j + 1}`
+                });
+                let markerPosition = zones.nbline > zones.nbcolumn ? [y + cellHeight * 1.5, x + cellWidth / 2] : [y + cellHeight * 1.2, x + cellWidth / 2];
+                cells.push(
+                    &lt;Marker key={`${i}-${j}`} position={markerPosition} icon={markerIcon} />
+                );
+            }
+        }
+    }
+
+    return cells;
+}
+
+function MousePosition() {
+    const [position, setPosition] = useState(null);
+    useMapEvents({
+        mousemove: (e) => {
+            setPosition(e.latlng);
+        },
+    });
+
+    return position ? (
+        &lt;p className={styles.mouseposition}>
+            X: {position.lat.toFixed(2)}, Y: {position.lng.toFixed(2)}
+        &lt;/p>
+    ) : null;
+}
+
+function Carto() {
+    const [zones, setZones] = useState([]);
+
+    const fetchZones = () => {
+        // Récupère les zones de la base de données
+        const token = localStorage.getItem('token');
+        fetch(process.env.REACT_APP_API_IP + '/zones', {
+            method: 'GET',
+            headers: {
+                'Authorization': `${token}`
+            },
+            credentials: 'include'
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            }
+            )
+            .then(data => {
+                setZones(data);
+            }
+            )
+            .catch(err => {
+                console.log(err);
+            }
+            );
+    };
+
+    useEffect(() => {
+        fetchZones();
+        // Add a listener for events to update the zones every time a new zone is added
+        const updateZones = () => {
+            fetchZones();
+        };
+        window.addEventListener('newZoneAdded', updateZones);
+        window.addEventListener('zoneDeleted', updateZones);
+        window.addEventListener('zoneEdited', updateZones);
+        // Delete the event listener when the component is unmounted
+        return () => {
+            window.removeEventListener('newZoneAdded', updateZones);
+            window.removeEventListener('zoneDeleted', updateZones);
+            window.removeEventListener('zoneEdited', updateZones);
+        };
+    }, []);
+
+    return (
+        &lt;>
+            &lt;SideMenu />
+            &lt;div className={styles.container}>
+                &lt;h1 className={styles.title}>Éditeur de cartographie&lt;/h1>
+                &lt;MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple}>
+                    &lt;FeatureGroup>
+                        {zones.map((zone, index) => (
+                            &lt;React.Fragment key={index}>
+                                {DrawZones(zone)}
+                            &lt;/React.Fragment>
+                        ))}
+                        &lt;CustomEditControl />
+                    &lt;/FeatureGroup>
+                    &lt;MousePosition />
+                &lt;/MapContainer>
+            &lt;/div>
+        &lt;/>
+    );
+}
+
+export default Carto;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CustomEditControl.html">CustomEditControl</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateZoneModal">CreateZoneModal</a></li><li><a href="global.html#DeleteZoneModal">DeleteZoneModal</a></li><li><a href="global.html#DrawZones">DrawZones</a></li><li><a href="global.html#EditZoneModal">EditZoneModal</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#MyAccount">MyAccount</a></li><li><a href="global.html#Parameters">Parameters</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#root">root</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 03 2024 17:12:27 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
