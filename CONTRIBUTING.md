@@ -5,9 +5,10 @@ Nous vous remercions de votre intérêt à contribuer à ce projet ! Voici quelq
 ## Configuration de l'environnement de développement
 
 1. Clonez le dépôt
-2. Aller dans le dossier 'API' et faire `npm install` ainsi que `npm start` pour lancer l'API
-3. Aller dans le dossier  'webapp' et faire `npm install` ainsi que `npm start` pour lancer l'application REACT
-4. Lancez les tests avec `npm run test` dans chacun des dossier si vous voulez exécuter les tests
+2. DockerIl suffit de lancer le docker compose pour conteneuriser chaque partie de l'application.
+3. Aller dans le dossier 'API' et faire `npm install` ainsi que `npm start` pour lancer l'API
+4. Aller dans le dossier  'webapp' et faire `npm install` ainsi que `npm start` pour lancer l'application REACT
+5. Lancez les tests avec `npm run test` dans chacun des dossier si vous voulez exécuter les tests
 
 ## Signaler un bug
 
