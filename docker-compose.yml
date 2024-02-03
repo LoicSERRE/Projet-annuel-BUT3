@@ -26,5 +26,15 @@ services:
     image: sae_api_doc
     container_name: sae_api_doc
     ports:
-      - "3002:3002"
+      - "3002:80"
+    restart: always
+
+  webapp_doc:
+    build:
+      context: ./webapp/doc
+      dockerfile: sae-webapp-doc.Dockerfile
+    image: sae_webapp_doc
+    container_name: sae_webapp_doc
+    ports:
+      - "3003:80"
     restart: always
