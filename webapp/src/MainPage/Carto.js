@@ -14,7 +14,7 @@ import L from 'leaflet';
  * @param {*} zones
  * @returns the zones on the map
  */
-function DrawZones(zones) {
+function DrawZones(zones, zoomLevel) {
     const cellWidth = zones.width / zones.nbcolumn;
     const cellHeight = zones.height / zones.nbline;
     const cells = [];
@@ -26,14 +26,16 @@ function DrawZones(zones) {
     });
     let markerPosition;
     // Condition to place the marker on the top center of the zone
-    if (zones.nbline > zones.nbcolumn) {
-        markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
-    } else {
-        markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline/2];
+    if (zoomLevel >= 1) {
+        if (zones.nbline > zones.nbcolumn) {
+            markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
+        } else {
+            markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline / 2];
+        }
+        cells.push(
+            <Marker position={markerPosition} icon={markerIcon} />
+        );
     }
-    cells.push(
-        <Marker position={markerPosition} icon={markerIcon} />
-    );
 
     // Draw the id of the zone on the top left of the zone
     const markerIconId = L.divIcon({
@@ -62,7 +64,8 @@ function DrawZones(zones) {
                     color="blue"
                 />
             );
-            if (j === 0) {
+
+            if (j === 0 && zoomLevel >= 1) {
                 const markerIcon = L.divIcon({
                     className: "my-custom-icon", // optional, you can use it to style the DivIcon
                     html: `${i + 1}`
@@ -72,7 +75,7 @@ function DrawZones(zones) {
                     <Marker position={markerPosition} icon={markerIcon} />
                 );
             }
-            if (i === zones.nbline - 1) {
+            if (i === zones.nbline - 1 && zoomLevel >= 1) {
                 const markerIcon = L.divIcon({
                     className: "my-custom-icon", // optional, you can use it to style the DivIcon
                     html: `${j + 1}`
@@ -88,6 +91,25 @@ function DrawZones(zones) {
     return cells;
 }
 
+/**
+ * This function is used to update the zoom level and do actions depending on the zoom level
+ * @param {*} param0
+ * @returns
+ */
+function ZoomLevelUpdater({ setZoomLevel }) {
+    const map = useMapEvents({
+        zoomend: () => {
+            setZoomLevel(map.getZoom());
+        },
+    });
+
+    return null;
+}
+
+/**
+ * Return the mouse position to display it on the map
+ * @returns 
+ */
 function MousePosition() {
     const [position, setPosition] = useState(null);
     useMapEvents({
@@ -103,11 +125,16 @@ function MousePosition() {
     ) : null;
 }
 
+/**
+ * The main component of the cartography page
+ * @returns the cartography page
+ */
 function Carto() {
     const [zones, setZones] = useState([]);
+    const [zoomLevel, setZoomLevel] = useState(1);
 
     const fetchZones = () => {
-        // Récupère les zones de la base de données
+        // Get the zones from the database
         const token = localStorage.getItem('token');
         fetch(process.env.REACT_APP_API_IP + '/zones', {
             method: 'GET',
@@ -117,6 +144,49 @@ function Carto() {
             credentials: 'include'
         })
             .then(res => {
+                if(res.status === 401) {
+                    // Get the new token with the refresh token
+                    fetch(process.env.REACT_APP_API_IP + '/refreshToken', {
+                        method: 'POST',
+                        headers: {
+                            'x-refresh-token': `${token}`
+                        },
+                        credentials: 'include'
+                    })
+                    .then(res => {
+                        if (res.status === 401) {
+                            window.location.href = '/login';
+                        }
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        localStorage.setItem('token', data.token);
+                    })
+
+                    // Get the zones from the database
+                    fetch(process.env.REACT_APP_API_IP + '/zones', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `${token}`
+                        },
+                        credentials: 'include'
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        setZones(data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                }
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
@@ -155,11 +225,12 @@ function Carto() {
             <SideMenu />
             <div className={styles.container}>
                 <h1 className={styles.title}>Éditeur de cartographie</h1>
-                <MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple}>
+                <MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple} minZoom={-1} maxZoom={3}>
+                    <ZoomLevelUpdater setZoomLevel={setZoomLevel} />
                     <FeatureGroup>
                         {zones.map((zone, index) => (
                             <React.Fragment key={index}>
-                                {DrawZones(zone)}
+                                {DrawZones(zone, zoomLevel)}
                             </React.Fragment>
                         ))}
                         <CustomEditControl />
