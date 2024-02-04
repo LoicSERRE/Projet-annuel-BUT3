@@ -116,7 +116,6 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 Étant donner que tout est conteneurisé grâce à un docker-compose, il vous suffira de taper la commande `docker-compose up` dans le répértoite ou se trouve le fichier *docker-compose.yml* pour lancer chaque service de l'application.
 
-
 ## Configuration
 
 * Main : `index.js`
@@ -337,7 +336,6 @@ Dictionnaire de données :
   * `id` : Clé primaire, entier, auto-incrémenté
   * `token` : Texte, non nul
 
-
 # Suivis de projet
 
 | Tâche                                                       | Description                                                                                                                                                                                                                                                                       | Date de début | Date de fin | Nombre d'heures |
@@ -392,17 +390,18 @@ Dictionnaire de données :
 | Gestion des autorisations dans la cartographie               | Rajout des autorisations dans le token de l'utilisateur pour pouvoir connaitre ses autorisations. Cela permet d'avoir qu'un seul fichier de configuration des roles.<br />De plus lorsqu'un utilisateur est sur la carto, il ne s'affichera que les boutons dont il a les droits. | 21/01/2024     | 21/01/2024  | 3               |
 | Style de l'application                                       | Gestion du responsive de la page principale, ainsi que quelque autre modification de style                                                                                                                                                                                        | 22/01/2024     | 22/01/2024  | 2               |
 | Mise en place de la documentaion de la webapp                | Fichier de parametre pour la génération de l'application, dockerfile pour la conteneurisation, ainsi que l'ajout dans le docker-compose                                                                                                                                         | 03/02/2024     | 03/02/2024  | 1.5             |
+| Amélioration de l'affichage de la cartographie              | Mise en place d'un système d'affichage dynamique, pour afficher certaine information ou non en fonction du niveau de zoom, pour éviter les encombrements visuel                                                                                                                 | 04/02/2024     | 04/02/2024  | 2               |
 | Mise en place Websocket                                      | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                                                                                                              |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 103.75 |
+| Total des heures                        | 105.75 |
 | --------------------------------------- | ------ |
 | Initialisation du projet                | 2.5    |
 | Documents de suivis de projet           | 5      |
 | Base de données                        | 1.5    |
 | Développement de l'API                 | 25.25  |
-| Développement de l'application web     | 61     |
+| Développement de l'application web     | 63     |
 | CI/CD                                   | 8.5    |
 | Développement de l'application desktop | 0      |
 | Revue de projet                         | 0      |
