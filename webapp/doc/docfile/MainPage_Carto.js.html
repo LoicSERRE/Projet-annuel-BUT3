@@ -42,7 +42,7 @@ import L from 'leaflet';
  * @param {*} zones
  * @returns the zones on the map
  */
-function DrawZones(zones) {
+function DrawZones(zones, zoomLevel) {
     const cellWidth = zones.width / zones.nbcolumn;
     const cellHeight = zones.height / zones.nbline;
     const cells = [];
@@ -54,14 +54,16 @@ function DrawZones(zones) {
     });
     let markerPosition;
     // Condition to place the marker on the top center of the zone
-    if (zones.nbline > zones.nbcolumn) {
-        markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
-    } else {
-        markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline/2];
+    if (zoomLevel >= 1) {
+        if (zones.nbline > zones.nbcolumn) {
+            markerPosition = [zones.y + (cellHeight * zones.nbline) + cellHeight * 2, zones.x + cellWidth / 2 * zones.nbcolumn];
+        } else {
+            markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline / 2];
+        }
+        cells.push(
+            &lt;Marker position={markerPosition} icon={markerIcon} />
+        );
     }
-    cells.push(
-        &lt;Marker position={markerPosition} icon={markerIcon} />
-    );
 
     // Draw the id of the zone on the top left of the zone
     const markerIconId = L.divIcon({
@@ -90,7 +92,8 @@ function DrawZones(zones) {
                     color="blue"
                 />
             );
-            if (j === 0) {
+
+            if (j === 0 &amp;&amp; zoomLevel >= 1) {
                 const markerIcon = L.divIcon({
                     className: "my-custom-icon", // optional, you can use it to style the DivIcon
                     html: `${i + 1}`
@@ -100,7 +103,7 @@ function DrawZones(zones) {
                     &lt;Marker position={markerPosition} icon={markerIcon} />
                 );
             }
-            if (i === zones.nbline - 1) {
+            if (i === zones.nbline - 1 &amp;&amp; zoomLevel >= 1) {
                 const markerIcon = L.divIcon({
                     className: "my-custom-icon", // optional, you can use it to style the DivIcon
                     html: `${j + 1}`
@@ -116,6 +119,25 @@ function DrawZones(zones) {
     return cells;
 }
 
+/**
+ * This function is used to update the zoom level and do actions depending on the zoom level
+ * @param {*} param0 zoomLevel for the map
+ * @returns The zoom level updater, null if the zoom level is not updated
+ */
+function ZoomLevelUpdater({ setZoomLevel }) {
+    const map = useMapEvents({
+        zoomend: () => {
+            setZoomLevel(map.getZoom());
+        },
+    });
+
+    return null;
+}
+
+/**
+ * Return the mouse position to display it on the map
+ * @returns the mouse position with the X and Y coordinates
+ */
 function MousePosition() {
     const [position, setPosition] = useState(null);
     useMapEvents({
@@ -131,11 +153,16 @@ function MousePosition() {
     ) : null;
 }
 
+/**
+ * The main component of the cartography page
+ * @returns the cartography page
+ */
 function Carto() {
     const [zones, setZones] = useState([]);
+    const [zoomLevel, setZoomLevel] = useState(1);
 
     const fetchZones = () => {
-        // Récupère les zones de la base de données
+        // Get the zones from the database
         const token = localStorage.getItem('token');
         fetch(process.env.REACT_APP_API_IP + '/zones', {
             method: 'GET',
@@ -145,6 +172,49 @@ function Carto() {
             credentials: 'include'
         })
             .then(res => {
+                if(res.status === 401) {
+                    // Get the new token with the refresh token
+                    fetch(process.env.REACT_APP_API_IP + '/refreshToken', {
+                        method: 'POST',
+                        headers: {
+                            'x-refresh-token': `${token}`
+                        },
+                        credentials: 'include'
+                    })
+                    .then(res => {
+                        if (res.status === 401) {
+                            window.location.href = '/login';
+                        }
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        localStorage.setItem('token', data.token);
+                    })
+
+                    // Get the zones from the database
+                    fetch(process.env.REACT_APP_API_IP + '/zones', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `${token}`
+                        },
+                        credentials: 'include'
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        setZones(data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                }
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
@@ -183,11 +253,12 @@ function Carto() {
             &lt;SideMenu />
             &lt;div className={styles.container}>
                 &lt;h1 className={styles.title}>Éditeur de cartographie&lt;/h1>
-                &lt;MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple}>
+                &lt;MapContainer className={styles.mapContainer} center={[100, 100]} zoom={2} style={{ height: "90vh", width: "95%" }} crs={CRS.Simple} minZoom={-1} maxZoom={3}>
+                    &lt;ZoomLevelUpdater setZoomLevel={setZoomLevel} />
                     &lt;FeatureGroup>
                         {zones.map((zone, index) => (
                             &lt;React.Fragment key={index}>
-                                {DrawZones(zone)}
+                                {DrawZones(zone, zoomLevel)}
                             &lt;/React.Fragment>
                         ))}
                         &lt;CustomEditControl />
@@ -210,13 +281,13 @@ export default Carto;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CustomEditControl.html">CustomEditControl</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateZoneModal">CreateZoneModal</a></li><li><a href="global.html#DeleteZoneModal">DeleteZoneModal</a></li><li><a href="global.html#DrawZones">DrawZones</a></li><li><a href="global.html#EditZoneModal">EditZoneModal</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#MyAccount">MyAccount</a></li><li><a href="global.html#Parameters">Parameters</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#root">root</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CustomEditControl.html">CustomEditControl</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Carto">Carto</a></li><li><a href="global.html#CreateZoneModal">CreateZoneModal</a></li><li><a href="global.html#DeleteZoneModal">DeleteZoneModal</a></li><li><a href="global.html#DrawZones">DrawZones</a></li><li><a href="global.html#EditZoneModal">EditZoneModal</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#Information">Information</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#MousePosition">MousePosition</a></li><li><a href="global.html#MyAccount">MyAccount</a></li><li><a href="global.html#Parameters">Parameters</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#ZoomLevelUpdater">ZoomLevelUpdater</a></li><li><a href="global.html#root">root</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 03 2024 17:12:27 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Feb 04 2024 21:14:47 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

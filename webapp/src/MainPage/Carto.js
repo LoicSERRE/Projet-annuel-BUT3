@@ -93,8 +93,8 @@ function DrawZones(zones, zoomLevel) {
 
 /**
  * This function is used to update the zoom level and do actions depending on the zoom level
- * @param {*} param0
- * @returns
+ * @param {*} param0 zoomLevel for the map
+ * @returns The zoom level updater, null if the zoom level is not updated
  */
 function ZoomLevelUpdater({ setZoomLevel }) {
     const map = useMapEvents({
@@ -108,7 +108,7 @@ function ZoomLevelUpdater({ setZoomLevel }) {
 
 /**
  * Return the mouse position to display it on the map
- * @returns 
+ * @returns the mouse position with the X and Y coordinates
  */
 function MousePosition() {
     const [position, setPosition] = useState(null);
