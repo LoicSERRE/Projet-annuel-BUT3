@@ -5,7 +5,7 @@ image: node:latest
 stages:
   - install
   - build
-  - test
+  - tests
   - deploy
 
 API:
@@ -31,14 +31,14 @@ API_build:
     changes:
       - API/**/*
 
-# API_test:
-#   stage: test
-#   script:
-#     - cd API
-#     - npx mocha
-#   only:
-#     changes:
-#       - API/**/*
+API_test:
+  stage: tests
+  script:
+    - cd API
+    - npm test
+  only:
+    changes:
+      - API/**/*
 
 
 # ----------------------------------- Webapp Install/Build/Test -----------------------------------
@@ -66,10 +66,10 @@ webapp_build:
       - webapp/**/*
 
 # webapp_test:
-#   stage: test
+#   stage: tests
 #   script:
 #     - cd webapp
-#     - npx react-scripts test
+#     - npm test
 #   only:
 #     changes:
 #       - webapp/**/*
