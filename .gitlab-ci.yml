@@ -5,7 +5,7 @@ image: node:latest
 stages:
   - install
   - build
-  - tests
+  - test
   - deploy
 
 API:
@@ -32,7 +32,7 @@ API_build:
       - API/**/*
 
 API_test:
-  stage: tests
+  stage: test
   script:
     - cd API
     - npm test
