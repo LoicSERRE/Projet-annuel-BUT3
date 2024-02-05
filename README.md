@@ -67,7 +67,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [ ] Réalisation de la page des paramètres de l'application
     - [X] Réalisation de la page d'aide
     - [X] Réalisation de la page à propos
-  - [ ] Génération de la documentation de l'application web
+  - [X] Génération de la documentation de l'application web
 
 ###### Développement de l'application desktop
 
@@ -86,14 +86,14 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 ###### CI/CD
 
 - [ ] Mise en place du CI/CD
-  - [ ] Mise en place du CI/CD pour l'API
+  - [X] Mise en place du CI/CD pour l'API
     - [X] Installation des dépendances dans le CI/CD
     - [X] Génération de la construction de l'API dans le CI/CD
-    - [ ] Mise en place des tests dans le CI/CD
-  - [ ] Mise en place du CI/CD pour l'application web
+    - [X] Mise en place des tests dans le CI/CD
+  - [X] Mise en place du CI/CD pour l'application web
     - [X] Installation des dépendances dans le CI/CD*
     - [X] Génération de la construction de l'application web dans le CI/CD
-    - [ ] Mise en place des tests dans le CI/CD
+    - [X] Mise en place des tests dans le CI/CD
   - [ ] Mise en place du CI/CD pour l'application desktop
     - [ ] Installation des dépendances dans le CI/CD
     - [ ] Génération de la construction de l'application desktop dans le CI/CD
@@ -393,17 +393,18 @@ Dictionnaire de données :
 | Amélioration de l'affichage de la cartographie                        | Mise en place d'un système d'affichage dynamique, pour afficher certaine information ou non en fonction du niveau de zoom, pour éviter les encombrements visuel                                                                                                                 | 04/02/2024     | 04/02/2024  | 2               |
 | Début des test pour l'application web                                 | Mise en place des tests de toute la partie connexion                                                                                                                                                                                                                              | 04/02/2024     | 05/02/2024  | 2               |
 | Mise en place du fonctionnement du refresh token dans la partie client | Modification des requetes pour rajouter la fonctionalités du refresh token                                                                                                                                                                                                       | 04/02/2024     | 04/02/2024  | 2               |
+| Test des modales de l'application                                      | Test des 3 différentes modales qui permettent d'ajouter, de modifier et de supprimer une zones sur la cartographie                                                                                                                                                               | 05/02/2024     | 05/02/2024  | 2               |
 | Mise en place Websocket                                                | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                                                                                                              |                |             |                 |
 
 ## Total des heures
 
-| Total des heures                        | 109.75 |
+| Total des heures                        | 112.25 |
 | --------------------------------------- | ------ |
 | Initialisation du projet                | 2.5    |
-| Documents de suivis de projet           | 5      |
+| Documents de suivis de projet           | 5.5    |
 | Base de données                        | 1.5    |
 | Développement de l'API                 | 25.25  |
-| Développement de l'application web     | 67     |
+| Développement de l'application web     | 69     |
 | CI/CD                                   | 8.5    |
 | Développement de l'application desktop | 0      |
 | Revue de projet                         | 0      |
