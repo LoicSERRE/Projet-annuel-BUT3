@@ -35,6 +35,7 @@ API_test:
   stage: tests
   script:
     - cd API
+    - npm install -g mocha
     - npm test
   only:
     changes:
