@@ -36,6 +36,7 @@ API_test:
   script:
     - cd API
     - npm install -g mocha
+    - npm install -g chai
     - npm test
   only:
     changes:
