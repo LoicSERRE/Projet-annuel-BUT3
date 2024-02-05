@@ -67,14 +67,16 @@ webapp_build:
     changes:
       - webapp/**/*
 
-# webapp_test:
-#   stage: tests
-#   script:
-#     - cd webapp
-#     - npm test
-#   only:
-#     changes:
-#       - webapp/**/*
+webapp_test:
+  stage: tests
+  script:
+    - cd webapp
+    - npm install --save-dev mocha
+    - npm install --save-dev chai
+    - npm test
+  only:
+    changes:
+      - webapp/**/*
 
 # ----------------------------------- API and webapp hosting -----------------------------------
 deploy_API:
