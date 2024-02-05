@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styles from '../Style/ZoneModal.module.css';
+import { getRefreshToken } from '../Login/GetRefreshToken';
 
 Modal.setAppElement('#root');
 
@@ -41,7 +42,44 @@ function EditZoneModal({ isOpen, onRequestClose }) {
             })
         })
             .then(res => {
-                console.log(res);
+                if(res.status === 401) {
+                    getRefreshToken();
+
+                    // Edit the zone in the database
+                    fetch(process.env.REACT_APP_API_IP + '/zones/' + id, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `${localStorage.getItem('token')}`
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            name: name,
+                            x: xcoord,
+                            y: ycoord,
+                            nbline: numRows,
+                            nbcolumn: numCols,
+                            height: height,
+                            width: width
+                        })
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        onRequestClose();
+                        // Make the event 'zoneEdited' to update the map
+                        window.dispatchEvent(new Event('zoneEdited'));
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                }
+
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
@@ -76,13 +114,31 @@ function EditZoneModal({ isOpen, onRequestClose }) {
             credentials: 'include'
         })
             .then(res => {
+                if(res.status === 401) {
+                    getRefreshToken();
+
+                    // Get the zone from its id to initialize the fields
+                    fetch(process.env.REACT_APP_API_IP + '/zones?id=' + id, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `${localStorage.getItem('token')}`
+                        },
+                        credentials: 'include'
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                }
+
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 return res.json();
             })
             .then(data => {
-                console.log(data[0].name);
                 setName(data[0].name);
                 setXcoord(data[0].x);
                 setYcoord(data[0].y);
@@ -115,10 +171,6 @@ function EditZoneModal({ isOpen, onRequestClose }) {
                     </form>
                 ) : (
                     <form onSubmit={handleSubmit} className={styles.modalcreate}>
-                        <label className={styles.label}>
-                            ID :
-                            <input type="number" value={id} onChange={e => setId(e.target.value)} />
-                        </label>
                         <label className={styles.label}>
                             Nom :
                             <input type="text" value={name} onChange={e => setName(e.target.value)} />

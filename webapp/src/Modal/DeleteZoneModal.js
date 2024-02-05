@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styles from '../Style/ZoneModal.module.css';
+import { getRefreshToken } from '../Login/GetRefreshToken';
 
 Modal.setAppElement('#root');
 
@@ -23,6 +24,32 @@ function DeleteZoneModal({ isOpen, onRequestClose }) {
             credentials: 'include'
         })
             .then(res => {
+                if (res.status === 401) {
+                    getRefreshToken();
+                    
+                    // Delete the zone from the database
+                    fetch(process.env.REACT_APP_API_IP + '/zones/' + id, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `${localStorage.getItem('token')}`
+                        },
+                        credentials: 'include'
+                    })
+                        .then(res => {
+                            if (!res.ok) {
+                                throw new Error(`HTTP error! status: ${res.status}`);
+                            }
+                            return res.json();
+                        })
+                        .then(data => {
+                            onRequestClose();
+                            // Make the event 'newZoneDeleted' to update the map
+                            window.dispatchEvent(new Event('zoneDeleted'));
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                }
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }

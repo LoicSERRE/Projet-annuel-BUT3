@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styles from '../Style/ZoneModal.module.css';
+import { getRefreshToken } from '../Login/GetRefreshToken';
 
 Modal.setAppElement('#root');
 
@@ -23,7 +24,6 @@ function CreateZoneModal({ isOpen, onRequestClose }) {
         fetch(process.env.REACT_APP_API_IP + '/zones', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': `${localStorage.getItem('token')}`
             },
             credentials: 'include',
@@ -38,7 +38,42 @@ function CreateZoneModal({ isOpen, onRequestClose }) {
             })
         })
             .then(res => {
-                console.log(res);
+                if(res === 401) {
+                    getRefreshToken();
+
+                    // Add the zone to the database and close the modal
+                    fetch(process.env.REACT_APP_API_IP + '/zones', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `${localStorage.getItem('token')}`
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            name: name,
+                            x: xcoord,
+                            y: ycoord,
+                            nbline: numRows,
+                            nbcolumn: numCols,
+                            height: height,
+                            width: width
+                        })
+                    })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error(`HTTP error! status: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        onRequestClose();
+                        // Make the event 'newZoneAdded' to update the map
+                        window.dispatchEvent(new Event('newZoneAdded'));
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                }
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
