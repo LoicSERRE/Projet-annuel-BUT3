@@ -3,6 +3,13 @@ import Modal from 'react-modal';
 import styles from '../Style/ZoneModal.module.css';
 import { getRefreshToken } from '../Login/GetRefreshToken';
 
+// In the case of testing, we need to define the root element to avoid an error
+if (!document.querySelector('#root')) {
+    const root = document.createElement('div');
+    root.id = 'root';
+    document.body.appendChild(root);
+}
+
 Modal.setAppElement('#root');
 
 /**
