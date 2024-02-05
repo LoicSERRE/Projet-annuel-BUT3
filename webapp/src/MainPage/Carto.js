@@ -8,6 +8,7 @@ import styles from '../Style/Carto.module.css';
 import { CRS } from 'leaflet';
 import { Marker } from 'react-leaflet';
 import L from 'leaflet';
+import { getRefreshToken } from '../Login/GetRefreshToken.js';
 
 /**
  * Draw the zones on the map
@@ -146,25 +147,7 @@ function Carto() {
             .then(res => {
                 if(res.status === 401) {
                     // Get the new token with the refresh token
-                    fetch(process.env.REACT_APP_API_IP + '/refreshToken', {
-                        method: 'POST',
-                        headers: {
-                            'x-refresh-token': `${token}`
-                        },
-                        credentials: 'include'
-                    })
-                    .then(res => {
-                        if (res.status === 401) {
-                            window.location.href = '/login';
-                        }
-                        if (!res.ok) {
-                            throw new Error(`HTTP error! status: ${res.status}`);
-                        }
-                        return res.json();
-                    })
-                    .then(data => {
-                        localStorage.setItem('token', data.token);
-                    })
+                    getRefreshToken();
 
                     // Get the zones from the database
                     fetch(process.env.REACT_APP_API_IP + '/zones', {
