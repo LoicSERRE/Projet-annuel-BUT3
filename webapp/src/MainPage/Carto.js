@@ -121,7 +121,7 @@ function MousePosition() {
 
     return position ? (
         <p className={styles.mouseposition}>
-            X: {position.lat.toFixed(2)}, Y: {position.lng.toFixed(2)}
+            X: {position.lng.toFixed(2)}, Y: {position.lat.toFixed(2)}
         </p>
     ) : null;
 }
