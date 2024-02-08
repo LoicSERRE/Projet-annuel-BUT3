@@ -79,19 +79,19 @@ webapp_test:
       - webapp/**/*
 
 # ----------------------------------- API and webapp hosting -----------------------------------
-deploy_API:
+deploy_all:
   stage: deploy
   script:
-    - echo "Deploying API to server..."
-  only:
-    refs:
-      - master
-
-deploy_webapp:
-  stage: deploy
-  script:
-    - echo "Deploying webapp to server..."
-  only:
-    refs:
-      - master
-
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - 'which rsync || ( apt-get update -y && apt-get install rsync -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh -v lolo@next-vertices.com
+    - rsync -avz --delete ./ lolo@next-vertices.com:/home/lolo/sae
+    rules:
+      - changes:
+        - "*"
+      when: always
