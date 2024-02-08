@@ -69,42 +69,25 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [X] Réalisation de la page à propos
   - [X] Génération de la documentation de l'application web
 
-###### Développement de l'application desktop
-
-- [ ] Création de l'application desktop
-  - [ ] Choix du framework
-  - [ ] Initialisation du projet
-  - [ ] Création de la page de connexion
-  - [ ] Génération de la cartographie par rapport à la base de données
-  - [ ] Développement des fonctionnalités de la cartographie
-    - [ ] Déplacement des conteneurs
-    - [ ] Suppression des conteneurs
-    - [ ] Ajout de conteneurs
-    - [ ] Modification des conteneurs
-  - [ ] Génération de la documentation de l'application desktop
-
 ###### CI/CD
 
 - [ ] Mise en place du CI/CD
+
   - [X] Mise en place du CI/CD pour l'API
+
     - [X] Installation des dépendances dans le CI/CD
     - [X] Génération de la construction de l'API dans le CI/CD
     - [X] Mise en place des tests dans le CI/CD
   - [X] Mise en place du CI/CD pour l'application web
+
     - [X] Installation des dépendances dans le CI/CD*
     - [X] Génération de la construction de l'application web dans le CI/CD
     - [X] Mise en place des tests dans le CI/CD
-  - [ ] Mise en place du CI/CD pour l'application desktop
-    - [ ] Installation des dépendances dans le CI/CD
-    - [ ] Génération de la construction de l'application desktop dans le CI/CD
-    - [ ] Mise en place des tests dans le CI/CD
   - [X] Réalisation d'un docker compose
   - [ ] Hébergement de l'API
   - [ ] Hébergement de l'application web
-  - [ ] Hébergement de l'application desktop
   - [ ] Hébergement de la documentation de l'API
   - [ ] Hébergement de la documentation de l'application web
-  - [ ] Hébergement de la documentation de l'application desktop
 
 ###### Revue de projet
 
@@ -281,9 +264,17 @@ Je vais vous faire une brève description des différentes pages de l'applicatio
 
 ###### Documentation de l'application web
 
+- Si vous voulez voir la documentation de l'application web, rien de plus simple, il suffit d'aller dans le dossier webapp puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
+- Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
+  - ```
+    npx jsdoc -c parameter.json
+    ```
+
 ###### Jeux de test
 
-## Guide d'utilisation de l'application desktop
+Des jeux de test sont présent dans l'application web, pour les executer il suffit de faire :
+
+- `npm test`
 
 # Analyse et conception
 
@@ -340,6 +331,7 @@ Dictionnaire de données :
 
 | Tâche                                                                 | Description                                                                                                                                                                                                                                                                       | Date de début | Date de fin | Nombre d'heures |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | --------------- |
+| Rendez-vous avec le tuteur SAE                                         | Rendez-vous pour validation du sujet de la SAE                                                                                                                                                                                                                                    | 06/12/2023     | 06/12/2023  | 2               |
 | Initialisation du projet                                               | Configuration du projet (npm init,<br />ajout des différents fichiers qui seront utiles, document de gestion de projet...)                                                                                                                                                       | 14/12/2023     | 14/12/2023  | 2               |
 | Création de la base de données                                       | Création d'une fonction JavaScript permettant<br />de gérer les différentes tables de la base de données et également d'y mettre des données de test pour le développement de l'API.                                                                                       | 14/12/2023     | 15/12/2023  | 1.5             |
 | Création du dockerfile                                                | Fichier Dockerfile pour pouvoir virtualiser l'api et l'utiliser plus facilement quand elle sera finis                                                                                                                                                                             | 15/12/2023     | 15/12/2023  | 0.5             |
@@ -394,17 +386,18 @@ Dictionnaire de données :
 | Début des test pour l'application web                                 | Mise en place des tests de toute la partie connexion                                                                                                                                                                                                                              | 04/02/2024     | 05/02/2024  | 2               |
 | Mise en place du fonctionnement du refresh token dans la partie client | Modification des requetes pour rajouter la fonctionalités du refresh token                                                                                                                                                                                                       | 04/02/2024     | 04/02/2024  | 2               |
 | Test des modales de l'application                                      | Test des 3 différentes modales qui permettent d'ajouter, de modifier et de supprimer une zones sur la cartographie                                                                                                                                                               | 05/02/2024     | 05/02/2024  | 2               |
-| Mise en place Websocket                                                | Mise en place de websocket entre l'api et l'application web pour que la cartographie se mette à jour en temps réel                                                                                                                                                              |                |             |                 |
+| Rendez-vous avec le tuteur SAE                                         | Rendez-vous pour faire un point sur l'avancement de la SAE, ainsi que sur les rendus attendus                                                                                                                                                                                     | 07/02/2024     | 07/02/2024  | 2               |
+| CI/CD                                                                  | Mise en place de la copie des fichiers vers le serveur pour pouvoir lancer le docker compose et déployée l'application                                                                                                                                                          | 03/02/2024     | 09/02/2024  | 6               |
+| Configuration du serveur pour la mise en place du CI/CD                | Mise en place des dossiers/fichier/configuration pour la mise en place du CI/CD                                                                                                                                                                                                   | 03/02/2024     | 08/02/2024  | 3               |
 
 ## Total des heures
 
-| Total des heures                        | 112.25 |
-| --------------------------------------- | ------ |
-| Initialisation du projet                | 2.5    |
-| Documents de suivis de projet           | 5.5    |
-| Base de données                        | 1.5    |
-| Développement de l'API                 | 25.25  |
-| Développement de l'application web     | 69     |
-| CI/CD                                   | 8.5    |
-| Développement de l'application desktop | 0      |
-| Revue de projet                         | 0      |
+| Total des heures                    | 125.25 |
+| ----------------------------------- | ------ |
+| Initialisation du projet            | 2.5    |
+| Documents de suivis de projet       | 5.5    |
+| Base de données                    | 1.5    |
+| Développement de l'API             | 25.25  |
+| Développement de l'application web | 69     |
+| CI/CD                               | 17.5   |
+| Revue de projet                     | 0      |
