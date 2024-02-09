@@ -91,13 +91,11 @@ before_script:
 deploy_job:
   stage: deploy
   script:
-    - echo "Connexion au serveur..."
-    - ssh -v lolo@next-vertices.com
-    - echo "Copie des fichiers du repository vers le serveur..."
+    - echo "Copie des fichiers vers le serveur"
     - rsync -avz --delete ./ lolo@next-vertices.com:/home/lolo/sae
-    - echo "Lancement du docker compose..."
-    - docker compose -f /home/lolo/sae/docker-compose.yml up -d
-    - echo "Fin du déploiement."
+    - echo "Lancement du docker compose sur le serveur distant..."
+    - ssh lolo@next-vertices.com 'cd /home/lolo/sae && docker-compose up -d'
+    - echo "Application déployée vers https://carto.next-vertices.com"
   rules:
     - changes:
         - "*"
