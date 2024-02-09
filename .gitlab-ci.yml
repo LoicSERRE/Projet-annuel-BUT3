@@ -91,8 +91,14 @@ before_script:
 deploy_job:
   stage: deploy
   script:
+    - echo "Connexion au serveur..."
     - ssh -v lolo@next-vertices.com
+    - echo "Copie des fichiers du repository vers le serveur..."
     - rsync -avz --delete ./ lolo@next-vertices.com:/home/lolo/sae
+    - cd sae
+    - echo "Lancement du docker compose..."
+    - sudo docker compose up
+    - echo "Fin du déploiement."
   rules:
     - changes:
         - "*"
