@@ -95,7 +95,7 @@ deploy_job:
     - ssh -v lolo@next-vertices.com
     - echo "Copie des fichiers du repository vers le serveur..."
     - rsync -avz --delete ./ lolo@next-vertices.com:/home/lolo/sae
-    - cd sae
+    - cd /home/lolo/sae
     - echo "Lancement du docker compose..."
     - sudo docker compose up
     - echo "Fin du déploiement."
