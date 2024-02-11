@@ -91,6 +91,8 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ###### Revue de projet
 
+- [X] Réalisation des documents de suivis de projet
+- [X] Réalisation du rapport technique
 - [ ] Réalisation du diaporama de présentation
 
 # Guide d'utilisation
@@ -389,15 +391,18 @@ Dictionnaire de données :
 | Rendez-vous avec le tuteur SAE                                         | Rendez-vous pour faire un point sur l'avancement de la SAE, ainsi que sur les rendus attendus                                                                                                                                                                                     | 07/02/2024     | 07/02/2024  | 2               |
 | CI/CD                                                                  | Mise en place de la copie des fichiers vers le serveur pour pouvoir lancer le docker compose et déployée l'application                                                                                                                                                          | 03/02/2024     | 09/02/2024  | 6               |
 | Configuration du serveur pour la mise en place du CI/CD                | Mise en place des dossiers/fichier/configuration pour la mise en place du CI/CD                                                                                                                                                                                                   | 03/02/2024     | 08/02/2024  | 3               |
+| Rédaction du rapport technique                                        | Rapport technique explicitant comment j'ai mis en oeuvre les compétences C1, C2 et C6                                                                                                                                                                                            | 10/02/2024     | 11/02/2024  | 6.5             |
+| Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 11/02/2024     | 11/02/2024  | 0.5             |
+| Réalisation du powerpoint                                             | Powerpoint permettant d'illustrer mes propos lors de l'oral                                                                                                                                                                                                                       | 10/02/2024     | 13/02/2024  |                 |
 
 ## Total des heures
 
-| Total des heures                    | 125.25 |
+| Total des heures                    | 132.25 |
 | ----------------------------------- | ------ |
 | Initialisation du projet            | 2.5    |
-| Documents de suivis de projet       | 5.5    |
+| Documents de suivis de projet       | 6      |
 | Base de données                    | 1.5    |
 | Développement de l'API             | 25.25  |
 | Développement de l'application web | 69     |
 | CI/CD                               | 17.5   |
-| Revue de projet                     | 0      |
+| Revue de projet                     | 6.5    |
