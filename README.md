@@ -46,7 +46,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ###### Développement de l'application web
 
-- [ ] Création de l'application web
+- [X] Création de l'application web
 
   - [X] Choix du framework
   - [X] Initialisation du projet
@@ -71,7 +71,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 ###### CI/CD
 
-- [ ] Mise en place du CI/CD
+- [X] Mise en place du CI/CD
 
   - [X] Mise en place du CI/CD pour l'API
 
@@ -84,10 +84,10 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
     - [X] Génération de la construction de l'application web dans le CI/CD
     - [X] Mise en place des tests dans le CI/CD
   - [X] Réalisation d'un docker compose
-  - [ ] Hébergement de l'API
-  - [ ] Hébergement de l'application web
-  - [ ] Hébergement de la documentation de l'API
-  - [ ] Hébergement de la documentation de l'application web
+  - [X] Hébergement de l'API
+  - [X] Hébergement de l'application web
+  - [X] Hébergement de la documentation de l'API
+  - [X] Hébergement de la documentation de l'application web
 
 ###### Revue de projet
 
@@ -284,26 +284,31 @@ Diagramme UML de la base de donnée
 
 ```mermaid
 classDiagram
-      zones "1" -- "many" users : contains
-      roles "1" -- "many" users : contains
-      users "1" -- "many" revoked_tokens : contains
-      zones : int id
-      zones : int x
-      zones : int y
-      zones : int width
-      zones : int height
-      zones : int nbline
-      zones : int nbcolumn
-      zones : string name
-      roles : int id
-      roles : string name
-      users : int id
-      users : string username
-      users : string password
-      users : int role_id
-      users --|> roles : has
-      revoked_tokens : int id
-      revoked_tokens : string token
+    class zones {
+        id INTEGER
+        x INTEGER
+        y INTEGER
+        width INTEGER
+        height INTEGER
+        nbline INTEGER
+        nbcolumn INTEGER
+        name TEXT
+    }
+    class roles {
+        id INTEGER
+        name TEXT
+    }
+    class users {
+        id INTEGER
+        username TEXT
+        password TEXT
+        role_id INTEGER
+    }
+    class revoked_tokens {
+        id INTEGER
+        token TEXT
+    }
+    users --|> roles : has 1
 ```
 
 Dictionnaire de données :
@@ -328,6 +333,103 @@ Dictionnaire de données :
 * **Table `revoked_tokens`**
   * `id` : Clé primaire, entier, auto-incrémenté
   * `token` : Texte, non nul
+
+Architecture de l'API :
+
+```mermaid
+classDiagram
+    class HTTPRequest {
+      + GET() : JSON
+      + POST() : JSON
+      + PATCH() : JSON
+      + DELETE() : JSON
+    }
+
+    class Controller {
+        + RoleController() : JSON
+        + UserController() : JSON
+        + ZoneController() : JSON
+    }
+
+    class DAO {
+        + RolesDAO() : JSON
+        + RolesSqliteDAO() : JSON
+        + UserDAO() : JSON
+        + UserSqliteDAO() : JSON
+        + ZoneDAO() : JSON
+        + ZoneSqliteDAO() : JSON
+    }
+
+    class Factory {
+        + DAOFactory() : JSON
+        + DAOSqliteFactory() : JSON
+    }
+
+    class Models {
+        + rolesModel() : JSON
+        + userModel() : JSON
+        + zoneModel() : JSON
+    }
+
+    class Services {
+        + RolesServices() : JSON
+        + UserServices() : JSON
+        + ZoneServices() : JSON
+    }
+
+    HTTPRequest ..> Controller
+    Controller ..> DAO
+    Controller ..> Services
+    Factory ..> DAO
+    DAO ..> Models
+    Services ..> Factory
+```
+
+Architecture de l'application web :
+
+```mermaid
+classDiagram
+
+    class Login {
+        + GetRefreshToken.js
+        + Login.js
+        + useLogin.js
+    }
+
+    class MainPage {
+        + Carto.js
+        + CustomEditControl.js
+        + Help.js
+        + Information.js
+        + MainPage.js
+        + MyAccount.js
+        + Parameters.js
+        + SideMenu.js
+    }
+
+    class Modal {
+        + CreateZoneModal.js
+        + DeleteZoneModal.js
+        + EditZoneModal.js
+    }
+
+    class Style {
+        + Account.module.css
+        + App.css
+        + Carto.module.css
+        + Help.module.css
+        + index.css
+        + Information.module.css
+        + Login.module.css
+        + Parameters.module.css
+        + SideMenu.module.css
+        + ZoneModal.module.css
+    }
+    Login ..> MainPage
+    MainPage <.. Modal
+    MainPage .. Style
+    Login .. Style
+```
 
 # Suivis de projet
 
@@ -393,16 +495,18 @@ Dictionnaire de données :
 | Configuration du serveur pour la mise en place du CI/CD                | Mise en place des dossiers/fichier/configuration pour la mise en place du CI/CD                                                                                                                                                                                                   | 03/02/2024     | 08/02/2024  | 3               |
 | Rédaction du rapport technique                                        | Rapport technique explicitant comment j'ai mis en oeuvre les compétences C1, C2 et C6                                                                                                                                                                                            | 10/02/2024     | 11/02/2024  | 6.5             |
 | Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 11/02/2024     | 11/02/2024  | 0.5             |
-| Réalisation du powerpoint                                             | Powerpoint permettant d'illustrer mes propos lors de l'oral                                                                                                                                                                                                                       | 10/02/2024     | 13/02/2024  |                 |
+| Réalisation du powerpoint                                             | Powerpoint permettant d'illustrer mes propos lors de l'oral                                                                                                                                                                                                                       | 10/02/2024     | 13/02/2024  | 7               |
+| Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 11/02/2024     | 12/02/2024  | 2               |
+| Mise en place du déploiement                                          | Réglage de l'application pour fonctionner correctement une fois heberger                                                                                                                                                                                                         | 11/02/2024     | 11/02/2024  | 1               |
 
 ## Total des heures
 
-| Total des heures                    | 132.25 |
+| Total des heures                    | 137.25 |
 | ----------------------------------- | ------ |
 | Initialisation du projet            | 2.5    |
 | Documents de suivis de projet       | 6      |
 | Base de données                    | 1.5    |
 | Développement de l'API             | 25.25  |
-| Développement de l'application web | 69     |
-| CI/CD                               | 17.5   |
-| Revue de projet                     | 6.5    |
+| Développement de l'application web | 70     |
+| CI/CD                               | 18.5   |
+| Revue de projet                     | 13.5   |
