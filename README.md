@@ -93,7 +93,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 - [X] Réalisation des documents de suivis de projet
 - [X] Réalisation du rapport technique
-- [ ] Réalisation du diaporama de présentation
+- [X] Réalisation du diaporama de présentation
 
 # Guide d'utilisation
 
@@ -478,7 +478,7 @@ classDiagram
 | Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 16/01/2024     | 16/01/2024  | 1               |
 | Mise en place du CI/CD                                                 | Mise en place d'un fichier .gitlab-ci.yml pour faire le CI/CD sur etulab                                                                                                                                                                                                          | 16/01/2024     | 16/01/2024  | 5               |
 | Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 17/01/2024     | 17/01/2024  | 0.5             |
-| Mise en place des tests dans le CI/CD                                  | Mise en place des test pour tester l'API et l'application REACT dans le CI/CD                                                                                                                                                                                                     | 16/01/2024     |             |                 |
+| Mise en place des tests dans le CI/CD                                  | Mise en place des test pour tester l'API et l'application REACT dans le CI/CD                                                                                                                                                                                                     | 16/01/2024     | 16/01/2024  | 1               |
 | Rafraichissement de la cartographie après une modification            | Des lors que on effectue une action sur la cartographie, elle est rafraichie avec les nouvelles données                                                                                                                                                                          | 19/01/2024     | 19/01/2024  | 3               |
 | Dockerisation de l'API et de la webapp                                 | Dockerfile pour pouvoir dockeriser l'API et l'application web                                                                                                                                                                                                                     | 20/01/2024     | 20/01/2024  | 3               |
 | Docker Compose pour les services                                       | Permet de créer les images et les containers                                                                                                                                                                                                                                     | 20/01/2024     | 20/01/2024  | 1.5             |
@@ -498,15 +498,18 @@ classDiagram
 | Réalisation du powerpoint                                             | Powerpoint permettant d'illustrer mes propos lors de l'oral                                                                                                                                                                                                                       | 10/02/2024     | 13/02/2024  | 7               |
 | Mise à jour du documents de suivis de projet                          | Cette case dénombre le temps que je passe à éditer les documents de suivis de projet                                                                                                                                                                                           | 11/02/2024     | 12/02/2024  | 2               |
 | Mise en place du déploiement                                          | Réglage de l'application pour fonctionner correctement une fois heberger                                                                                                                                                                                                         | 11/02/2024     | 11/02/2024  | 1               |
+| Finalisation générale du powerpoint                                  | Finalisation du powerpoint dans sa globalité, il restera quelque détail, animations à améliorer                                                                                                                                                                               | 12/02/2024     | 12/02/2024  | 7               |
+| Réglage erreur CORS lors du déploiement                              | Une erreur CORS qui survient lorsque l'application web essaie d'envoyer une requête à l'API                                                                                                                                                                                     | 12/02/2024     | 12/02/2024  | 2.5             |
 
 ## Total des heures
 
-| Total des heures                    | 137.25 |
+| Total des heures                    | 154.75 |
 | ----------------------------------- | ------ |
 | Initialisation du projet            | 2.5    |
 | Documents de suivis de projet       | 6      |
 | Base de données                    | 1.5    |
 | Développement de l'API             | 25.25  |
-| Développement de l'application web | 70     |
-| CI/CD                               | 18.5   |
-| Revue de projet                     | 13.5   |
+| Développement de l'application web | 71     |
+| CI/CD                               | 21     |
+| Veille numérique                   | 7      |
+| Revue de projet                     | 20.5   |
