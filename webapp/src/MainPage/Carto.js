@@ -34,7 +34,7 @@ function DrawZones(zones, zoomLevel) {
             markerPosition = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 2, zones.x + cellHeight / 2 * zones.nbline / 2];
         }
         cells.push(
-            <Marker position={markerPosition} icon={markerIcon} />
+            <Marker key={`${zones.zones_id}-marker`} position={markerPosition} icon={markerIcon} />
         );
     }
 
@@ -51,7 +51,7 @@ function DrawZones(zones, zoomLevel) {
         markerPositionId = [zones.y + (cellWidth * zones.nbcolumn * 2) + cellWidth * 3, zones.x + cellHeight / 2 * zones.nbline/2 + 2];
     }
     cells.push(
-        <Marker position={markerPositionId} icon={markerIconId} />
+        <Marker key={`${zones.zones_id}-marker-id`} position={markerPositionId} icon={markerIconId} />
     );
 
     for (let i = 0; i < zones.nbline; i++) {
@@ -73,7 +73,7 @@ function DrawZones(zones, zoomLevel) {
                 });
                 let markerPosition = zones.nbline > zones.nbcolumn ? [y + cellHeight / 2, x - cellHeight / 2] : [y + cellHeight / 2, x - cellWidth / 2];
                 cells.push(
-                    <Marker position={markerPosition} icon={markerIcon} />
+                    <Marker key={`${zones.zones_id}-marker-${i}-${j}`} position={markerPosition} icon={markerIcon} />
                 );
             }
             if (i === zones.nbline - 1 && zoomLevel >= 1) {
@@ -83,7 +83,7 @@ function DrawZones(zones, zoomLevel) {
                 });
                 let markerPosition = zones.nbline > zones.nbcolumn ? [y + cellHeight * 1.5, x + cellWidth / 2] : [y + cellHeight * 1.2, x + cellWidth / 2];
                 cells.push(
-                    <Marker key={`${i}-${j}`} position={markerPosition} icon={markerIcon} />
+                    <Marker key={`${zones.zones_id}-marker-${i}-${j}`} position={markerPosition} icon={markerIcon} />
                 );
             }
         }
