@@ -94,7 +94,7 @@ deploy_job:
     - echo "Copie des fichiers vers le serveur"
     - rsync -avz --delete ./ lolo@next-vertices.com:/home/lolo/sae
     - echo "Lancement du docker compose sur le serveur distant..."
-    - ssh lolo@next-vertices.com 'cd /home/lolo/sae && docker compose up -d'
+    - ssh lolo@next-vertices.com 'cd /home/lolo/sae && docker compose up -d --build -d'
     - echo "Application déployée vers https://carto.next-vertices.com"
   rules:
     - changes:
