@@ -11,7 +11,7 @@ function MyAccount() {
     const token = localStorage.getItem('token');
     
     // Get the user information from the server
-    fetch('http://localhost:3000/users', {
+    fetch('http://carto.next-vertices.com:3000/users', {
         method: 'GET',
         headers: {
             Authorization: `${token}`

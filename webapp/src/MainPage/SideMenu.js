@@ -18,7 +18,7 @@ function SideMenu() {
     const handleLogout = async () => {
         const token = localStorage.getItem('token');
         console.log(token);
-        fetch('http://localhost:3000/logout', {
+        fetch('http://carto.next-vertices.com:3000/logout', {
             method: 'POST',
             headers: {
                 Authorization: `${token}`
