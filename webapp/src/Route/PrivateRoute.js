@@ -16,7 +16,7 @@ function PrivateRoute({ children, path }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('process.env.REACT_APP_API_IP' + '/roles?id=1', {
+                const response = await fetch('http://next-vertices.com:3000/roles?id=1', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ function PrivateRoute({ children, path }) {
 
                 // Try to refresh the token
                 const refreshToken = localStorage.getItem('refreshToken');
-                const refreshResponse = await fetch('process.env.REACT_APP_API_IP' + '/refreshToken', { // Remplacez ceci par l'URL de votre endpoint de rafraîchissement de token
+                const refreshResponse = await fetch('http://next-vertices.com:3000/refreshToken', { // Remplacez ceci par l'URL de votre endpoint de rafraîchissement de token
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
