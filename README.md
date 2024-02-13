@@ -29,7 +29,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 ###### Développement de l'API
 
 - [X] Création de l'API
-  - [X] Création des entitées
+  - [X] Création des entités
   - [X] Création des DAO
   - [X] Création des Factory
   - [X] Création des routes
@@ -54,7 +54,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
   - [X] Création de l'interface globale
 
     - [X] Création du menu latéral
-    - [X] Création des différentes page de l'application
+    - [X] Création des différentes pages de l'application
   - [X] Génération de la cartographie par rapport à la base de données
   - [X] Développement des fonctionnalités de la cartographie
 
@@ -99,7 +99,7 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 #### Conteneurisation des services
 
-Étant donner que tout est conteneurisé grâce à un docker-compose, il vous suffira de taper la commande `docker-compose up` dans le répértoite ou se trouve le fichier *docker-compose.yml* pour lancer chaque service de l'application.
+Étant donné que tout est conteneurisé grâce à un docker-compose, il vous suffira de taper la commande `docker-compose up` dans le répertoire où se trouve le fichier *docker-compose.yml* pour lancer chaque service de l'application.
 
 ## Configuration
 
@@ -133,15 +133,15 @@ L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplac
 
 #### Conteneurisation de l'API
 
-- Un dockerfile est présent dans le repertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, la ou il y a le fichier *sae-api.Dockerfile* puis executer la commande :
+- Un dockerfile est présent dans le répertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, là où il y a le fichier *sae-api.Dockerfile* puis exécuter la commande :
   - ```
     docker build -t sae-api -f ./sae-api.Dockerfile .
     ```
 
 #### Lancement de l'API
 
-- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'API sur votre machine voici la mache à suivre :
-  - cloner le dépot sur votre machine avec :
+- Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'API sur votre machine voici la marche à suivre :
+  - cloner le dépôt sur votre machine avec :
 
     - ```
       git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
@@ -160,8 +160,8 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 ###### Documentation de l'API
 
-- Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
-- Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
+- Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toutes les pages HTML de la documentation. Choisissez en un et ouvrez-le et vous pourrez naviguer dans la documentation comme bon vous semble.
+- Si toutefois vous voulez régénérer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
   - ```
     npx jsdoc -c parameter.json
     ```
@@ -205,7 +205,7 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 #### Conteneurisation de l'application web
 
-- Un dockerfile est présent dans le repertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier webapp, la ou il y a le fichier *sae-webapp.Dockerfile* puis executer la commande :
+- Un dockerfile est présent dans le répertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier webapp, là où il y a le fichier *sae-webapp.Dockerfile* puis exécuter la commande :
   - ```
     docker build -t sae-webapp -f ./sae-webapp.Dockerfile .
     ```
@@ -214,12 +214,12 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
 
 - Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la marche à suivre :
 
-  - cloner le dépot sur votre machine avec :
+  - cloner le dépôt sur votre machine avec :
 
     - ```
       git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
       ```
-  - Placer vous dans le dossier webapp pour faire :
+  - Placez-vous dans le dossier webapp pour faire :
 
     - ```
       npm install
@@ -227,7 +227,7 @@ Suite à cela l'API devrait être fonctionnelle dans votre terminal.
     - ```
       npm start
       ```
-  - Mettez vous dans le dossier API et faite :
+  - Mettez-vous dans le dossier API et faite :
 
     - ```
       npm install
@@ -249,14 +249,14 @@ Dans cette application vous aurez tout d'abord la page de connexion, il vous suf
 - username : `user` / password : `user`
 - guest : `guest` / password : `guest`
 
-Ensuite vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
+Ensuite, vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.
 
 Je vais vous faire une brève description des différentes pages de l'application.
 
-- **Cartographie :** Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouter, supprimer, modifier des zones de votre port.
-  - Pour cela il y aura un bouton avec un + en haut à droite. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez rentrer les informations de votre zone. Une fois les informations rentrées vous pourrez appuyer sur le bouton ajouter et votre zone sera ajoutée à la cartographie.
-  - Si vous voulez supprimer une zone il vous suffira de cliquer sur la zone que vous voulez supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zones que vous voulez supprimer et appuyer sur supprimer.
-  - Si vous voulez modifier une zone il vous suffira de cliquer sur le bouton éditer en haut à droite de la page. Une fois le bouton appuyer une boite modale s'ouvrira et vous pourrez selectioner l'ID de la zone que vous voulez modifier. Une fois l'ID selectionné, vous aurez une seconde boite modale qui s'ouvrira avec toute les informations de la zone selectionnée. Vous pourrez alors modifier les informations que vous voulez et appuyer sur le bouton modifier pour modifier la zone.
+- **Cartographie :** Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouté, supprimer, modifier des zones de votre port.
+  - Pour cela, il y aura un bouton avec un + en haut à droite. Une fois le bouton appuyé, une boite modale s'ouvrira et vous pourrez rentrer les informations de votre zone. Une fois les informations rentrées vous pourrez appuyer sur le bouton ajouter et votre zone sera ajoutée à la cartographie.
+  - Si vous voulez supprimer une zone il vous suffira de cliquer sur le bouton supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zone que vous voulez supprimer et appuyer sur supprimer.
+  - Si vous voulez modifier une zone il vous suffira de cliquer sur le bouton "éditer" en haut à droite de la page. Une fois le bouton appuyé, une boite modale s'ouvrira et vous pourrez sélectioner l'ID de la zone que vous voulez modifier. Une fois l'ID sélectionné, vous aurez une seconde boite modale qui s'ouvrira avec toute les informations de la zone selectionnée. Vous pourrez alors modifier les informations que vous voulez et appuyer sur le bouton "modifier" pour modifier la zone.
   - **Mon compte :**
   - **Paramètres :**
   - **Aide :**
@@ -266,21 +266,21 @@ Je vais vous faire une brève description des différentes pages de l'applicatio
 
 ###### Documentation de l'application web
 
-- Si vous voulez voir la documentation de l'application web, rien de plus simple, il suffit d'aller dans le dossier webapp puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toute les pages HTML de la documentation. Choisissez en un et ouvrez le et vous pourrez naviguer dans la documentation comme bon vous semble.
-- Si toutefois vous voulez regenerer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
+- Si vous voulez voir la documentation de l'application web, rien de plus simple, il suffit d'aller dans le dossier webapp puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toutes les pages HTML de la documentation. Choisissez en un et ouvrez-le et vous pourrez naviguer dans la documentation comme bon vous semble.
+- Si toutefois vous voulez régénérer la documentation il vous suffira de vous placer dans le dossier *doc* et de faire *:*
   - ```
     npx jsdoc -c parameter.json
     ```
 
 ###### Jeux de test
 
-Des jeux de test sont présent dans l'application web, pour les executer il suffit de faire :
+Des jeux de test sont présents dans l'application web, pour les exécuter, il suffit de faire :
 
 - `npm test`
 
 # Analyse et conception
 
-Diagramme UML de la base de donnée
+Diagramme UML de la base de données
 
 ```mermaid
 classDiagram
@@ -378,11 +378,10 @@ classDiagram
     }
 
     HTTPRequest ..> Controller
-    Controller ..> DAO
     Controller ..> Services
-    Factory ..> DAO
-    DAO ..> Models
-    Services ..> Factory
+    Factory ..> Services
+    Services ..> DAO
+    Models ..> DAO
 ```
 
 Architecture de l'application web :
@@ -500,10 +499,12 @@ classDiagram
 | Mise en place du déploiement                                          | Réglage de l'application pour fonctionner correctement une fois heberger                                                                                                                                                                                                         | 11/02/2024     | 11/02/2024  | 1               |
 | Finalisation générale du powerpoint                                  | Finalisation du powerpoint dans sa globalité, il restera quelque détail, animations à améliorer                                                                                                                                                                               | 12/02/2024     | 12/02/2024  | 7               |
 | Réglage erreur CORS lors du déploiement                              | Une erreur CORS qui survient lorsque l'application web essaie d'envoyer une requête à l'API                                                                                                                                                                                     | 12/02/2024     | 12/02/2024  | 2.5             |
+| Finalisation complète du diaporama                                    | Correction de quelque diagramme et des fautes d'orthographe                                                                                                                                                                                                                       | 13/02/2024     | 13/02/2024  | 1.25            |
+| Finalisation du rapport technique                                      | Ajout de quelque détails ainsi que corrections des fautes d'orthographe                                                                                                                                                                                                          | 13/02/2024     | 13/02/2024  | 2               |
 
 ## Total des heures
 
-| Total des heures                    | 154.75 |
+| Total des heures                    | 158.25 |
 | ----------------------------------- | ------ |
 | Initialisation du projet            | 2.5    |
 | Documents de suivis de projet       | 6      |
@@ -512,4 +513,4 @@ classDiagram
 | Développement de l'application web | 71     |
 | CI/CD                               | 21     |
 | Veille numérique                   | 7      |
-| Revue de projet                     | 20.5   |
+| Revue de projet                     | 23.75  |
