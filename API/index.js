@@ -20,7 +20,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-    origin: ['http://carto.next-vertices.com', 'http://localhost:3001'],
+    origin: ['http://carto.next-vertices.com'],
     credentials: true
 })); // Use the cors middleware for don't have CORS error
 app.use(express.json());
