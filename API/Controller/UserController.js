@@ -85,6 +85,13 @@ class UserController {
                 }
             }
 
+            // Hash the password
+            if (req.body.password) {
+                const saltRounds = parseInt(process.env.BCRYPT_SALT); // Convert BCRYPT_SALT to a number
+                const salt = bcrypt.genSaltSync(saltRounds);
+                req.body.password = bcrypt.hashSync(req.body.password, salt);
+            }
+
             const updatedUser = await UsersServices.updateUsers(req.params.id, req.body);
             res.json(updatedUser);
         }
