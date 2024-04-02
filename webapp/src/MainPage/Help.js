@@ -29,7 +29,6 @@ function Help() {
                         <p className={styles.text}>Vous pouvez également consulter la page "À propos" pour des informations sur l'application.</p>
                         <p className={styles.text}>Si vous avez d'autres questions, n'hésitez pas à nous contacter.</p>
                     </div>
-                    <p className={styles.copyright}>©2023 BUT Informatique - Loïc	SERRE</p>
                 </div>
             </div>
         </>
