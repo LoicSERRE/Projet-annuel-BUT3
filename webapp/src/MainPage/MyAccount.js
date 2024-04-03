@@ -14,7 +14,6 @@ function MyAccount() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(JSON.parse(atob(token.split('.')[1])).permissions[0].role_id);
 
         // Vérifiez si le nouveau mot de passe et sa confirmation correspondent
         if (newPassword !== newPasswordConfirmation && newPassword !== '') {
@@ -33,8 +32,7 @@ function MyAccount() {
         }
 
         // Envoyer la requête pour mettre à jour le nom d'utilisateur et le mot de passe
-        fetch('http://carto.next-vertices.com:3000/users/' + id, {
-        //fetch('http://localhost:3000/users/' + id, {
+        fetch(process.env.REACT_APP_API_IP + "/users/" + id, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,8 +54,9 @@ function MyAccount() {
             console.log('User updated successfully');
             // Deconnecter l'utilisateur vers la page de connexion
             window.location.href = '/login';
-            fetch('https://carto.next-vertices.com:3000/logout', {
-            //fetch('http://localhost:3000/logout', {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refreshToken');
+            fetch(process.env.REACT_APP_API_IP + '/logout', {
                 method: 'POST',
                 headers: {
                     Authorization: `${token}`
@@ -85,8 +84,7 @@ function MyAccount() {
     async function CheckPassword(inputtxt) {
         // Fonction qui fait une requete à l'api pour générer un token et vériier si le mot de passe est correct
         try {
-            //const res = await fetch('http://localhost:3000/login', {
-            const res = await fetch('http://carto.next-vertices.com:3000/login', {
+            const res = await fetch(process.env.REACT_APP_API_IP + '/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

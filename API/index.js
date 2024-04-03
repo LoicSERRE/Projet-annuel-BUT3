@@ -20,7 +20,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-    origin: 'http://carto.next-vertices.com',
+    origin: process.env.ADRESS_WEBAPP,
     credentials: true
 })); // Use the cors middleware for don't have CORS error
 app.use(express.json());
@@ -63,5 +63,5 @@ app.use('/roles', rolePath);
 app.use('/logout', logoutPath);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log("Example app listening at " + process.env.ADRESS_WEBAPP + ":" + port);
 });
