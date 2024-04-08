@@ -1,4 +1,4 @@
-# S5.A.01 - Développement avancé
+# S6.A.01 - Évolution d'une application existante
 
 Loïc SERRE - Étudiants BUT Informatique site d'Arles en Alternance chez MGPS, Manutention Gérée Par Satellite à Port-Saint-Louis-du-Rhône
 

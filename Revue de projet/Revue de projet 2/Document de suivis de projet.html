@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Document de suivis de projet - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{background:#fff;color:#333;display:block;overflow-x:auto;padding:.5em}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{background-color:#eaffea;color:#55a532}.hljs-deletion{background-color:#ffecec;color:#bd2c00}.hljs-link{text-decoration:underline}.markdown-body{word-wrap:break-word;font-size:16px;line-height:1.5}.markdown-body:after,.markdown-body:before{content:"";display:table}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-bottom:16px;margin-top:0}.markdown-body hr{background-color:#e7e7e7;border:0;height:.25em;margin:24px 0;padding:0}.markdown-body blockquote{border-left:.25em solid #ddd;color:#777;font-size:16px;padding:0 1em}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{background-color:#fcfcfc;border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb;color:#555;display:inline-block;font-size:11px;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{border-bottom:1px solid #eee;padding-bottom:.3em}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{color:#777;font-size:.85em}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{list-style-type:none;padding:0}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-bottom:0;margin-top:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:1em;font-style:italic;font-weight:700;margin-top:16px;padding:0}.markdown-body dl dd{margin-bottom:16px;padding:0 16px}.markdown-body table{display:block;overflow:auto;width:100%;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{border:1px solid #ddd;padding:6px 13px}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{background-color:#fff;box-sizing:initial;max-width:100%}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{background-color:initial;max-width:none;vertical-align:text-top}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{border:1px solid #ddd;display:block;float:left;margin:13px 0 0;overflow:hidden;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{clear:both;display:block;overflow:hidden}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{clear:both;display:block;overflow:hidden}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{background-color:#0000000a;border-radius:3px;font-size:85%;margin:0;padding:.2em 0}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{content:"\00a0";letter-spacing:-.2em}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{background:#0000;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{border-radius:3px;font-size:85%;line-height:1.45;overflow:auto}.markdown-body:not(.next-editor) pre{background-color:#f7f7f7;padding:16px}.markdown-body pre code,.markdown-body pre tt{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{background:#fff;border:0;padding:10px 8px 9px;text-align:right}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{background:#f8f8f8;border-top:0;font-weight:700}.news .alert .markdown-body blockquote{border:0;padding:0 0 0 40px}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{cursor:default!important;float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle}.markdown-body{max-width:758px;overflow:visible!important;padding-bottom:40px;padding-top:40px;position:relative}.markdown-body.next-editor{overflow-x:hidden!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{border-right:3px solid #6ce26c!important;box-sizing:initial;color:#afafaf!important;cursor:default;display:inline-block;min-width:20px;padding:0 8px 0 0;position:relative;text-align:right;z-index:4}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-bottom:none;border-left:none;border-top:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-collapse:inherit!important;border-spacing:0}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{margin-bottom:unset;overflow:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert{display:flex;flex-direction:column;gap:16px}.markdown-body .alert>*{margin:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{background-color:inherit;border-radius:0;overflow:visible;text-align:center;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{height:100%;max-width:100%}.markdown-body pre>code.wrap{word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{background-color:#000;background-position:50%;background-repeat:no-repeat;background-size:contain;cursor:pointer;display:table;overflow:hidden;text-align:center}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{object-fit:contain;width:100%;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{height:100%;left:0;position:absolute;top:0;width:100%}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{color:#fff;height:auto;left:50%;opacity:.3;position:absolute;top:50%;transform:translate(-50%,-50%);transition:opacity .2s;width:auto;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.figma{display:table;padding-bottom:56.25%;position:relative;width:100%}.figma iframe{border:1px solid #eee;bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.markmap-container{height:300px}.markmap-container>svg{height:100%;width:100%}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{color:#777;margin:25px auto -25px;max-width:760px;position:relative;z-index:2}.toc .invisable-node{list-style-type:none}.ui-toc{bottom:20px;position:fixed;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{border-bottom-left-radius:0;border-top-left-radius:0;height:40px;padding:10px 4px}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{color:#fff;opacity:1;transition:opacity .2s}.ui-toc-label:focus{background-color:#ccc;color:#000;opacity:.3}.ui-toc-label:hover{background-color:#ccc;opacity:1;transition:opacity .2s}.ui-toc-dropdown{margin-bottom:20px;margin-top:20px;max-height:70vh;max-width:45vw;overflow:auto;padding-left:10px;padding-right:10px;text-align:inherit;width:25vw}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{letter-spacing:.0029em;padding-right:0}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{color:#767676;display:block;font-size:13px;font-weight:500;padding:4px 20px}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{background-color:initial;border-left:1px solid #000;color:#000;padding-left:19px;text-decoration:none}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{border-left:none;border-right:1px solid #000;padding-right:19px}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{background-color:initial;border-left:2px solid #000;color:#000;font-weight:700;padding-left:18px}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{border-left:none;border-right:2px solid #000;padding-right:18px}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:30px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:40px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{font-weight:500;padding-left:28px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{font-weight:500;padding-left:38px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{max-height:70vh;max-width:15vw;overflow:auto;position:fixed;top:0}.back-to-top,.expand-toggle,.go-to-bottom{color:#999;display:block;font-size:12px;font-weight:500;margin-left:10px;margin-top:10px;padding:4px 10px}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:50%;display:block;height:20px;margin-bottom:2px;margin-right:5px;margin-top:2px;width:20px}.ui-user-icon.small{display:inline-block;height:18px;margin:0 0 .2em;vertical-align:middle;width:18px}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;padding-left:22px;text-decoration:none}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}.inline-spoiler-section{cursor:pointer}.inline-spoiler-section .spoiler-text{background-color:#333;border-radius:2px}.inline-spoiler-section .spoiler-text>*{opacity:0}.inline-spoiler-section .spoiler-img{filter:blur(10px)}.inline-spoiler-section.raw{background-color:#333;border-radius:2px}.inline-spoiler-section.raw>*{opacity:0}.inline-spoiler-section.unveil{cursor:auto}.inline-spoiler-section.unveil .spoiler-text{background-color:#3333331a}.inline-spoiler-section.unveil .spoiler-text>*{opacity:1}.inline-spoiler-section.unveil .spoiler-img{filter:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{color:#222;position:relative;z-index:1}.markdown-body.slides:before{background-color:currentColor;bottom:0;box-shadow:0 0 0 50vw;content:"";display:block;left:0;position:absolute;right:0;top:0;z-index:-1}.markdown-body.slides section[data-markdown]{background-color:#fff;margin-bottom:1.5em;position:relative;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{left:1em;max-height:100%;overflow:hidden;position:absolute;right:1em;top:50%;transform:translateY(-50%)}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{border:3px solid #777;content:"";height:1.5em;position:absolute;right:1em;top:-1.5em}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}svg{text-shadow:none}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="S6A01---Évolution-dune-application-existante" data-id="S6A01---Évolution-dune-application-existante"><a class="anchor hidden-xs" href="#S6A01---Évolution-dune-application-existante" title="S6A01---Évolution-dune-application-existante"><span class="octicon octicon-link"></span></a><span>S6.A.01 - Évolution d'une application existante</span></h1><p><span>Loïc SERRE - Étudiants BUT Informatique site d'Arles en Alternance chez MGPS, Manutention Gérée Par Satellite à Port-Saint-Louis-du-Rhône</span></p><h2 id="Description-du-projet" data-id="Description-du-projet"><a class="anchor hidden-xs" href="#Description-du-projet" title="Description-du-projet"><span class="octicon octicon-link"></span></a><span>Description du projet</span></h2><p><span>Ce projet est un proof of concept (POC) pour la mise en place d'une application multi-plateforme (web et desktop dans mon cas, mais peut être mobile, embarqué, etc</span><span class="smartypants">…</span><span>).</span><br>
+<span>Le but de mon application est de permettre à un utilisateur de gérer une cartographie de port commercial.</span><br>
+<span>L'utilisateur pourra alors modifier les emplacements des conteneurs, les déplacer, les supprimer, les ajouter, etc</span><span class="smartypants">…</span></p><h1 id="Tâches-à-réaliser" data-id="Tâches-à-réaliser"><a class="anchor hidden-xs" href="#Tâches-à-réaliser" title="Tâches-à-réaliser"><span class="octicon octicon-link"></span></a><span>Tâches à réaliser</span></h1><h6 id="Développement-de-lAPI" data-id="Développement-de-lAPI"><a class="anchor hidden-xs" href="#Développement-de-lAPI" title="Développement-de-lAPI"><span class="octicon octicon-link"></span></a><span>Développement de l'API</span></h6><ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Création des tests unitaires</span></li>
+</ul><h6 id="Développement-de-lapplication-web" data-id="Développement-de-lapplication-web"><a class="anchor hidden-xs" href="#Développement-de-lapplication-web" title="Développement-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Développement de l'application web</span></h6><ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Création de l'application web</span></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Création des test d'intégration</span></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" type="checkbox" disabled="disabled"><span> Réalisation des pages de gestion de l'application</span></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Réalisation de la page des paramètres du compte</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" type="checkbox" disabled="disabled"><span> Réalisation de la page des paramètres de l'application</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h6 id="CICD" data-id="CICD"><a class="anchor hidden-xs" href="#CICD" title="CICD"><span class="octicon octicon-link"></span></a><span>CI/CD</span></h6><ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Mise en place du CI/CD</span></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Mise en place du CI/CD pour l'API</span></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Installation des dépendances dans le CI/CD</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Génération de la construction de l'API dans le CI/CD</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Mise en place des tests dans le CI/CD</span></li>
+</ul>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Mise en place du CI/CD pour l'application web</span></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Installation des dépendances dans le CI/CD*</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Génération de la construction de l'application web dans le CI/CD</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Mise en place des tests dans le CI/CD</span></li>
+</ul>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Réalisation d'un docker compose</span></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Hébergement de l'API</span></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Hébergement de l'application web</span></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Hébergement de la documentation de l'API</span></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Hébergement de la documentation de l'application web</span></p>
+</li>
+</ul>
+</li>
+</ul><h6 id="Revue-de-projet" data-id="Revue-de-projet"><a class="anchor hidden-xs" href="#Revue-de-projet" title="Revue-de-projet"><span class="octicon octicon-link"></span></a><span>Revue de projet</span></h6><ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Réalisation des documents de suivis de projet</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Réalisation du compte rendu sur les modifications réalisées</span></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked="" type="checkbox" disabled="disabled"><span> Réalisation du support de présentation</span></li>
+</ul><h1 id="Guide-dutilisation" data-id="Guide-dutilisation"><a class="anchor hidden-xs" href="#Guide-dutilisation" title="Guide-dutilisation"><span class="octicon octicon-link"></span></a><span>Guide d'utilisation</span></h1><h4 id="Conteneurisation-des-services" data-id="Conteneurisation-des-services"><a class="anchor hidden-xs" href="#Conteneurisation-des-services" title="Conteneurisation-des-services"><span class="octicon octicon-link"></span></a><span>Conteneurisation des services</span></h4><p><span>Étant donné que tout est conteneurisé grâce à un docker-compose, il vous suffira de taper la commande </span><code>docker-compose up</code><span> dans le répertoire où se trouve le fichier </span><em><span>docker-compose.yml</span></em><span> pour lancer chaque service de l'application.</span></p><h2 id="Configuration" data-id="Configuration"><a class="anchor hidden-xs" href="#Configuration" title="Configuration"><span class="octicon octicon-link"></span></a><span>Configuration</span></h2><ul>
+<li>
+<p><span>Main : </span><code>index.js</code></p>
+</li>
+<li>
+<p><span>Scripts :</span></p>
+<ul>
+<li><span>Test : </span><code>mocha</code></li>
+<li><span>Start : </span><code>nodemon index.js</code></li>
+</ul>
+</li>
+<li>
+<p><span>Dépendances :</span></p>
+<ul>
+<li><span>bcrypt : </span><code>^5.1.1</code></li>
+<li><span>chai : </span><code>^4.3.10</code></li>
+<li><span>dotenv : </span><code>^16.3.1</code></li>
+<li><span>express : </span><code>^4.18.2</code></li>
+<li><span>jest : </span><code>^29.7.0</code></li>
+<li><span>JSdoc : </span><code>npm:jsdoc@^4.0.2</code></li>
+<li><span>jsonwebtoken : </span><code>^9.0.2</code></li>
+<li><span>mocha : </span><code>^10.2.0</code></li>
+<li><span>nodemon : </span><code>^3.0.1</code></li>
+<li><span>sqlite : </span><code>^5.0.1</code></li>
+<li><span>sqlite3 : </span><code>^5.1.6</code></li>
+<li><span>swagger-ui : </span><code>^5.9.0</code></li>
+</ul>
+</li>
+<li>
+<p><span>Dépendances de développement :</span></p>
+<ul>
+<li><span>@babel/core : </span><code>^7.23.6</code></li>
+<li><span>@babel/preset-env : </span><code>^7.23.6</code></li>
+<li><span>babel-jest : </span><code>^29.7.0</code></li>
+<li><span>jsdoc : </span><code>^4.0.2</code></li>
+</ul>
+</li>
+</ul><h2 id="Guide-dutilisation-de-lAPI" data-id="Guide-dutilisation-de-lAPI"><a class="anchor hidden-xs" href="#Guide-dutilisation-de-lAPI" title="Guide-dutilisation-de-lAPI"><span class="octicon octicon-link"></span></a><span>Guide d'utilisation de l'API</span></h2><h4 id="Conteneurisation-de-lAPI" data-id="Conteneurisation-de-lAPI"><a class="anchor hidden-xs" href="#Conteneurisation-de-lAPI" title="Conteneurisation-de-lAPI"><span class="octicon octicon-link"></span></a><span>Conteneurisation de l'API</span></h4><ul>
+<li><span>Un dockerfile est présent dans le répertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier API, là où il y a le fichier </span><em><span>sae-api.Dockerfile</span></em><span> puis exécuter la commande :</span>
+<ul>
+<li>
+<pre><code>​​​​docker build -t sae-api -f ./sae-api.Dockerfile .
+</code></pre>
+</li>
+</ul>
+</li>
+</ul><h4 id="Lancement-de-lAPI" data-id="Lancement-de-lAPI"><a class="anchor hidden-xs" href="#Lancement-de-lAPI" title="Lancement-de-lAPI"><span class="octicon octicon-link"></span></a><span>Lancement de l'API</span></h4><ul>
+<li><span>Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'API sur votre machine voici la marche à suivre :</span>
+<ul>
+<li>
+<p><span>cloner le dépôt sur votre machine avec :</span></p>
+<ul>
+<li>
+<pre><code>​​​​​​git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
+</code></pre>
+</li>
+<li><span>Placer vous dans le dossier API</span></li>
+</ul>
+</li>
+<li>
+<p><span>Mettez vous dans le dossier API et faite :</span></p>
+<ul>
+<li>
+<pre><code>​​​​​​npm install
+</code></pre>
+</li>
+<li>
+<pre><code>​​​​​​npm start
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p><span>Suite à cela l'API devrait être fonctionnelle dans votre terminal.</span></p><h6 id="Documentation-de-lAPI" data-id="Documentation-de-lAPI"><a class="anchor hidden-xs" href="#Documentation-de-lAPI" title="Documentation-de-lAPI"><span class="octicon octicon-link"></span></a><span>Documentation de l'API</span></h6><ul>
+<li><span>Si vous voulez voir la documentation de l'api, rien de plus simple, il suffit d'aller dans le dossier API puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toutes les pages HTML de la documentation. Choisissez en un et ouvrez-le et vous pourrez naviguer dans la documentation comme bon vous semble.</span></li>
+<li><span>Si toutefois vous voulez régénérer la documentation il vous suffira de vous placer dans le dossier </span><em><span>doc</span></em><span> et de faire </span><em><span>:</span></em>
+<ul>
+<li>
+<pre><code>​​​​npx jsdoc -c parameter.json
+</code></pre>
+</li>
+</ul>
+</li>
+</ul><h6 id="Jeux-de-test" data-id="Jeux-de-test"><a class="anchor hidden-xs" href="#Jeux-de-test" title="Jeux-de-test"><span class="octicon octicon-link"></span></a><span>Jeux de test</span></h6><ul>
+<li>
+<p><span>Des jeux de test sont présent dans l'API, pour les executer il suffit de faire :</span></p>
+<ul>
+<li><code>npm test</code></li>
+</ul>
+</li>
+</ul><h6 id="Enpoints" data-id="Enpoints"><a class="anchor hidden-xs" href="#Enpoints" title="Enpoints"><span class="octicon octicon-link"></span></a><span>Enpoints</span></h6><p><strong><span>Roles</span></strong></p><ul>
+<li><strong><span>Get Roles:</span></strong><code>GET http://localhost:3000/roles</code></li>
+<li><strong><span>Update Role:</span></strong><code>PATCH http://localhost:3000/roles/1</code></li>
+<li><strong><span>Add Role:</span></strong><code>POST http://localhost:3000/roles</code></li>
+<li><strong><span>Delete Role:</span></strong><code>DELETE http://localhost:3000/roles/2</code></li>
+</ul><p><strong><span>Zones</span></strong></p><ul>
+<li><strong><span>Get Zones:</span></strong><code>GET http://localhost:3000/zones</code></li>
+<li><strong><span>Update Zone:</span></strong><code>PATCH http://localhost:3000/zones/1</code></li>
+<li><strong><span>Add Zone:</span></strong><code>POST http://localhost:3000/zones</code></li>
+<li><strong><span>Delete Zone:</span></strong><code>DELETE http://localhost:3000/zones/1</code></li>
+</ul><p><strong><span>Users</span></strong></p><ul>
+<li><strong><span>Get Users:</span></strong><code>GET http://localhost:3000/users</code></li>
+<li><strong><span>Update User:</span></strong><code>PATCH http://localhost:3000/users/2</code></li>
+<li><strong><span>Add User:</span></strong><code>POST http://localhost:3000/users</code></li>
+<li><strong><span>Delete User:</span></strong><code>DELETE http://localhost:3000/users/4</code></li>
+</ul><p><strong><span>Login / Disconnect</span></strong></p><ul>
+<li><strong><span>Send Login:</span></strong><code>POST http://localhost:3000/login</code></li>
+<li><strong><span>Disconnect:</span></strong><code>POST http://localhost:3000/logout</code></li>
+<li><strong><span>Refresh Token:</span></strong><code>POST http://localhost:3000/refreshToken</code></li>
+</ul><h2 id="Guide-dutilisation-de-lapplication-web" data-id="Guide-dutilisation-de-lapplication-web"><a class="anchor hidden-xs" href="#Guide-dutilisation-de-lapplication-web" title="Guide-dutilisation-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Guide d'utilisation de l'application web</span></h2><h4 id="Conteneurisation-de-lapplication-web" data-id="Conteneurisation-de-lapplication-web"><a class="anchor hidden-xs" href="#Conteneurisation-de-lapplication-web" title="Conteneurisation-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Conteneurisation de l'application web</span></h4><ul>
+<li><span>Un dockerfile est présent dans le répertoire, il permet de générer une image docker, il est très pratique et vous évitera d'avoir à installer un environnement. Pour lancer la création de l'image docker il vous suffit de vous placer dans le dossier webapp, là où il y a le fichier </span><em><span>sae-webapp.Dockerfile</span></em><span> puis exécuter la commande :</span>
+<ul>
+<li>
+<pre><code>​​​​docker build -t sae-webapp -f ./sae-webapp.Dockerfile .
+</code></pre>
+</li>
+</ul>
+</li>
+</ul><h4 id="Lancement-de-lapplication-web" data-id="Lancement-de-lapplication-web"><a class="anchor hidden-xs" href="#Lancement-de-lapplication-web" title="Lancement-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Lancement de l'application web</span></h4><ul>
+<li>
+<p><span>Si jamais vous n'avez pas Docker, ou que vous voulez vraiment lancer l'application web sur votre machine voici la marche à suivre :</span></p>
+<ul>
+<li>
+<p><span>cloner le dépôt sur votre machine avec :</span></p>
+<ul>
+<li>
+<pre><code>​​​​​​git clone https://etulab.univ-amu.fr/s21213416/s5.a.01-developpement-avance.git
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><span>Placez-vous dans le dossier webapp pour faire :</span></p>
+<ul>
+<li>
+<pre><code>​​​​​​npm install
+</code></pre>
+</li>
+<li>
+<pre><code>​​​​​​npm start
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><span>Mettez-vous dans le dossier API et faite :</span></p>
+<ul>
+<li>
+<pre><code>​​​​​​npm install
+</code></pre>
+</li>
+<li>
+<pre><code>​​​​​​npm start
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><span>Suite à cela l'application web devrait être fonctionnelle dans votre navigateur. Il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :- username : </span><code>admin</code><span> / password : </span><code>admin</code></p>
+<ul>
+<li><span>username : </span><code>user</code><span> / password : </span><code>user</code></li>
+<li><span>guest : </span><code>guest</code><span> / password : </span><code>guest</code></li>
+</ul>
+</li>
+</ul><h6 id="Tutoriel-dutilisation-de-lapplication-web" data-id="Tutoriel-dutilisation-de-lapplication-web"><a class="anchor hidden-xs" href="#Tutoriel-dutilisation-de-lapplication-web" title="Tutoriel-dutilisation-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Tutoriel d'utilisation de l'application web</span></h6><p><span>Dans cette application vous aurez tout d'abord la page de connexion, il vous suffira de vous connecter avec un utilisateur présent dans la base de données. Comme par exemple :</span></p><ul>
+<li><span>username : </span><code>admin</code><span> / password : </span><code>admin</code></li>
+<li><span>username : </span><code>user</code><span> / password : </span><code>user</code></li>
+<li><span>guest : </span><code>guest</code><span> / password : </span><code>guest</code></li>
+</ul><p><span>Ensuite, vous arriverez sur la page d'accueil, vous pourrez naviguer entre les différentes pages de l'application grâce au menu latéral. Vous pourrez également vous déconnecter grâce au bouton déconnexion présent dans le menu latéral.</span></p><p><span>Je vais vous faire une brève description des différentes pages de l'application.</span></p><ul>
+<li><strong><span>Cartographie :</span></strong><span> Cette page vous permettra de voir la cartographie de votre port, vous pourrez également ajouté, supprimer, modifier des zones de votre port.</span>
+<ul>
+<li><span>Pour cela, il y aura un bouton avec un + en haut à droite. Une fois le bouton appuyé, une boite modale s'ouvrira et vous pourrez rentrer les informations de votre zone. Une fois les informations rentrées vous pourrez appuyer sur le bouton ajouter et votre zone sera ajoutée à la cartographie.</span></li>
+<li><span>Si vous voulez supprimer une zone il vous suffira de cliquer sur le bouton supprimer et une boite modale s'ouvrira, il vous suffira de choisir l'ID de la zone que vous voulez supprimer et appuyer sur supprimer.</span></li>
+<li><span>Si vous voulez modifier une zone il vous suffira de cliquer sur le bouton "éditer" en haut à droite de la page. Une fois le bouton appuyé, une boite modale s'ouvrira et vous pourrez sélectioner l'ID de la zone que vous voulez modifier. Une fois l'ID sélectionné, vous aurez une seconde boite modale qui s'ouvrira avec toute les informations de la zone selectionnée. Vous pourrez alors modifier les informations que vous voulez et appuyer sur le bouton "modifier" pour modifier la zone.</span></li>
+<li><strong><span>Mon compte :</span></strong></li>
+<li><strong><span>Paramètres :</span></strong></li>
+<li><strong><span>Aide :</span></strong>
+<ul>
+<li><span>Cette page vous permettra d'avoir de l'aide sur l'application, vous aurez une description de l'application ainsi que des informations sur les différentes fonctionnalités de l'application, vous pourrez également avoir accès à un tutoriel comme celui-ci.</span></li>
+</ul>
+</li>
+<li><strong><span>À propos :</span></strong>
+<ul>
+<li><span>Cette page vous permettra d'avoir des informations sur l'application, comme par exemple le nom de l'application, le nom de l'entreprise, le nom de l'auteur, etc</span><span class="smartypants">…</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h6 id="Documentation-de-lapplication-web" data-id="Documentation-de-lapplication-web"><a class="anchor hidden-xs" href="#Documentation-de-lapplication-web" title="Documentation-de-lapplication-web"><span class="octicon octicon-link"></span></a><span>Documentation de l'application web</span></h6><ul>
+<li><span>Si vous voulez voir la documentation de l'application web, rien de plus simple, il suffit d'aller dans le dossier webapp puis doc, vous y trouverez un dossier docfile dans laquelle se trouve toutes les pages HTML de la documentation. Choisissez en un et ouvrez-le et vous pourrez naviguer dans la documentation comme bon vous semble.</span></li>
+<li><span>Si toutefois vous voulez régénérer la documentation il vous suffira de vous placer dans le dossier </span><em><span>doc</span></em><span> et de faire </span><em><span>:</span></em>
+<ul>
+<li>
+<pre><code>​​​​npx jsdoc -c parameter.json
+</code></pre>
+</li>
+</ul>
+</li>
+</ul><h6 id="Jeux-de-test1" data-id="Jeux-de-test"><a class="anchor hidden-xs" href="#Jeux-de-test1" title="Jeux-de-test1"><span class="octicon octicon-link"></span></a><span>Jeux de test</span></h6><p><span>Des jeux de test sont présents dans l'application web, pour les exécuter, il suffit de faire :</span></p><ul>
+<li><code>npm test</code></li>
+</ul><h1 id="Analyse-et-conception" data-id="Analyse-et-conception"><a class="anchor hidden-xs" href="#Analyse-et-conception" title="Analyse-et-conception"><span class="octicon octicon-link"></span></a><span>Analyse et conception</span></h1><p><span>Diagramme UML de la base de données</span></p><pre class="mermaid" data-processed="true"><svg aria-roledescription="classDiagram" role="graphics-document document" viewBox="0 0 548.46875 485.4375" style="max-width: 548.46875px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1712601326754"><style>#mermaid-1712601326754{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1712601326754 .error-icon{fill:#552222;}#mermaid-1712601326754 .error-text{fill:#552222;stroke:#552222;}#mermaid-1712601326754 .edge-thickness-normal{stroke-width:2px;}#mermaid-1712601326754 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1712601326754 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1712601326754 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1712601326754 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1712601326754 .marker{fill:#333333;stroke:#333333;}#mermaid-1712601326754 .marker.cross{stroke:#333333;}#mermaid-1712601326754 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1712601326754 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:10px;}#mermaid-1712601326754 g.classGroup text .title{font-weight:bolder;}#mermaid-1712601326754 .nodeLabel,#mermaid-1712601326754 .edgeLabel{color:#131300;}#mermaid-1712601326754 .edgeLabel .label rect{fill:#ECECFF;}#mermaid-1712601326754 .label text{fill:#131300;}#mermaid-1712601326754 .edgeLabel .label span{background:#ECECFF;}#mermaid-1712601326754 .classTitle{font-weight:bolder;}#mermaid-1712601326754 .node rect,#mermaid-1712601326754 .node circle,#mermaid-1712601326754 .node ellipse,#mermaid-1712601326754 .node polygon,#mermaid-1712601326754 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1712601326754 .divider{stroke:#9370DB;stroke-width:1;}#mermaid-1712601326754 g.clickable{cursor:pointer;}#mermaid-1712601326754 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaid-1712601326754 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaid-1712601326754 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaid-1712601326754 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaid-1712601326754 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaid-1712601326754 .dashed-line{stroke-dasharray:3;}#mermaid-1712601326754 .dotted-line{stroke-dasharray:1 2;}#mermaid-1712601326754 #compositionStart,#mermaid-1712601326754 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #compositionEnd,#mermaid-1712601326754 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #dependencyStart,#mermaid-1712601326754 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #dependencyStart,#mermaid-1712601326754 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #extensionStart,#mermaid-1712601326754 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #extensionEnd,#mermaid-1712601326754 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #aggregationStart,#mermaid-1712601326754 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #aggregationEnd,#mermaid-1712601326754 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #lollipopStart,#mermaid-1712601326754 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 #lollipopEnd,#mermaid-1712601326754 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601326754 .edgeTerminals{font-size:11px;}#mermaid-1712601326754 .classTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1712601326754 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker aggregation classDiagram" id="classDiagram-aggregationStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker aggregation classDiagram" id="classDiagram-aggregationEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker extension classDiagram" id="classDiagram-extensionStart"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker extension classDiagram" id="classDiagram-extensionEnd"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker composition classDiagram" id="classDiagram-compositionStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker composition classDiagram" id="classDiagram-compositionEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker dependency classDiagram" id="classDiagram-dependencyStart"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker dependency classDiagram" id="classDiagram-dependencyEnd"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker lollipop classDiagram" id="classDiagram-lollipopStart"><circle r="6" cy="7" cx="6" fill="white" stroke="black"></circle></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#classDiagram-extensionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id1" d="M282.508,233.313L282.508,248.474C282.508,263.635,282.508,293.958,282.508,315.219C282.508,336.479,282.508,348.677,282.508,354.776L282.508,360.875"></path></g><g class="edgeLabels"><g transform="translate(282.5078125, 324.28125)" class="edgeLabel"><g transform="translate(-19.296875, -11.59375)" class="label"><foreignObject height="23.1875" width="38.59375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><span class="edgeLabel">has 1</span></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(86.1484375, 147.84375)" id="classId-zones-4" class="node default"><rect height="279.6875" width="156.296875" y="-139.84375" x="-78.1484375" class="outer title-state"></rect><line y2="-104.65625" y1="-104.65625" x2="78.1484375" x1="-78.1484375" class="divider"></line><line y2="128.84375" y1="128.84375" x2="78.1484375" x1="-78.1484375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -22.3984375, -132.34375)" height="23.1875" width="44.796875" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">zones</span></div></foreignObject><foreignObject transform="translate( -70.6484375, -93.15625)" height="23.1875" width="83.03125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">id INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, -65.96875)" height="23.1875" width="77.21875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">x INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, -38.78125)" height="23.1875" width="77.09375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">y INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, -11.59375)" height="23.1875" width="111.078125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">width INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, 15.59375)" height="23.1875" width="116.109375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">height INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, 42.78125)" height="23.1875" width="115.359375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">nbline INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, 69.96875)" height="23.1875" width="141.296875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">nbcolumn INTEGER</span></div></foreignObject><foreignObject transform="translate( -70.6484375, 97.15625)" height="23.1875" width="82.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">name TEXT</span></div></foreignObject></g></g><g transform="translate(282.5078125, 419.15625)" id="classId-roles-5" class="node default"><rect height="116.5625" width="98.03125" y="-58.28125" x="-49.015625" class="outer title-state"></rect><line y2="-23.09375" y1="-23.09375" x2="49.015625" x1="-49.015625" class="divider"></line><line y2="47.28125" y1="47.28125" x2="49.015625" x1="-49.015625" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -19.2265625, -50.78125)" height="23.1875" width="38.453125" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">roles</span></div></foreignObject><foreignObject transform="translate( -41.515625, -11.59375)" height="23.1875" width="83.03125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">id INTEGER</span></div></foreignObject><foreignObject transform="translate( -41.515625, 15.59375)" height="23.1875" width="82.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">name TEXT</span></div></foreignObject></g></g><g transform="translate(282.5078125, 147.84375)" id="classId-users-6" class="node default"><rect height="170.9375" width="136.421875" y="-85.46875" x="-68.2109375" class="outer title-state"></rect><line y2="-50.28125" y1="-50.28125" x2="68.2109375" x1="-68.2109375" class="divider"></line><line y2="74.46875" y1="74.46875" x2="68.2109375" x1="-68.2109375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -20.5078125, -77.96875)" height="23.1875" width="41.015625" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">users</span></div></foreignObject><foreignObject transform="translate( -60.7109375, -38.78125)" height="23.1875" width="83.03125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">id INTEGER</span></div></foreignObject><foreignObject transform="translate( -60.7109375, -11.59375)" height="23.1875" width="114.46875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">username TEXT</span></div></foreignObject><foreignObject transform="translate( -60.7109375, 15.59375)" height="23.1875" width="111.046875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">password TEXT</span></div></foreignObject><foreignObject transform="translate( -60.7109375, 42.78125)" height="23.1875" width="121.421875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">role_id INTEGER</span></div></foreignObject></g></g><g transform="translate(470.59375, 147.84375)" id="classId-revoked_tokens-7" class="node default"><rect height="116.5625" width="139.75" y="-58.28125" x="-69.875" class="outer title-state"></rect><line y2="-23.09375" y1="-23.09375" x2="69.875" x1="-69.875" class="divider"></line><line y2="47.28125" y1="47.28125" x2="69.875" x1="-69.875" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -62.375, -50.78125)" height="23.1875" width="124.75" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">revoked_tokens</span></div></foreignObject><foreignObject transform="translate( -62.375, -11.59375)" height="23.1875" width="83.03125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">id INTEGER</span></div></foreignObject><foreignObject transform="translate( -62.375, 15.59375)" height="23.1875" width="84.5625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">token TEXT</span></div></foreignObject></g></g></g></g></g></svg></pre><p><span>Dictionnaire de données :</span></p><ul>
+<li><strong><span>Table </span><code>zones</code></strong>
+<ul>
+<li><code>id</code><span> : Clé primaire, entier, auto-incrémenté</span></li>
+<li><code>x</code><span> : Entier, non nul</span></li>
+<li><code>y</code><span> : Entier, non nul</span></li>
+<li><code>width</code><span> : Entier, non nul</span></li>
+<li><code>height</code><span> : Entier, non nul</span></li>
+<li><code>nbline</code><span> : Entier, non nul</span></li>
+<li><code>nbcolumn</code><span> : Entier, non nul</span></li>
+<li><code>name</code><span> : Texte, non nul</span></li>
+</ul>
+</li>
+<li><strong><span>Table </span><code>roles</code></strong>
+<ul>
+<li><code>id</code><span> : Clé primaire, entier, auto-incrémenté</span></li>
+<li><code>name</code><span> : Texte, non nul</span></li>
+</ul>
+</li>
+<li><strong><span>Table </span><code>users</code></strong>
+<ul>
+<li><code>id</code><span> : Clé primaire, entier, auto-incrémenté</span></li>
+<li><code>username</code><span> : Texte, non nul</span></li>
+<li><code>password</code><span> : Texte, non nul</span></li>
+<li><code>role_id</code><span> : Entier, clé étrangère référençant </span><code>id</code><span> dans la table </span><code>roles</code></li>
+</ul>
+</li>
+<li><strong><span>Table </span><code>revoked_tokens</code></strong>
+<ul>
+<li><code>id</code><span> : Clé primaire, entier, auto-incrémenté</span></li>
+<li><code>token</code><span> : Texte, non nul</span></li>
+</ul>
+</li>
+</ul><p><span>Architecture de l'API :</span></p><pre class="mermaid" data-processed="true"><svg aria-roledescription="classDiagram" role="graphics-document document" viewBox="0 0 564.390625 849.75" style="max-width: 564.390625px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1712601328831"><style>#mermaid-1712601328831{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1712601328831 .error-icon{fill:#552222;}#mermaid-1712601328831 .error-text{fill:#552222;stroke:#552222;}#mermaid-1712601328831 .edge-thickness-normal{stroke-width:2px;}#mermaid-1712601328831 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1712601328831 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1712601328831 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1712601328831 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1712601328831 .marker{fill:#333333;stroke:#333333;}#mermaid-1712601328831 .marker.cross{stroke:#333333;}#mermaid-1712601328831 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1712601328831 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:10px;}#mermaid-1712601328831 g.classGroup text .title{font-weight:bolder;}#mermaid-1712601328831 .nodeLabel,#mermaid-1712601328831 .edgeLabel{color:#131300;}#mermaid-1712601328831 .edgeLabel .label rect{fill:#ECECFF;}#mermaid-1712601328831 .label text{fill:#131300;}#mermaid-1712601328831 .edgeLabel .label span{background:#ECECFF;}#mermaid-1712601328831 .classTitle{font-weight:bolder;}#mermaid-1712601328831 .node rect,#mermaid-1712601328831 .node circle,#mermaid-1712601328831 .node ellipse,#mermaid-1712601328831 .node polygon,#mermaid-1712601328831 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1712601328831 .divider{stroke:#9370DB;stroke-width:1;}#mermaid-1712601328831 g.clickable{cursor:pointer;}#mermaid-1712601328831 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaid-1712601328831 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaid-1712601328831 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaid-1712601328831 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaid-1712601328831 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaid-1712601328831 .dashed-line{stroke-dasharray:3;}#mermaid-1712601328831 .dotted-line{stroke-dasharray:1 2;}#mermaid-1712601328831 #compositionStart,#mermaid-1712601328831 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #compositionEnd,#mermaid-1712601328831 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #dependencyStart,#mermaid-1712601328831 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #dependencyStart,#mermaid-1712601328831 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #extensionStart,#mermaid-1712601328831 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #extensionEnd,#mermaid-1712601328831 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #aggregationStart,#mermaid-1712601328831 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #aggregationEnd,#mermaid-1712601328831 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #lollipopStart,#mermaid-1712601328831 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 #lollipopEnd,#mermaid-1712601328831 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601328831 .edgeTerminals{font-size:11px;}#mermaid-1712601328831 .classTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1712601328831 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker aggregation classDiagram" id="classDiagram-aggregationStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker aggregation classDiagram" id="classDiagram-aggregationEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker extension classDiagram" id="classDiagram-extensionStart"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker extension classDiagram" id="classDiagram-extensionEnd"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker composition classDiagram" id="classDiagram-compositionStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker composition classDiagram" id="classDiagram-compositionEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker dependency classDiagram" id="classDiagram-dependencyStart"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker dependency classDiagram" id="classDiagram-dependencyEnd"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker lollipop classDiagram" id="classDiagram-lollipopStart"><circle r="6" cy="7" cx="6" fill="white" stroke="black"></circle></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id1" d="M109.336,178.938L109.336,183.104C109.336,187.271,109.336,195.604,109.336,203.938C109.336,212.271,109.336,220.604,109.336,224.771L109.336,228.938"></path><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id2" d="M109.336,372.688L109.336,376.854C109.336,381.021,109.336,389.354,115.285,397.925C121.234,406.495,133.133,415.302,139.082,419.706L145.031,424.11"></path><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id3" d="M371.086,359.094L371.086,365.526C371.086,371.958,371.086,384.823,365.137,395.659C359.188,406.495,347.289,415.302,341.34,419.706L335.391,424.11"></path><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id4" d="M240.211,566.438L240.211,570.604C240.211,574.771,240.211,583.104,243.702,591.438C247.193,599.771,254.176,608.104,257.667,612.271L261.158,616.438"></path><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id5" d="M470.891,566.438L470.891,570.604C470.891,574.771,470.891,583.104,467.399,591.438C463.908,599.771,456.926,608.104,453.435,612.271L449.944,616.438"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(109.3359375, 93.46875)" id="classId-HTTPRequest-14" class="node default"><rect height="170.9375" width="145.484375" y="-85.46875" x="-72.7421875" class="outer title-state"></rect><line y2="-50.28125" y1="-50.28125" x2="72.7421875" x1="-72.7421875" class="divider"></line><line y2="-34.28125" y1="-34.28125" x2="72.7421875" x1="-72.7421875" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -51.9765625, -77.96875)" height="23.1875" width="103.953125" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">HTTPRequest</span></div></foreignObject><foreignObject transform="translate( -65.2421875, -26.78125)" height="23.1875" width="105.203125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+GET() : JSON</span></div></foreignObject><foreignObject transform="translate( -65.2421875, 0.40625)" height="23.1875" width="113.5625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+POST() : JSON</span></div></foreignObject><foreignObject transform="translate( -65.2421875, 27.59375)" height="23.1875" width="121.578125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+PATCH() : JSON</span></div></foreignObject><foreignObject transform="translate( -65.2421875, 54.78125)" height="23.1875" width="130.484375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+DELETE() : JSON</span></div></foreignObject></g></g><g transform="translate(109.3359375, 300.8125)" id="classId-Controller-15" class="node default"><rect height="143.75" width="202.671875" y="-71.875" x="-101.3359375" class="outer title-state"></rect><line y2="-36.6875" y1="-36.6875" x2="101.3359375" x1="-101.3359375" class="divider"></line><line y2="-20.6875" y1="-20.6875" x2="101.3359375" x1="-101.3359375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -39.75, -64.375)" height="23.1875" width="79.5" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Controller</span></div></foreignObject><foreignObject transform="translate( -93.8359375, -13.1875)" height="23.1875" width="183.5"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+RoleController() : JSON</span></div></foreignObject><foreignObject transform="translate( -93.8359375, 14)" height="23.1875" width="184.609375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+UserController() : JSON</span></div></foreignObject><foreignObject transform="translate( -93.8359375, 41.1875)" height="23.1875" width="187.671875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ZoneController() : JSON</span></div></foreignObject></g></g><g transform="translate(355.55078125, 729.09375)" id="classId-DAO-16" class="node default"><rect height="225.3125" width="203.546875" y="-112.65625" x="-101.7734375" class="outer title-state"></rect><line y2="-77.46875" y1="-77.46875" x2="101.7734375" x1="-101.7734375" class="divider"></line><line y2="-61.46875" y1="-61.46875" x2="101.7734375" x1="-101.7734375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -16.359375, -105.15625)" height="23.1875" width="32.71875" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">DAO</span></div></foreignObject><foreignObject transform="translate( -94.2734375, -53.96875)" height="23.1875" width="145.484375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+RolesDAO() : JSON</span></div></foreignObject><foreignObject transform="translate( -94.2734375, -26.78125)" height="23.1875" width="188.546875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+RolesSqliteDAO() : JSON</span></div></foreignObject><foreignObject transform="translate( -94.2734375, 0.40625)" height="23.1875" width="139.75"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+UserDAO() : JSON</span></div></foreignObject><foreignObject transform="translate( -94.2734375, 27.59375)" height="23.1875" width="182.8125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+UserSqliteDAO() : JSON</span></div></foreignObject><foreignObject transform="translate( -94.2734375, 54.78125)" height="23.1875" width="142.8125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ZoneDAO() : JSON</span></div></foreignObject><foreignObject transform="translate( -94.2734375, 81.96875)" height="23.1875" width="185.875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ZoneSqliteDAO() : JSON</span></div></foreignObject></g></g><g transform="translate(371.0859375, 300.8125)" id="classId-Factory-17" class="node default"><rect height="116.5625" width="220.828125" y="-58.28125" x="-110.4140625" class="outer title-state"></rect><line y2="-23.09375" y1="-23.09375" x2="110.4140625" x1="-110.4140625" class="divider"></line><line y2="-7.09375" y1="-7.09375" x2="110.4140625" x1="-110.4140625" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -29.265625, -50.78125)" height="23.1875" width="58.53125" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Factory</span></div></foreignObject><foreignObject transform="translate( -102.9140625, 0.40625)" height="23.1875" width="162.765625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+DAOFactory() : JSON</span></div></foreignObject><foreignObject transform="translate( -102.9140625, 27.59375)" height="23.1875" width="205.828125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+DAOSqliteFactory() : JSON</span></div></foreignObject></g></g><g transform="translate(470.890625, 494.5625)" id="classId-Models-18" class="node default"><rect height="143.75" width="171" y="-71.875" x="-85.5" class="outer title-state"></rect><line y2="-36.6875" y1="-36.6875" x2="85.5" x1="-85.5" class="divider"></line><line y2="-20.6875" y1="-20.6875" x2="85.5" x1="-85.5" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -26.5859375, -64.375)" height="23.1875" width="53.171875" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Models</span></div></foreignObject><foreignObject transform="translate( -78, -13.1875)" height="23.1875" width="156"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+rolesModel() : JSON</span></div></foreignObject><foreignObject transform="translate( -78, 14)" height="23.1875" width="151.09375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+userModel() : JSON</span></div></foreignObject><foreignObject transform="translate( -78, 41.1875)" height="23.1875" width="154.578125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+zoneModel() : JSON</span></div></foreignObject></g></g><g transform="translate(240.2109375, 494.5625)" id="classId-Services-19" class="node default"><rect height="143.75" width="190.359375" y="-71.875" x="-95.1796875" class="outer title-state"></rect><line y2="-36.6875" y1="-36.6875" x2="95.1796875" x1="-95.1796875" class="divider"></line><line y2="-20.6875" y1="-20.6875" x2="95.1796875" x1="-95.1796875" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -32.5, -64.375)" height="23.1875" width="65" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Services</span></div></foreignObject><foreignObject transform="translate( -87.6796875, -13.1875)" height="23.1875" width="175.359375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+RolesServices() : JSON</span></div></foreignObject><foreignObject transform="translate( -87.6796875, 14)" height="23.1875" width="169.640625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+UserServices() : JSON</span></div></foreignObject><foreignObject transform="translate( -87.6796875, 41.1875)" height="23.1875" width="172.703125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ZoneServices() : JSON</span></div></foreignObject></g></g></g></g></g></svg></pre><p><span>Architecture de l'application web :</span></p><pre class="mermaid" data-processed="true"><svg aria-roledescription="classDiagram" role="graphics-document document" viewBox="0 0 450.3125 873.5" style="max-width: 450.3125px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1712601412048"><style>#mermaid-1712601412048{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1712601412048 .error-icon{fill:#552222;}#mermaid-1712601412048 .error-text{fill:#552222;stroke:#552222;}#mermaid-1712601412048 .edge-thickness-normal{stroke-width:2px;}#mermaid-1712601412048 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1712601412048 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1712601412048 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1712601412048 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1712601412048 .marker{fill:#333333;stroke:#333333;}#mermaid-1712601412048 .marker.cross{stroke:#333333;}#mermaid-1712601412048 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1712601412048 g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:10px;}#mermaid-1712601412048 g.classGroup text .title{font-weight:bolder;}#mermaid-1712601412048 .nodeLabel,#mermaid-1712601412048 .edgeLabel{color:#131300;}#mermaid-1712601412048 .edgeLabel .label rect{fill:#ECECFF;}#mermaid-1712601412048 .label text{fill:#131300;}#mermaid-1712601412048 .edgeLabel .label span{background:#ECECFF;}#mermaid-1712601412048 .classTitle{font-weight:bolder;}#mermaid-1712601412048 .node rect,#mermaid-1712601412048 .node circle,#mermaid-1712601412048 .node ellipse,#mermaid-1712601412048 .node polygon,#mermaid-1712601412048 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1712601412048 .divider{stroke:#9370DB;stroke-width:1;}#mermaid-1712601412048 g.clickable{cursor:pointer;}#mermaid-1712601412048 g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaid-1712601412048 g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaid-1712601412048 .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaid-1712601412048 .classLabel .label{fill:#9370DB;font-size:10px;}#mermaid-1712601412048 .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaid-1712601412048 .dashed-line{stroke-dasharray:3;}#mermaid-1712601412048 .dotted-line{stroke-dasharray:1 2;}#mermaid-1712601412048 #compositionStart,#mermaid-1712601412048 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #compositionEnd,#mermaid-1712601412048 .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #dependencyStart,#mermaid-1712601412048 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #dependencyStart,#mermaid-1712601412048 .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #extensionStart,#mermaid-1712601412048 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #extensionEnd,#mermaid-1712601412048 .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #aggregationStart,#mermaid-1712601412048 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #aggregationEnd,#mermaid-1712601412048 .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #lollipopStart,#mermaid-1712601412048 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 #lollipopEnd,#mermaid-1712601412048 .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid-1712601412048 .edgeTerminals{font-size:11px;}#mermaid-1712601412048 .classTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1712601412048 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker aggregation classDiagram" id="classDiagram-aggregationStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker aggregation classDiagram" id="classDiagram-aggregationEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker extension classDiagram" id="classDiagram-extensionStart"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker extension classDiagram" id="classDiagram-extensionEnd"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker composition classDiagram" id="classDiagram-compositionStart"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker composition classDiagram" id="classDiagram-compositionEnd"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker dependency classDiagram" id="classDiagram-dependencyStart"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker dependency classDiagram" id="classDiagram-dependencyEnd"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker lollipop classDiagram" id="classDiagram-lollipopStart"><circle r="6" cy="7" cx="6" fill="white" stroke="black"></circle></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#classDiagram-dependencyEnd)" style="fill:none" class="edge-pattern-dashed relation" id="id1" d="M135.798,151.75L131.021,155.917C126.243,160.083,116.688,168.417,111.91,176.75C107.133,185.083,107.133,193.417,107.133,197.583L107.133,201.75"></path><path marker-start="url(#classDiagram-dependencyStart)" style="fill:none" class="edge-pattern-dashed relation" id="id2" d="M98.649,481.438L98.397,485.604C98.144,489.771,97.638,498.104,97.386,522.297C97.133,546.49,97.133,586.542,97.133,606.568L97.133,626.594"></path><path style="fill:none" class="edge-pattern-dashed relation" id="id3" d="M201.281,469.774L205.77,475.884C210.258,481.995,219.234,494.216,226.133,504.494C233.031,514.771,237.852,523.104,240.262,527.271L242.672,531.438"></path><path style="fill:none" class="edge-pattern-dashed relation" id="id4" d="M305.32,144.254L312.648,149.67C319.977,155.086,334.633,165.918,341.961,198.808C349.289,231.698,349.289,286.646,349.289,341.594C349.289,396.542,349.289,451.49,349.072,483.13C348.855,514.771,348.421,523.104,348.204,527.271L347.987,531.438"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(218.2109375, 79.875)" id="classId-Login-24" class="node default"><rect height="143.75" width="174.21875" y="-71.875" x="-87.109375" class="outer title-state"></rect><line y2="-36.6875" y1="-36.6875" x2="87.109375" x1="-87.109375" class="divider"></line><line y2="60.875" y1="60.875" x2="87.109375" x1="-87.109375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -20.953125, -64.375)" height="23.1875" width="41.90625" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Login</span></div></foreignObject><foreignObject transform="translate( -79.609375, -25.1875)" height="23.1875" width="159.21875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ GetRefreshToken.js</span></div></foreignObject><foreignObject transform="translate( -79.609375, 2)" height="23.1875" width="72.953125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Login.js</span></div></foreignObject><foreignObject transform="translate( -79.609375, 29.1875)" height="23.1875" width="97.953125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ useLogin.js</span></div></foreignObject></g></g><g transform="translate(107.1328125, 341.59375)" id="classId-MainPage-25" class="node default"><rect height="279.6875" width="188.296875" y="-139.84375" x="-94.1484375" class="outer title-state"></rect><line y2="-104.65625" y1="-104.65625" x2="94.1484375" x1="-94.1484375" class="divider"></line><line y2="128.84375" y1="128.84375" x2="94.1484375" x1="-94.1484375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -35.9296875, -132.34375)" height="23.1875" width="71.859375" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">MainPage</span></div></foreignObject><foreignObject transform="translate( -86.6484375, -93.15625)" height="23.1875" width="74.0625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Carto.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, -65.96875)" height="23.1875" width="173.296875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ CustomEditControl.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, -38.78125)" height="23.1875" width="67.421875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Help.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, -11.59375)" height="23.1875" width="120.875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Information.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, 15.59375)" height="23.1875" width="102.390625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ MainPage.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, 42.78125)" height="23.1875" width="113.28125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ MyAccount.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, 69.96875)" height="23.1875" width="117.65625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Parameters.js</span></div></foreignObject><foreignObject transform="translate( -86.6484375, 97.15625)" height="23.1875" width="103.453125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ SideMenu.js</span></div></foreignObject></g></g><g transform="translate(97.1328125, 698.46875)" id="classId-Modal-26" class="node default"><rect height="143.75" width="178.265625" y="-71.875" x="-89.1328125" class="outer title-state"></rect><line y2="-36.6875" y1="-36.6875" x2="89.1328125" x1="-89.1328125" class="divider"></line><line y2="60.875" y1="60.875" x2="89.1328125" x1="-89.1328125" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -22.6328125, -64.375)" height="23.1875" width="45.265625" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Modal</span></div></foreignObject><foreignObject transform="translate( -81.6328125, -25.1875)" height="23.1875" width="163.265625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ CreateZoneModal.js</span></div></foreignObject><foreignObject transform="translate( -81.6328125, 2)" height="23.1875" width="162.328125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ DeleteZoneModal.js</span></div></foreignObject><foreignObject transform="translate( -81.6328125, 29.1875)" height="23.1875" width="142.96875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ EditZoneModal.js</span></div></foreignObject></g></g><g transform="translate(339.2890625, 698.46875)" id="classId-Style-27" class="node default"><rect height="334.0625" width="206.046875" y="-167.03125" x="-103.0234375" class="outer title-state"></rect><line y2="-131.84375" y1="-131.84375" x2="103.0234375" x1="-103.0234375" class="divider"></line><line y2="156.03125" y1="156.03125" x2="103.0234375" x1="-103.0234375" class="divider"></line><g class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"></span></div></foreignObject><foreignObject transform="translate( -19.3671875, -159.53125)" height="23.1875" width="38.734375" class="classTitle"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Style</span></div></foreignObject><foreignObject transform="translate( -95.5234375, -120.34375)" height="23.1875" width="162.625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Account.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, -93.15625)" height="23.1875" width="69.5"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ App.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, -65.96875)" height="23.1875" width="144.234375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Carto.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, -38.78125)" height="23.1875" width="137.59375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Help.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, -11.59375)" height="23.1875" width="82.78125"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ index.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, 15.59375)" height="23.1875" width="191.046875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Information.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, 42.78125)" height="23.1875" width="143.140625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Login.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, 69.96875)" height="23.1875" width="187.84375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ Parameters.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, 97.15625)" height="23.1875" width="173.625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ SideMenu.module.css</span></div></foreignObject><foreignObject transform="translate( -95.5234375, 124.34375)" height="23.1875" width="183.34375"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">+ ZoneModal.module.css</span></div></foreignObject></g></g></g></g></g></svg></pre><h1 id="Suivis-de-projet" data-id="Suivis-de-projet"><a class="anchor hidden-xs" href="#Suivis-de-projet" title="Suivis-de-projet"><span class="octicon octicon-link"></span></a><span>Suivis de projet</span></h1><table>
+<thead>
+<tr>
+<th><span>Tâche</span></th>
+<th><span>Description</span></th>
+<th><span>Date de début</span></th>
+<th><span>Date de fin</span></th>
+<th><span>Nombre d'heures</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Test unitaires</span></td>
+<td><span>Création des test unitaires pour tester l'API</span></td>
+<td><span>04/03/2024</span></td>
+<td><span>05/03/2024</span></td>
+<td><span>4</span></td>
+</tr>
+<tr>
+<td><span>Test d'intégration</span></td>
+<td><span>Création des test d'intégration pour tester l'affichage de l'application web</span></td>
+<td><span>05/03/2024</span></td>
+<td><span>06/03/2024</span></td>
+<td><span>4</span></td>
+</tr>
+<tr>
+<td><span>DockerFile</span></td>
+<td><span>Création des différents dockerfile pour chaque partie (API, webapp, documentations)</span></td>
+<td><span>07/03/2024</span></td>
+<td><span>07/03/2024</span></td>
+<td><span>1</span></td>
+</tr>
+<tr>
+<td><span>Mise en place du CI/CD</span></td>
+<td><span>Mise en place d'un fichier .gitlab-ci.yml pou faire le CI/CD sur etulab</span></td>
+<td><span>08/03/2024</span></td>
+<td><span>09/03/2024</span></td>
+<td><span>5</span></td>
+</tr>
+<tr>
+<td><span>Mise en place des tests dans le CI/CD</span></td>
+<td><span>Mise en place des test pour tester l'API et l'application REACT dans le CI/CD</span></td>
+<td><span>10/03/2024</span></td>
+<td><span>11/03/2024</span></td>
+<td><span>1</span></td>
+</tr>
+<tr>
+<td><span>Dockerisation de l'API et de la webapp</span></td>
+<td><span>Dockerfile pour pouvoir dockeriser l'API et l'application web</span></td>
+<td><span>12/03/2024</span></td>
+<td><span>13/03/2024</span></td>
+<td><span>3</span></td>
+</tr>
+<tr>
+<td><span>Préparation pour le déploiement dans le CI/CD</span></td>
+<td><span>Recherche et configuration pour permettre l'hébergement de tout les services, ainsi que les documentations</span></td>
+<td><span>14/03/2024</span></td>
+<td><span>15/03/2024</span></td>
+<td><span>2</span></td>
+</tr>
+<tr>
+<td><span>CI/CD</span></td>
+<td><span>Mise en place de la copie des fichiers vers le serveur pour pouvoir lancer le docker compose et déployée l'application</span></td>
+<td><span>16/03/2024</span></td>
+<td><span>16/03/2024</span></td>
+<td><span>3</span></td>
+</tr>
+<tr>
+<td><span>Configuration du serveur pour le CI/CD</span></td>
+<td><span>Mise en place des dossiers/fichier/configuration pour la mise en place du CI/CD</span></td>
+<td><span>02/04/2024</span></td>
+<td><span>02/04/2024</span></td>
+<td><span>3</span></td>
+</tr>
+<tr>
+<td><span>Page paramètre de compte</span></td>
+<td><span>Page permettant de mettre à jour son nom d'utilisateur, son mot de passe</span></td>
+<td><span>03/04/2024</span></td>
+<td><span>03/04/2024</span></td>
+<td><span>7</span></td>
+</tr>
+<tr>
+<td><span>Document de suivis de projet</span></td>
+<td><span>Mise à jour des documents de suivis de projet avec tout les informations pour le semestre 6</span></td>
+<td><span>04/04/2024</span></td>
+<td><span>04/04/2024</span></td>
+<td><span>1.5</span></td>
+</tr>
+<tr>
+<td><span>Compte rendu</span></td>
+<td><span>Rédaction du compte rendu des modifications effectuer lors du semestre 6</span></td>
+<td><span>06/04/2024</span></td>
+<td><span>06/04/2024</span></td>
+<td><span>4.25</span></td>
+</tr>
+<tr>
+<td><span>Support de présentation</span></td>
+<td><span>Réalisation du support de présentation pour le second oral de SAE</span></td>
+<td><span>07/04/2024</span></td>
+<td><span>07/04/2024</span></td>
+<td><span>4.5</span></td>
+</tr>
+</tbody>
+</table><h2 id="Total-des-heures" data-id="Total-des-heures"><a class="anchor hidden-xs" href="#Total-des-heures" title="Total-des-heures"><span class="octicon octicon-link"></span></a><span>Total des heures</span></h2><table>
+<thead>
+<tr>
+<th><span>Total des heures</span></th>
+<th><span>45.25</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Test unitaires</span></td>
+<td><span>4</span></td>
+</tr>
+<tr>
+<td><span>Test d'intégration</span></td>
+<td><span>4</span></td>
+</tr>
+<tr>
+<td><span>CI/CD</span></td>
+<td><span>18</span></td>
+</tr>
+<tr>
+<td><span>Page paramètre de compte</span></td>
+<td><span>7</span></td>
+</tr>
+<tr>
+<td><span>Suivis de projet</span></td>
+<td><span>1.5</span></td>
+</tr>
+<tr>
+<td><span>Document de rendu</span></td>
+<td><span>4.25</span></td>
+</tr>
+<tr>
+<td><span>Veille numérique</span></td>
+<td><span>2</span></td>
+</tr>
+</tbody>
+</table></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#S6A01---Évolution-dune-application-existante" title="S6.A.01 - Évolution d'une application existante">S6.A.01 - Évolution d'une application existante</a><ul class="nav">
+<li><a href="#Description-du-projet" title="Description du projet">Description du projet</a></li>
+</ul>
+</li>
+<li><a href="#Tâches-à-réaliser" title="Tâches à réaliser">Tâches à réaliser</a></li>
+<li><a href="#Guide-dutilisation" title="Guide d'utilisation">Guide d'utilisation</a><ul class="nav">
+<li class="invisable-node"><ul class="nav">
+<li><a href="#Conteneurisation-des-services" title="Conteneurisation des services">Conteneurisation des services</a></li>
+</ul>
+</li>
+<li><a href="#Configuration" title="Configuration">Configuration</a></li>
+<li><a href="#Guide-dutilisation-de-lAPI" title="Guide d'utilisation de l'API">Guide d'utilisation de l'API</a><ul class="nav">
+<li><a href="#Conteneurisation-de-lAPI" title="Conteneurisation de l'API">Conteneurisation de l'API</a></li>
+<li><a href="#Lancement-de-lAPI" title="Lancement de l'API">Lancement de l'API</a></li>
+</ul>
+</li>
+<li><a href="#Guide-dutilisation-de-lapplication-web" title="Guide d'utilisation de l'application web">Guide d'utilisation de l'application web</a><ul class="nav">
+<li><a href="#Conteneurisation-de-lapplication-web" title="Conteneurisation de l'application web">Conteneurisation de l'application web</a></li>
+<li><a href="#Lancement-de-lapplication-web" title="Lancement de l'application web">Lancement de l'application web</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Analyse-et-conception" title="Analyse et conception">Analyse et conception</a></li>
+<li><a href="#Suivis-de-projet" title="Suivis de projet">Suivis de projet</a><ul class="nav">
+<li><a href="#Total-des-heures" title="Total des heures">Total des heures</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav">
+<li><a href="#S6A01---Évolution-dune-application-existante" title="S6.A.01 - Évolution d'une application existante">S6.A.01 - Évolution d'une application existante</a><ul class="nav">
+<li><a href="#Description-du-projet" title="Description du projet">Description du projet</a></li>
+</ul>
+</li>
+<li><a href="#Tâches-à-réaliser" title="Tâches à réaliser">Tâches à réaliser</a></li>
+<li><a href="#Guide-dutilisation" title="Guide d'utilisation">Guide d'utilisation</a><ul class="nav">
+<li class="invisable-node"><ul class="nav">
+<li><a href="#Conteneurisation-des-services" title="Conteneurisation des services">Conteneurisation des services</a></li>
+</ul>
+</li>
+<li><a href="#Configuration" title="Configuration">Configuration</a></li>
+<li><a href="#Guide-dutilisation-de-lAPI" title="Guide d'utilisation de l'API">Guide d'utilisation de l'API</a><ul class="nav">
+<li><a href="#Conteneurisation-de-lAPI" title="Conteneurisation de l'API">Conteneurisation de l'API</a></li>
+<li><a href="#Lancement-de-lAPI" title="Lancement de l'API">Lancement de l'API</a></li>
+</ul>
+</li>
+<li><a href="#Guide-dutilisation-de-lapplication-web" title="Guide d'utilisation de l'application web">Guide d'utilisation de l'application web</a><ul class="nav">
+<li><a href="#Conteneurisation-de-lapplication-web" title="Conteneurisation de l'application web">Conteneurisation de l'application web</a></li>
+<li><a href="#Lancement-de-lapplication-web" title="Lancement de l'application web">Lancement de l'application web</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Analyse-et-conception" title="Analyse et conception">Analyse et conception</a></li>
+<li><a href="#Suivis-de-projet" title="Suivis de projet">Suivis de projet</a><ul class="nav">
+<li><a href="#Total-des-heures" title="Total des heures">Total des heures</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
